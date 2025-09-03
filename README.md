@@ -45,3 +45,13 @@ jauge :
 - productivité : nombre d'unité de science produites par jour
 - ecologie : respect de la zone
 
+
+serious
+- ecologie :
+  - petrole = polluant
+  - eolienne = cool
+  - panneau solaire = bien la moitié de l'année
+- milieu
+  - temperature
+  - meteo
+  -
