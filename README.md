@@ -22,3 +22,26 @@ design : pixel art 2d vu du dessus
 - niveau de bien etre des scientifiques : 0 = death, 1 = ultra productif, demarrage à 0.3
 - (chemins dans la neige, pas chemin = scientifique perdu et mort)
 
+
+role des scientifiques : 
+- debut : generaliste, pas de specialisation
+- apres : specialisation (medecine, geologie, kebaberie)
+
+project de recherche :
+- taux de risque, recompense plus elevée, mais plus de chance de flop
+
+- bien etre
+  - animaux de compagnie : un peu = bien, trop = tout casser
+
+- santé : influe sur le bien etre et la productivité
+
+ressources :
+- science
+- (confiance de l'etat)
+
+jauge : 
+- bien etre
+- science : arbre de progression, debloque de nouveau batiment ou augmente la limite
+- productivité : nombre d'unité de science produites par jour
+- ecologie : respect de la zone
+
