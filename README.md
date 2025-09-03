@@ -30,13 +30,13 @@ Comprendre les enjeux scientifiques, humains et environnementaux liés à l’im
 - Builder style trackmania (construction modulaire et rapide)  
 
 ### Mécaniques principales  
-- Production de sciences pour construire
+- Convertir science en budget  
 - Jauge écologique  
 - Niveau de bien-être des scientifiques  
   - 0 = death  
   - 1 = ultra productif  
   - Démarrage à 0.3  
-- Chemins dans la neige 
+- Chemins dans la neige  
   - Pas de chemin = scientifique perdu et mort  
 
 ### Rôle des scientifiques  
@@ -86,5 +86,13 @@ Comprendre les enjeux scientifiques, humains et environnementaux liés à l’im
   - Météo  
   - Événements aléatoires liés à l’écologie  
 
-### Gameplay  
-- Drag & drop pour les mou
+### Gameplay & Interface  
+- Drag & drop pour les mouvements  
+- Gestion stratégique des jauges et projets  
+- Équilibre entre survie, productivité et respect de l’écologie  
+- **Interaction bâtiments** :  
+  - Cliquer sur un bâtiment = zoom  
+  - Ouverture d’un menu à droite  
+  - Interface de création intérieure du bâtiment (choisir ce qu’on installe à l’intérieur)  
+  - Visualisation en temps réel de ce qui se passe dans le bâtiment  
+  - Filtre noir pour assombrir le reste de la zone (focus sur le bâtiment)  
