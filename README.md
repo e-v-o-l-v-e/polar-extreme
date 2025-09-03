@@ -90,6 +90,7 @@ Comprendre les enjeux scientifiques, humains et environnementaux liés à l’im
 - Drag & drop pour les mouvements  
 - Gestion stratégique des jauges et projets  
 - Équilibre entre survie, productivité et respect de l’écologie  
+- Folder a gauche pour la gestion des projects
 - **Interaction bâtiments** :  
   - Cliquer sur un bâtiment = zoom  
   - Ouverture d’un menu à droite  
