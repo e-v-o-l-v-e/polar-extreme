@@ -5,6 +5,7 @@ base scientifique au pole nord
 projet :
 - gdscript
 - commit en minuscule et en anglais
+- snake_case
 
 ## Cahier des charges
 
