@@ -1,64 +1,90 @@
-# T3 25 SCI25 A
+# T3 25 SCI25 A  
 
-base scientifique au pole nord
+base scientifique au pôle nord  
 
-projet :
-- gdscript
-- commit en minuscule et en anglais
-- snake_case
+projet :  
+- gdscript  
+- commit en minuscule et en anglais  
+- snake_case  
 
-## Cahier des charges
+## Cahier des charges  
 
-### Objectif pédagogique
-Comprendre les enjeux scientifiques, humains et environnementaux liés à l’implantation et à la gestion d’une station de recherche en Antarctique, un milieu extrême hostile.
+### Objectif pédagogique  
+Comprendre les enjeux scientifiques, humains et environnementaux liés à l’implantation et à la gestion d’une station de recherche en Antarctique, un milieu extrême hostile.  
 
-### Objectifs pédagogiques avancés
-1. Comprendre l’environnement de l'Antarctique
-Identifier les caractéristiques géographiques, climatiques et les contraintes de vie liées à ce milieu extrême et isolé.
-2. Relever les défis techniques et logistiques
-Analyser les enjeux de conception, de construction et de gestion durable d'une station scientifique en Antarctique.
-3. Explorer les dimensions humaines
-Comprendre les impacts psychologiques, culturels et sociaux de la vie en communauté dans un environnement isolé et multiculturel.
+### Objectifs pédagogiques avancés  
+1. **Comprendre l’environnement de l'Antarctique**  
+   Identifier les caractéristiques géographiques, climatiques et les contraintes de vie liées à ce milieu extrême et isolé.  
 
-## brainstorming
-concept : rimworld simplifié
-design : pixel art 2d vu du dessus
+2. **Relever les défis techniques et logistiques**  
+   Analyser les enjeux de conception, de construction et de gestion durable d'une station scientifique en Antarctique.  
 
-- convertir science en budget
-- jauge écologique
-- niveau de bien etre des scientifiques : 0 = death, 1 = ultra productif, demarrage à 0.3
-- (chemins dans la neige, pas chemin = scientifique perdu et mort)
+3. **Explorer les dimensions humaines**  
+   Comprendre les impacts psychologiques, culturels et sociaux de la vie en communauté dans un environnement isolé et multiculturel.  
 
+## Brainstorming  
 
-role des scientifiques : 
-- debut : generaliste, pas de specialisation
-- apres : specialisation (medecine, geologie, kebaberie)
+### Concept  
+- Rimworld simplifié  
+- Design : pixel art 2D vu du dessus  
+- Builder style trackmania (construction modulaire et rapide)  
 
-project de recherche :
-- taux de risque, recompense plus elevée, mais plus de chance de flop
+### Mécaniques principales  
+- Production de sciences pour construire
+- Jauge écologique  
+- Niveau de bien-être des scientifiques  
+  - 0 = death  
+  - 1 = ultra productif  
+  - Démarrage à 0.3  
+- Chemins dans la neige 
+  - Pas de chemin = scientifique perdu et mort  
 
-- bien etre
-  - animaux de compagnie : un peu = bien, trop = tout casser
+### Rôle des scientifiques  
+- Début : généralistes (pas de spécialisation)  
+- Progression : spécialisation (médecine, géologie, kebaberie, etc.)  
 
-- santé : influe sur le bien etre et la productivité
+### Projets de recherche  
+- Chaque projet = taux de risque  
+  - Plus de risque = plus de récompenses, mais plus de chance de flop  
+- **Jauge de risques** :  
+  - Chaque lancement de projet = probabilité d’échec qui fait baisser le moral  
+- Tableau des projets en cours :  
+  - Affiché sur le côté droit de la zone de jeu (déroulant)  
 
-ressources :
-- science
-- (confiance de l'etat)
+### Bien-être  
+- Animaux de compagnie  
+  - Un peu = boost  
+  - Trop = chaos  
+- Santé = influence sur bien-être et productivité  
+- Jauge de bien-être :  
+  - Influence sur l’efficacité des projets  
+  - Influence sur le niveau de risques  
 
-jauge : 
-- bien etre
-- science : arbre de progression, debloque de nouveau batiment ou augmente la limite
-- productivité : nombre d'unité de science produites par jour
-- ecologie : respect de la zone
+### Ressources  
+- Science  
+- Confiance de l’État  
 
+### Jauges principales  
+- **Science**  
+  - Affichée en haut à gauche  
+  - Production dépend des projets actifs  
+  - Arbre de progression : débloque de nouveaux bâtiments ou augmente les limites  
+- **Bien-être**  
+- **Productivité**  
+  - Nombre d’unités de science produites par jour  
+- **Écologie**  
+  - Respect de la zone  
+  - Influence sur les événements aléatoires (tempêtes, etc.)  
 
-serious
-- ecologie :
-  - petrole = polluant
-  - eolienne = cool
-  - panneau solaire = bien la moitié de l'année
-- milieu
-  - temperature
-  - meteo
-  - 
+### Environnement & écologie  
+- **Énergie**  
+  - Pétrole = polluant  
+  - Éolienne = durable  
+  - Panneau solaire = efficace la moitié de l’année  
+- **Milieu**  
+  - Température  
+  - Météo  
+  - Événements aléatoires liés à l’écologie  
+
+### Gameplay  
+- Drag & drop pour les mou
