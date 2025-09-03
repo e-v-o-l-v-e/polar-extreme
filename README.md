@@ -1,5 +1,11 @@
 # T3 25 SCI25 A
 
+base scientifique au pole nord
+
+projet :
+- gdscript
+- commit en minuscule et en anglais
+
 ## Cahier des charges
 
 ### Objectif pédagogique
@@ -54,4 +60,4 @@ serious
 - milieu
   - temperature
   - meteo
-  -
+  - 
