@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmp4qj47spkfr"]
+
+[ext_resource type="Texture2D" path="res://assets/theo_babac.webp" id="1_a4s56"]
+
+[node name="ground2" type="Node2D"]
+
+[node name="tiles" type="Sprite2D" parent="."]
+texture = ExtResource("1_a4s56")
