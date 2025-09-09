@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1757410619
+icon.svg::CompressedTexture2D::4434016281672149732::1757407520::1757410620::1::::<><><>0<>0<>757000f4776f8465be7b53121395e358<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1756984522::0::1::::<><><>0<>0<><>::
+::res://assets/::1757409729
+::res://assets/ground/::1757409759
+base.png::CompressedTexture2D::5038108447379303909::1757409750::1757410620::1::::<><><>0<>0<>d959942d07fb986ea8a24f17b25c61a9<>res://.godot/imported/base.png-9d7f7b7dcedceeb0b3cef0e9a3e6e38a.ctex::
+::res://scenes/::1757410134
+ground.tscn::PackedScene::3333824944047378352::1757410134::0::1::::<><><>0<>0<><>::uid://cd1q57aws5t7j::::res://T3-25-SCI25-A/assets/ground/base.png
+::res://scripts/::1757407755
