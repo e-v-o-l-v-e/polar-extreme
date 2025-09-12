@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=4 uid="uid://bd5k7nvacxpjb"]
+
+[ext_resource type="Texture2D" uid="uid://bbv62f5vkdtgo" path="res://assets/building/building-base.png" id="1_ev88y"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kslg4"]
+texture = ExtResource("1_ev88y")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uf2eu"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_kslg4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph0gb"]
+size = Vector2(190, 190)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Sprite2D"]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAADAAUAAQAAAAAAAAACAAUAAQAAAAAAAAABAAUAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAADAAIAAQAAAAAAAAACAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAACAAMAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAQAAQAAAAAAAAACAAQAAQAAAAAAAAABAAQAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_uf2eu")
+rendering_quadrant_size = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(96, 96)
+shape = SubResource("RectangleShape2D_ph0gb")
