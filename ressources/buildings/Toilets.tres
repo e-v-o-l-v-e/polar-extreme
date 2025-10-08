@@ -1,18 +1,18 @@
-[gd_resource type="Resource" script_class="BuildingUtility" load_steps=2 format=3 uid="uid://cspc675m3vd6j"]
+[gd_resource type="Resource" script_class="BuildingUtility" load_steps=3 format=3 uid="uid://cspc675m3vd6j"]
 
-[sub_resource type="GDScript" id="GDScript_742pr"]
-script/source = "class_name BuildingUtility
-extends Building
-
-var building_type = BUILDING_TYPE.UTILITY
-
-enum WELL_BEING_TYPE { SANITARY, REST, SOCIAL }
-@export var well_being_value: int
-@export var well_being_type: WELL_BEING_TYPE
-"
+[ext_resource type="Script" uid="uid://y1sf7dmvdxcn" path="res://scripts/buildings/BuildingUtility.gd" id="1_jxrfd"]
+[ext_resource type="Texture2D" uid="uid://d24bk3awnetu3" path="res://assets/building/Toilets.png" id="2_yc8d5"]
 
 [resource]
-script = SubResource("GDScript_742pr")
+script = ExtResource("1_jxrfd")
 well_being_value = 10
+well_being_type = 0
+id = 0
 building_name = "Toilets"
+building_description = ""
+sprite = ExtResource("2_yc8d5")
+size = Vector2(5, 5)
+building_position = Vector2(0, 0)
+entrance = Vector2(0, 0)
+projets = []
 metadata/_custom_type_script = "uid://b2au1ftq4ob63"

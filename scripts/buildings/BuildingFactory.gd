@@ -4,6 +4,13 @@ signal building_mode
 signal building_select
 signal building_placement
 
+var toPlace :BaseBuilding
+
+func place(){
+	place(toPlace);
+}
+
+
 var available_buildings = []
 
 func createLabo(pos: Vector2):
