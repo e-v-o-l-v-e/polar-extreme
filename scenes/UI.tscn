@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://on73whrfey7o"]
+[gd_scene load_steps=9 format=3 uid="uid://on73whrfey7o"]
 
 [ext_resource type="Script" uid="uid://cknf5uouy4rdw" path="res://scripts/ui.gd" id="1_5en4g"]
 [ext_resource type="Texture2D" uid="uid://pthdnyca7pek" path="res://assets/UI/test.png" id="1_dj8aq"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/menu_projets.tscn" id="3_ua6yw"]
+[ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/menu_scientifiques.tscn" id="4_ua6yw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5en4g"]
 texture = ExtResource("1_dj8aq")
@@ -58,7 +59,7 @@ size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="BaseContainer/Science/HBoxContainer"]
-custom_minimum_size = Vector2(125, 50)
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -83,7 +84,7 @@ size_flags_vertical = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_ro3t7")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="BaseContainer/MenuCreaBatiments"]
-custom_minimum_size = Vector2(300, 75)
+custom_minimum_size = Vector2(900, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -93,11 +94,18 @@ patch_margin_left = 16
 patch_margin_right = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BaseContainer/MenuCreaBatiments/NinePatchRect"]
-layout_mode = 2
-offset_left = 65.0
-offset_top = 10.5
-offset_right = 235.0
-offset_bottom = 60.5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -414.5
+offset_top = -25.0
+offset_right = 414.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
@@ -106,16 +114,32 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+text = "chemin"
 
 [node name="Button2" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+text = "batiment catégorie 1
+quand cliqué : met autre menu avec 1 btn par batiment ds la cat"
 
 [node name="Button3" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+text = "catégorie 2"
+
+[node name="Button4" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+text = "catégorie 3"
+
+[node name="Button5" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+text = "détruire"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BaseContainer"]
 layout_mode = 2
@@ -162,6 +186,11 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ua6yw")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
 
 [node name="MenuProjets" parent="BaseContainer/HBoxContainer" instance=ExtResource("3_ua6yw")]
+visible = false
+layout_mode = 2
+
+[node name="menu_scientifiques" parent="BaseContainer/HBoxContainer" instance=ExtResource("4_ua6yw")]
+visible = false
 layout_mode = 2
 
 [node name="Parametres" type="MarginContainer" parent="BaseContainer"]
@@ -172,7 +201,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="Paramètres" type="Button" parent="BaseContainer/Parametres"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
