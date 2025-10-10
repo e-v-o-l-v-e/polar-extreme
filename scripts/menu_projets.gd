@@ -14,12 +14,11 @@ var nbProjPerPage = 0;
 
 var arrayProjects = Array()
 
-
 func pageAj() -> void :
-	if nbProjPerPage < 5 :
-		nbProjPerPage += 1
-		projectContainer.add_child(arrayProjects.get(nbProjPerPage*nbPage-1))
-		#print("pageaj " , nbProjPerPage*nbPage-1 ," ", nbProject ," ", nbProjPerPage ," ", nbPage)
+	if nbProject%5 != 0 :
+		nbProjPerPage = nbProject/5
+	else :
+		nbProjPerPage = 0
 
 
 func _process(delta: float) -> void:
@@ -38,49 +37,43 @@ func _process(delta: float) -> void:
 
 func _on_prev_pressed() -> void:
 	if (nbPage > 1) :
-		if (nbPage == nbPageTot) :
-			for i in nbProject%5 :
-				#projectContainer.remove_child(arrayProjects.get(i+5*(nbPage-1)))
-				arrayProjects.get(i+5*(nbPage-1)).setVisibility(false)
-				#print("testee " , i+5*(nbPage-1) ," ", i ," ", nbProject ," ", nbProjPerPage ," ", nbPage)
-		else :
-			for i in 5 :
-				#projectContainer.remove_child(arrayProjects.get(i+5*(nbPage-1)))
-				arrayProjects.get(i+5*(nbPage-1)).setVisibility(false)
-				#print("testee " , i+5*(nbPage-1) ," ", i ," ", nbProject ," ", nbProjPerPage ," ", nbPage)
+		#if (nbPage == nbPageTot) :
+		#	for i in nbProject%5 :
+		#		arrayProjects.get(i+5*(nbPage-1)).setVisibility(false)
+		#else :
+		#	for i in 5 :
+		#		arrayProjects.get(i+5*(nbPage-1)).setVisibility(false)
+		for proj in arrayProjects :
+			proj.setVisibility(false)
+			
 		nbPage -= 1
 		nbProjPerPage = 0
+		
 		for i in 5 :
-			#projectContainer.add_child(arrayProjects.get(i+5*(nbPage-1)))
 			arrayProjects.get(i+5*(nbPage-1)).setVisibility(true)
 			nbProjPerPage += 1
-			#print("teste " , i+5*(nbPage-1) ," ", nbProject ," ", nbProjPerPage ," ", nbPage)
 
 
 func _on_next_pressed() -> void:
 	if (nbPage < nbPageTot) :
 		for i in 5 :
 			arrayProjects.get(i+5*(nbPage-1)).setVisibility(false)
-			#print("testeee " , i+5*(nbPage-1) ," ", nbProject ," ", nbProjPerPage ," ", nbPage)
+			
 		nbPage += 1
 		nbProjPerPage = 0
+		
 		if (nbPage == nbPageTot) :
 			for i in nbProject%5 :
-				#projectContainer.add_child(arrayProjects.get(i+5*(nbPage-1)))
 				arrayProjects.get(i+5*(nbPage-1)).setVisibility(true)
 				nbProjPerPage += 1
-				#print("test " , i+5*(nbPage-1) ," ", nbProject ," ", nbProjPerPage ," ", nbPage)
 		else :
 			for i in 5 :
-				#projectContainer.add_child(arrayProjects.get(i+5*(nbPage-1)))
 				arrayProjects.get(i+5*(nbPage-1)).setVisibility(true)
 				nbProjPerPage += 1
-				#print("testt " , i+5*(nbPage-1) ," ", nbProject ," ", nbProjPerPage ," ", nbPage)
 
 
 func _on_button_test_pressed() -> void:
 	nbProject += 1
-	#print("nbpage ", (nbProject-1)%5)
 	if (nbProject-1)%5 == 0 and nbProject > 1 :
 		nbPageTot += 1
 
@@ -90,19 +83,38 @@ func _on_button_test_pressed() -> void:
 	
 	arrayProjects.append(project)
 	projectContainer.add_child(project)
-	
 	if nbProjPerPage < 5 :
 		project.setVisibility(true)
 		nbProjPerPage += 1
-	#pageAj()
+		print(nbProjPerPage)
 
 
 func _on_button_test_2_pressed() -> void:
-	nbProject -= 1
-	#print("nbpage ", (nbProject)%5)
-	if (nbProject-1)%5 == 0 and nbProject > 1 :
-		nbPageTot -= 1
-	
-	arrayProjects.remove_at(-1)
-	
-	#pageAj()
+	if (nbProject > 0) :
+		if (nbProject-1)%5 == 0 and nbProject > 1 :
+			nbPageTot -= 1
+		
+		projectContainer.remove_child(arrayProjects.get(nbProject-1))
+		arrayProjects.remove_at(nbProject-1)
+		
+		nbProject -= 1
+		nbProjPerPage -= 1
+		if nbProjPerPage == 0 :
+			nbProjPerPage = 4
+			nbPageTot -= 1
+			print(str(nbProject) + " " + str(nbPageTot) + " " + str(nbPage) + " " + str(nbProjPerPage))
+			test()
+
+
+func test() -> void:
+	if (nbPage > 1) :
+		for proj in arrayProjects :
+			proj.setVisibility(false)
+			
+		nbPage -= 1
+		nbProjPerPage = 0
+		
+		for i in 5 :
+			arrayProjects.get(i+5*(nbPage-1)).setVisibility(true)
+			nbProjPerPage += 1
+			print(nbProjPerPage)
