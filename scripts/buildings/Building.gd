@@ -1,4 +1,5 @@
 class_name Building
+extends Area2D
 
 enum BUILDING_TYPE { SCIENCE, UTILITY }
 
@@ -20,3 +21,6 @@ func get_id():
 
 func get_building_name():
 	return building_name
+
+func get_icon() -> Texture2D:
+	return $Sprite2D.texture
