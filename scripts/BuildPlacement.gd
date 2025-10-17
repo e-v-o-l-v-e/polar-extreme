@@ -23,7 +23,7 @@ func start_building(building : Building)->void:
 	
 	var BuildingZone :CollisionShape2D= building.get_node_or_null("BuildingZone")	
 	if BuildingZone:
-			effect_size = BuildingZone.shape.get_rect().size/32
+		effect_size = BuildingZone.shape.get_rect().size/32
 	
 	return
 
@@ -84,17 +84,18 @@ func _input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		placement_position = world_grid_pos
-		_place_building(building_data)
+		$AnimationInvalidPlacement.play("placementAnimationLib/invalidPlacement")
 
 
-func _place_building(building_to_place : Building) -> void:
+
+func _place_building(_anim_name: StringName) -> void:
 	if not can_be_placed:
 		return
-	var instance = building_to_place
+	var instance = building_data
 	instance.rotation = preview.rotation
 	instance.position = placement_position
 	%wolrd_grid.add_child(instance)
-	print(building_to_place.building_name)
+	print(building_data.building_name)
 	stop_building();
 
 func _cell_collides(cell_world_pos: Vector2) -> bool:

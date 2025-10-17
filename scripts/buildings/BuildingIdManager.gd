@@ -3,7 +3,7 @@ class_name BuildingIdManager
 static var _next_id := 1
 static var _buildings := {}
 
-static func register(new_building):
+static func register(new_building: Building):
 	var id = _next_id
 	_next_id += 1
 	_buildings[id] = new_building
