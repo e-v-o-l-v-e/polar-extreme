@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://3nwbx7orqqt7"]
+
+[ext_resource type="PackedScene" uid="uid://c6eb3xgrqgvie" path="res://scenes/path.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://orip7bvg8ifp" path="res://scripts/level.gd" id="1_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://bjv3fpe0v4i2" path="res://scenes/agent.tscn" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://c86w7kpchxg06" path="res://scenes/buildingProto.tscn" id="6_2r41h"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_w8frs"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_mx8sn")
+
+[node name="PathsRegion" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_w8frs")
+
+[node name="Path" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(576, 320)
+
+[node name="Path2" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(448, 320)
+
+[node name="Path3" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(320, 320)
+
+[node name="Path4" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(576, 192)
+
+[node name="Path5" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(704, 320)
+
+[node name="Path6" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(832, 320)
+
+[node name="Path7" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(576, 448)
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Agent" parent="NPCs" instance=ExtResource("1_w8frs")]
+position = Vector2(832, 384)
+scale = Vector2(3, 3)
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="Toilet" parent="Buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(704, 256)
+
+[node name="Dormitory" parent="Buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(832, 384)
+
+[node name="Canteen" parent="Buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(576, 512)
+
+[node name="Labo" parent="Buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(576, 128)
+
+[node name="Showers" parent="Buildings" instance=ExtResource("6_2r41h")]
+position = Vector2(320, 256)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://3nwbx7orqqt7"]
+
+[ext_resource type="PackedScene" uid="uid://c6eb3xgrqgvie" path="res://scenes/path.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://ba1aetfw7xy2m" path="res://scenes/paths_region.gd" id="2_w7c3h"]
+
+[node name="Level" type="Node2D"]
+
+[node name="PathsRegion" type="NavigationRegion2D" parent="."]
+script = ExtResource("2_w7c3h")
+
+[node name="Path" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+
+[node name="Path2" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(128, 0)
+
+[node name="Path3" parent="PathsRegion" instance=ExtResource("1_2q6dc")]
+position = Vector2(128, -128)
