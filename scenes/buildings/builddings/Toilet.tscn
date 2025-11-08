@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b050ogkjtljob"]
+
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_n0tjx"]
+[ext_resource type="Texture2D" uid="uid://dd07mexg27oe3" path="res://assets/building/testbuilding.png" id="2_meajs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0tjx"]
+size = Vector2(155, 155)
+
+[node name="Toilet" instance=ExtResource("1_n0tjx")]
+building_name = "Toilet"
+building_description = "Ce sont des toilettes"
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_meajs")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_n0tjx")
