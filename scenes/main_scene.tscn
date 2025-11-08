@@ -18,5 +18,5 @@ texture = ExtResource("1_w2twt")
 
 [node name="placement_grid" parent="." instance=ExtResource("3_pu3yx")]
 
-[node name="wolrd_grid" parent="." instance=ExtResource("3_7ykc4")]
+[node name="world_grid" parent="." instance=ExtResource("3_7ykc4")]
 unique_name_in_owner = true

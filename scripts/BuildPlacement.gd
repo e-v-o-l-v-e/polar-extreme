@@ -22,7 +22,7 @@ func start_building(building : Building)->void:
 	if sprite_node:
 		preview.texture = sprite_node.texture
 	
-	var BuildingZone :CollisionShape2D= building.get_node_or_null("BuildingZone")	
+	var BuildingZone :CollisionShape2D= building.get_node_or_null("BuildingZone")
 	if BuildingZone:
 		effect_size = BuildingZone.shape.get_rect().size/32
 	
@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 	celle_array.clear()
 	
 	if Input.is_key_pressed(KEY_H):
-		start_building(load("res://scenes/buildings/builddings/IceMine.tscn").instantiate())	
+		start_building(load("res://scenes/buildings/builddings/IceMine.tscn").instantiate())
 	
 	if Input.is_key_pressed(KEY_J):
 		start_building(load("res://scenes/buildings/builddings/Toilet.tscn").instantiate())
@@ -90,12 +90,13 @@ func _input(event: InputEvent) -> void:
 func _place_building(_anim_name: StringName) -> void:
 	if not can_be_placed:
 		return
-	var instance = building_data
+	var instance : Building = building_data
 	instance.rotation = preview.rotation
 	instance.position = placement_position
 	instance.name =instance.name+"_"+str(building_data.get_id())
-	%wolrd_grid.add_child(instance)
+	%world_grid.add_child(instance)
 	print(instance.name)
+	BuildingsInfo.add_building(instance)
 	stop_building();
 
 func _cell_collides(cell_world_pos: Vector2) -> bool:

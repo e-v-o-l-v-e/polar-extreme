@@ -1,7 +1,7 @@
 class_name BuildingScience
 extends Building
 
-@export var building_type = BUILDING_TYPE.SCIENCE
+@export var building_type : Enums.BUILDING_TYPE = Enums.BUILDING_TYPE.LABO
 
 @export var producing: bool 	# whether the building is producing science atm
 
@@ -26,3 +26,6 @@ extends Building
 
 func change_max_scientists(n: int):
 	nb_scientists_max += n
+
+func get_building_type() -> Enums.BUILDING_TYPE:
+	return building_type

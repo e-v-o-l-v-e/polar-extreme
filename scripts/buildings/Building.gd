@@ -21,3 +21,6 @@ func get_id():
 
 func get_building_name():
 	return building_name
+	
+func get_building_type() -> Enums.BUILDING_TYPE:
+	return Enums.BUILDING_TYPE.NULL
