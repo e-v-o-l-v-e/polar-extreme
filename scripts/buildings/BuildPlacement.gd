@@ -6,6 +6,8 @@ class_name BuildPlacement
 
 @export var effect_size: Vector2 = Vector2(3, 3)
 
+const IGNORED_LAYERS_FOR_BUILDING = [2]
+
 var in_placement: bool = false
 var in_path_placement : bool = false
 var can_be_placed: bool = true
@@ -87,7 +89,7 @@ func _handle_placement_preview(event: InputEvent) -> void:
 			var pos: Vector2i = tile_under_mouse + Vector2i(i, j)
 			cell_array.append(pos)
 			var cell_world_pos: Vector2 = map_to_local(pos)
-			if _cell_collides(cell_world_pos, [2]):
+			if _cell_collides(cell_world_pos):
 				set_cell(pos, 0, Vector2i(1, 0))
 				can_be_placed = false
 			else:
@@ -121,7 +123,7 @@ func _place_building(_anim_name: StringName) -> void:
 	
 	stop_building()
 	
-func _cell_collides(cell_world_pos: Vector2, ignored_layers: Array = []) -> bool:
+func _cell_collides(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var cell_size = tile_set.tile_size
 
@@ -134,22 +136,20 @@ func _cell_collides(cell_world_pos: Vector2, ignored_layers: Array = []) -> bool
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
 	query.exclude = [self]
-
-	# --- Construction du masque de collision ---
-	var collision_mask := 0xFFFFFFFF  # Tous les bits activés par défaut
-
-	for layer_index in ignored_layers:
-		if layer_index >= 1 and layer_index <= 32:
-			collision_mask &= ~(1 << (layer_index - 1))  # On désactive le bit du layer à ignorer
-
-	query.collision_mask = collision_mask
-	# ------------------------------------------
-
+	query.collision_mask = get_collision_layers_mask(IGNORED_LAYERS_FOR_BUILDING)
+	
 	var result = space_state.intersect_shape(query, 1)
 	return result.size() > 0
 
+func get_collision_layers_mask(ignored_layers : Array):
+	var collision_mask := 0xFFFFFFFF
 
-	
+	for layer_index in ignored_layers:
+		if layer_index >= 1 and layer_index <= 32:
+			collision_mask &= ~(1 << (layer_index - 1))
+			
+	return collision_mask
+
 func build_path():
 	in_path_placement = true
 	preview.texture = path_data.get_preview()
