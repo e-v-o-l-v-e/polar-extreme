@@ -12,8 +12,9 @@ var in_placement: bool = false
 var in_path_placement : bool = false
 var can_be_placed: bool = true
 var building_data: Building
-var path_data : Path = load("res://scenes/buildings/path/Path.tscn").instantiate()
+var path_data : Path
 var animation_playing: bool = false  
+var n_path = 0
 
 var placement_position: Vector2
 var cell_array: Array[Vector2i] = []
@@ -51,8 +52,11 @@ func start_building(building: Building) -> void:
 
 func stop_building() -> void:
 	in_placement = false
+	in_path_placement = false
 	building_data = null
+	path_data = null
 	preview.texture = null
+	
 
 func _handle_hotkeys() -> void:
 	if animation_playing:
@@ -119,6 +123,8 @@ func _place_building(_anim_name: StringName) -> void:
 	elif in_path_placement :
 		var instance : Path = path_data
 		instance.position = placement_position
+		path_data.name = "Path" + str(n_path)
+		n_path += 1
 		%PathRegions.add_child(instance)
 	
 	stop_building()
@@ -151,6 +157,7 @@ func get_collision_layers_mask(ignored_layers : Array):
 	return collision_mask
 
 func build_path():
+	path_data = load("res://scenes/buildings/path/Path.tscn").instantiate()
 	in_path_placement = true
 	preview.texture = path_data.get_preview()
 	effect_size = Vector2(1.0, 1.0)

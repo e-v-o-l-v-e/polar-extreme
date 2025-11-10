@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6eb3xgrqgvie"]
+[gd_scene load_steps=7 format=3 uid="uid://c6eb3xgrqgvie"]
 
 [ext_resource type="Script" uid="uid://cwd8yi0wa0cbo" path="res://scripts/buildings/path/Path.gd" id="1_sqppf"]
 [ext_resource type="Texture2D" uid="uid://tlg8wkvk43lg" path="res://assets/ground/path.png" id="2_7p83t"]
+[ext_resource type="Texture2D" uid="uid://checy2sxrc6f4" path="res://assets/ground/preview_path.png" id="2_trmy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqppf"]
 size = Vector2(30, 30)
@@ -21,8 +22,15 @@ script = ExtResource("1_sqppf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sqppf")
 
+[node name="PreviewTexture" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_trmy3")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("2_7p83t")
+hframes = 4
+vframes = 4
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_sqppf")
@@ -30,12 +38,13 @@ navigation_layers = 2
 
 [node name="LinkCollisions" type="Node2D" parent="."]
 
-[node name="Left" type="Area2D" parent="LinkCollisions"]
+[node name="Gauche" type="Area2D" parent="LinkCollisions"]
 position = Vector2(-16, 0)
 scale = Vector2(0.399999, 0.36)
 collision_layer = 2
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Gauche"]
 position = Vector2(-10, 0)
 shape = SubResource("RectangleShape2D_1dods")
 debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
@@ -44,6 +53,7 @@ debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
 position = Vector2(0, -16)
 scale = Vector2(0.399999, 0.36)
 collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Haut"]
 position = Vector2(0, -11)
@@ -54,6 +64,7 @@ debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
 position = Vector2(16, 0)
 scale = Vector2(0.399999, 0.36)
 collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Droite"]
 position = Vector2(10, 0)
@@ -64,13 +75,9 @@ debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
 position = Vector2(0, 16)
 scale = Vector2(0.399999, 0.36)
 collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Bas"]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_1dods")
 debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
-
-[connection signal="area_entered" from="LinkCollisions/Left" to="." method="_on_left_area_entered"]
-[connection signal="area_entered" from="LinkCollisions/Haut" to="." method="_on_haut_area_entered"]
-[connection signal="area_entered" from="LinkCollisions/Droite" to="." method="_on_droite_area_entered"]
-[connection signal="area_entered" from="LinkCollisions/Bas" to="." method="_on_bas_area_entered"]

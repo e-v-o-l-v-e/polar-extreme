@@ -12,6 +12,8 @@ var _buildingsPositions = {
 	Enums.BUILDING_TYPE.SHOWER: []
 }
 
+signal update_path_sprite()
+
 var buildings_scenes = {
 	"IceMine" : preload("res://scenes/buildings/instanciables/IceMine.tscn"),
 	"Shower" : preload("res://scenes/buildings/instanciables/ShowerBlock.tscn"),
@@ -48,3 +50,6 @@ func get_closest_building(building_type : Enums.BUILDING_TYPE, npc_position : Ve
 	
 static func get_building(id: int):
 	return _buildingsIds[id]
+
+func emit_signal_update_sprite():
+	emit_signal("update_path_sprite")
