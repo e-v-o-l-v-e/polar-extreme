@@ -10,6 +10,7 @@ extends  Area2D
 
 func _init():
 	id = BuildingManager.register(self)
+	BuildingManager.add_building(self)
 
 func destroy():
 	BuildingManager.remove(id)

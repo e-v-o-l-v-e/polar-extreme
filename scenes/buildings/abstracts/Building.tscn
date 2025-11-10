@@ -4,6 +4,10 @@
 
 [node name="Building" type="Area2D"]
 script = ExtResource("1_jvo4v")
+id = null
+building_name = null
+building_description = null
+projets = null
 
 [node name="Door" type="Marker2D" parent="."]
 

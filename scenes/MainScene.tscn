@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://gqmhjk6sneh0"]
+[gd_scene load_steps=8 format=4 uid="uid://gqmhjk6sneh0"]
 
+[ext_resource type="Script" uid="uid://crfe0upnklnjq" path="res://scripts/mainScene.gd" id="1_611at"]
 [ext_resource type="PackedScene" uid="uid://dybfqr0devca8" path="res://scenes/Camera.tscn" id="1_c6dvc"]
 [ext_resource type="PackedScene" uid="uid://cism5ivh6jv6b" path="res://scenes/buildings/BuildPlacement.tscn" id="2_611at"]
-[ext_resource type="Texture2D" uid="uid://pbxcjett24ac" path="res://assets/ground/base.png" id="3_c6dvc"]
+[ext_resource type="Texture2D" uid="uid://c43ndls14ywdv" path="res://assets/ground/base.png" id="3_c6dvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6dvc"]
 texture = ExtResource("3_c6dvc")
@@ -24,6 +25,7 @@ sources/0 = SubResource("TileSetAtlasSource_c6dvc")
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c6dvc"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_611at")
 
 [node name="PlacementGrid" parent="." instance=ExtResource("2_611at")]
 
@@ -38,3 +40,17 @@ unique_name_in_owner = true
 navigation_polygon = SubResource("NavigationPolygon_c6dvc")
 
 [node name="MainCamera" parent="." instance=ExtResource("1_c6dvc")]
+
+[node name="btnBuilding1" type="Button" parent="."]
+offset_left = 144.0
+offset_top = -27.0
+offset_right = 276.0
+offset_bottom = 14.0
+text = "Click"
+
+[node name="btnBuilding2" type="Button" parent="."]
+offset_left = 143.0
+offset_top = -78.0
+offset_right = 275.0
+offset_bottom = -37.0
+text = "Click"

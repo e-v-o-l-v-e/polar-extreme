@@ -154,3 +154,5 @@ func build_path():
 	in_path_placement = true
 	preview.texture = path_data.get_preview()
 	effect_size = Vector2(1.0, 1.0)
+	
+	
