@@ -1,9 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvccgvdeejgkb"]
 
-[ext_resource type="Script" uid="uid://b2au1ftq4ob63" path="res://scripts/buildings/Building.gd" id="1_jvo4v"]
+[ext_resource type="Script" uid="uid://b2au1ftq4ob63" path="res://scripts/buildings/Building.gd" id="1_l1dv4"]
 
 [node name="Building" type="Area2D"]
-script = ExtResource("1_jvo4v")
+script = ExtResource("1_l1dv4")
+id = null
+building_name = null
+building_description = null
+projets = null
 
 [node name="Door" type="Marker2D" parent="."]
 

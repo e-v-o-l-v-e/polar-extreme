@@ -1,4 +1,4 @@
-class_name Building
+
 extends  Area2D
 
 # infos
@@ -8,11 +8,7 @@ extends  Area2D
 
 @export var projets = []
 
-func _init():
-	id = BuildingManager.register(self)
 
-func destroy():
-	BuildingManager.remove(id)
 
 func get_id():
 	return id

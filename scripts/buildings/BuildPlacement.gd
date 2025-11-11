@@ -64,9 +64,9 @@ func _handle_hotkeys() -> void:
 		return
 	
 	if Input.is_key_pressed(KEY_H):
-		start_building(GlobalBuildingManager.instantiate_building("IceMine"))
+		start_building(GameController.instantiate_building("IceMine"))
 	elif Input.is_key_pressed(KEY_J):
-		start_building(GlobalBuildingManager.instantiate_building("Toilet"))
+		start_building(GameController.instantiate_building("Toilet"))
 	elif Input.is_key_pressed(KEY_P):
 		build_path()
 
@@ -120,7 +120,7 @@ func _place_building(_anim_name: StringName) -> void:
 		instance.position = placement_position
 		instance.name = instance.name + "_" + str(building_data.get_id())
 		%WorldGrid.add_child(instance)
-		GlobalBuildingManager.add_building(instance)
+		GameController.add_building(instance)
 		stop_building()
 	elif in_path_placement:
 		var instance: Path = path_data
@@ -183,8 +183,6 @@ func stop_building_path() -> void:
 	preview.texture = null
 	has_to_place_path = false
 	return
-
-
 
 func build_path():
 	path_data = load("res://scenes/buildings/path/Path.tscn").instantiate()

@@ -1,4 +1,4 @@
-class_name BuildingManager
+class_name sBuildingManager
 extends Node
 
 static var _next_id := 1
@@ -15,7 +15,7 @@ var _buildingsPositions = {
 signal update_path_sprite()
 
 var buildings_scenes = {
-	"IceMine" : preload("res://scenes/buildings/instanciables/IceMine.tscn"),
+	#"IceMine" : preload("res://scenes/buildings/instanciables/IceMine.tscn"),
 	"Shower" : preload("res://scenes/buildings/instanciables/ShowerBlock.tscn"),
 	"Toilet" : preload("res://scenes/buildings/instanciables/Toilet.tscn")
 }

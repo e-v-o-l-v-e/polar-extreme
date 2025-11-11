@@ -30,3 +30,4 @@ func change_max_scientists(n: int):
 
 func get_building_type() -> Enums.BUILDING_TYPE:
 	return building_type
+	

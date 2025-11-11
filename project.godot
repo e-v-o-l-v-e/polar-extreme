@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="T3-25-SCI25-A"
-run/main_scene="uid://gqmhjk6sneh0"
+run/main_scene="uid://b3djkfr0ekhwm"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-TimeManager="*res://scripts/autoloads/TimeManager.gd"
-GlobalBuildingManager="*res://scripts/autoloads/BuildingManager.gd"
+GameController="*res://v2/scripts/autoloads/GameController.gd"
+UIController="*res://v2/scripts/autoloads/UIController.gd"
+Enums="*res://v2/scripts/autoloads/Enums.gd"
 
 [rendering]
 
