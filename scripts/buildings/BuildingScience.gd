@@ -5,7 +5,8 @@ extends Building
 
 @export var science_per_second: float:		# per scientist
 	set(value):
-		science_per_second = clamp(value, 0, max_science_per_second)
+		value = clamp(value, 0, max_science_per_second)
+		science_per_second = value
 		
 @export var max_science_per_second: int
 
@@ -29,9 +30,10 @@ func _init():
 	super._init()
 	building_genre = Enums.BUILDING_GENRE.SCIENCE
 	building_type = Enums.BUILDING_TYPE.LABO
-
+	
 func change_max_scientists(n: int):
 	nb_scientists_max += n
 
-func get_building_type() -> Enums.BUILDING_TYPE:
-	return building_type
+func change_science_per_second(value: float) -> void:
+	science_per_second = value
+	Gauges.change_science_per_second(value)
