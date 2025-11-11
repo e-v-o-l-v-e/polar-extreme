@@ -11,15 +11,11 @@ texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Projet" type="MarginContainer" node_paths=PackedStringArray("nom", "timeLeft", "timePercentage", "timer")]
+[node name="Projet" type="MarginContainer"]
 custom_minimum_size = Vector2(300, 100)
 offset_right = 250.0
 offset_bottom = 75.0
 script = ExtResource("1_cg0em")
-nom = NodePath("MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/Label")
-timeLeft = NodePath("MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/Label2")
-timePercentage = NodePath("MarginContainer/Button/MarginContainer/VBoxContainer/ProgressBar")
-timer = NodePath("Timer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(250, 100)
@@ -54,11 +50,11 @@ theme_override_constants/separation = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Button/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="nom" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Nom"
 
-[node name="Label2" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="timeLeft" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
