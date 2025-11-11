@@ -1,9 +1,9 @@
 extends MarginContainer
 
-@export var nom : Label
-@export var timeLeft : Label
-@export var timePercentage : ProgressBar
-@export var timer : Timer
+@onready var nom: Label = $MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/nom
+@onready var timePercentage: ProgressBar = $MarginContainer/Button/MarginContainer/VBoxContainer/ProgressBar
+@onready var timer: Timer = $Timer
+@onready var timeLeft: Label = $MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/timeLeft
 
 var ID
 var time = 30

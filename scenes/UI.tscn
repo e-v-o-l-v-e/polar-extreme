@@ -1,17 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://on73whrfey7o"]
+[gd_scene load_steps=10 format=3 uid="uid://on73whrfey7o"]
 
 [ext_resource type="Script" uid="uid://cknf5uouy4rdw" path="res://scripts/ui.gd" id="1_5en4g"]
 [ext_resource type="Texture2D" uid="uid://pthdnyca7pek" path="res://assets/UI/test.png" id="1_dj8aq"]
+[ext_resource type="Texture2D" uid="uid://cqg1abp6w3a66" path="res://assets/UI/test2.png" id="2_75u2n"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/menu_projets.tscn" id="3_ua6yw"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/menu_scientifiques.tscn" id="4_ua6yw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5en4g"]
-texture = ExtResource("1_dj8aq")
-region_rect = Rect2(0, 0, 32, 32)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro3t7"]
-texture = ExtResource("1_dj8aq")
-region_rect = Rect2(12, 32, 71, 32)
+texture = ExtResource("2_75u2n")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8aq"]
 texture = ExtResource("1_dj8aq")
@@ -21,7 +17,11 @@ region_rect = Rect2(96, 0, 32, 32)
 texture = ExtResource("1_dj8aq")
 region_rect = Rect2(96, 0, 32, 32)
 
-[node name="GameUI" type="Control" node_paths=PackedStringArray("menu_projet")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_75u2n"]
+texture = ExtResource("1_dj8aq")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="GameUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5en4g")
-menu_projet = NodePath("BaseContainer/HBoxContainer/MenuProjets")
 
 [node name="BaseContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,27 +37,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 
-[node name="Science" type="MarginContainer" parent="BaseContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BaseContainer/Science"]
+[node name="hBoxScience" type="HBoxContainer" parent="BaseContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Science" type="Button" parent="BaseContainer/Science/HBoxContainer"]
+[node name="Science" type="Button" parent="BaseContainer/hBoxScience"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="BaseContainer/Science/HBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="BaseContainer/hBoxScience"]
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -70,85 +65,14 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="MenuCreaBatiments" type="VBoxContainer" parent="BaseContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 0
-
-[node name="Button" type="Button" parent="BaseContainer/MenuCreaBatiments"]
-custom_minimum_size = Vector2(100, 15)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_styles/normal = SubResource("StyleBoxTexture_ro3t7")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="BaseContainer/MenuCreaBatiments"]
-custom_minimum_size = Vector2(900, 75)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-texture = ExtResource("1_dj8aq")
-region_rect = Rect2(12, 32, 71, 32)
-patch_margin_left = 16
-patch_margin_right = 16
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BaseContainer/MenuCreaBatiments/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -414.5
-offset_top = -25.0
-offset_right = 414.5
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
-
-[node name="Button" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
-text = "chemin"
-
-[node name="Button2" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
-text = "batiment catégorie 1
-quand cliqué : met autre menu avec 1 btn par batiment ds la cat"
-
-[node name="Button3" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
-text = "catégorie 2"
-
-[node name="Button4" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
-text = "catégorie 3"
-
-[node name="Button5" type="Button" parent="BaseContainer/MenuCreaBatiments/NinePatchRect/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
-text = "détruire"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BaseContainer"]
+[node name="hBoxProjScien" type="HBoxContainer" parent="BaseContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="MenuProjetScientif" type="NinePatchRect" parent="BaseContainer/HBoxContainer"]
-custom_minimum_size = Vector2(75, 175)
+[node name="projScienMenu" type="NinePatchRect" parent="BaseContainer/hBoxProjScien"]
+custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -159,7 +83,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BaseContainer/HBoxContainer/MenuProjetScientif"]
+[node name="vBoxBtns" type="VBoxContainer" parent="BaseContainer/hBoxProjScien/projScienMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -173,38 +97,246 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ButtonProjets" type="Button" parent="BaseContainer/HBoxContainer/MenuProjetScientif/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="btnProjets" type="Button" parent="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dj8aq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
 
-[node name="Button2" type="Button" parent="BaseContainer/HBoxContainer/MenuProjetScientif/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="btnScientists" type="Button" parent="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ua6yw")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
 
-[node name="MenuProjets" parent="BaseContainer/HBoxContainer" instance=ExtResource("3_ua6yw")]
+[node name="MenuProjects" parent="BaseContainer/hBoxProjScien" instance=ExtResource("3_ua6yw")]
 visible = false
 layout_mode = 2
 
-[node name="menu_scientifiques" parent="BaseContainer/HBoxContainer" instance=ExtResource("4_ua6yw")]
+[node name="menuScientifics" parent="BaseContainer/hBoxProjScien" instance=ExtResource("4_ua6yw")]
 visible = false
 layout_mode = 2
 
-[node name="Parametres" type="MarginContainer" parent="BaseContainer"]
+[node name="buildingsMenu" type="NinePatchRect" parent="BaseContainer"]
+custom_minimum_size = Vector2(650, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("1_dj8aq")
+region_rect = Rect2(12, 32, 71, 32)
+patch_margin_left = 16
+patch_margin_top = 3
+patch_margin_right = 16
+patch_margin_bottom = 3
+
+[node name="hBoxBtns" type="HBoxContainer" parent="BaseContainer/buildingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -25.0
+offset_right = 145.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="btnPath" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtns"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+expand_icon = true
+
+[node name="btnCat1" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtns"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+text = "
+"
+
+[node name="btnCat2" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtns"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+
+[node name="btnCat3" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtns"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+
+[node name="btnRemove" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtns"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
+
+[node name="hBoxBtnCat1" type="HBoxContainer" parent="BaseContainer/buildingsMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -25.0
+offset_right = 55.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="btnLabGlacio" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnLabPhyAtmo" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnLabMagnSismo" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnLabHumanBio" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnIceMine" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnSerre" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnBack" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="hBoxBtnCat2" type="HBoxContainer" parent="BaseContainer/buildingsMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -25.0
+offset_right = 55.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="btnBedrooms" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnKitchen" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnDinningRoom" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnToilets" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnShowers" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnRestRoom" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnSportRoom" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnBack" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="hBoxBtnCat3" type="HBoxContainer" parent="BaseContainer/buildingsMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -25.0
+offset_right = 55.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="btnTrashTri" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnWaterRecycler" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnElecCentral" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="btnBack" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_75u2n")
+
+[node name="ParametersMargin" type="MarginContainer" parent="BaseContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_bottom = 10
 
-[node name="Paramètres" type="Button" parent="BaseContainer/Parametres"]
+[node name="Parameters" type="Button" parent="BaseContainer/ParametersMargin"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_5en4g")
 
-[connection signal="pressed" from="BaseContainer/HBoxContainer/MenuProjetScientif/VBoxContainer/ButtonProjets" to="." method="_on_button_projets_pressed"]
+[connection signal="pressed" from="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns/btnProjets" to="." method="_on_button_projets_pressed"]
+[connection signal="pressed" from="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns/btnScientists" to="." method="_on_button_scientists_pressed"]
+[connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtns/btnPath" to="." method="_on_btn_path_pressed"]
+[connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtns/btnCat1" to="." method="_on_btn_cat_1_pressed"]
+[connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtns/btnCat2" to="." method="_on_btn_cat_2_pressed"]
+[connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtns/btnCat3" to="." method="_on_btn_cat_3_pressed"]
+[connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtns/btnRemove" to="." method="_on_btn_remove_pressed"]
+[connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtnCat1/btnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtnCat2/btnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtnCat3/btnBack" to="." method="_on_btn_back_pressed"]
