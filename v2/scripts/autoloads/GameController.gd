@@ -5,6 +5,9 @@ extends Node2D
 @onready var time_manager : TimeManager = load("res://v2/scripts/systems/TimeManager.gd").new()
 @onready var building_manager : BuildingManager = load("res://v2/scripts/systems/BuildingManager.gd").new()
 
+@export var time_pause:bool=false;
+
+
 func _ready():
 	pass
 
@@ -12,6 +15,7 @@ func set_grid(grid : TileMapLayer):
 	world_manager.world_grid = grid
 	UIController.build_batiment.connect(_on_build_batiment)
 	UIController.validate_building_placement.connect(_on_validate_building_placement)
+	UIController.pause_time.connect(_on_pause_signal)
 	
 func _on_build_batiment(bname:Enums.BUILDING_NAME):
 	var building := building_manager.create_building(Enums.BUILDING_NAME.ICE_MINE)
@@ -28,6 +32,11 @@ func _on_validate_building_placement(building:Building):
 	
 func _on_validate_path_placement(path:Path):
 	print("pass")
+
+
+func _on_pause_signal():
+	print(time_pause)
+	time_pause=!time_pause
 
 	
 	

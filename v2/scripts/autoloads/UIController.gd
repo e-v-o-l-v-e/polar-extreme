@@ -8,6 +8,10 @@ signal start_placing_path()
 signal validate_building_placement(building:Building)
 signal validate_placing_path(path:Path)
 
+signal pause_time()
+
+
+
 func emit_build_batiment(bname : Enums.BUILDING_NAME):
 	build_batiment.emit(bname)
 
@@ -25,4 +29,6 @@ func emit_start_building_path():
 func emit_validate_building_path(path:Path):
 	validate_placing_path.emit(path)
 
+func emit_pause_time():
+	pause_time.emit()
 	

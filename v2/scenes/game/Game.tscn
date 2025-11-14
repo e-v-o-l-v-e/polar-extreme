@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3djkfr0ekhwm"]
+[gd_scene load_steps=8 format=3 uid="uid://b3djkfr0ekhwm"]
 
 [ext_resource type="Script" uid="uid://bh27yuhryhlr0" path="res://v2/scripts/models/Game.gd" id="1_04co1"]
 [ext_resource type="PackedScene" uid="uid://cism5ivh6jv6b" path="res://v2/scenes/buildings/BuildPlacement.tscn" id="2_pbgo2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://gqt7s0pq3s2i" path="res://v2/scripts/ui/button.gd" id="3_bwisc"]
 [ext_resource type="PackedScene" uid="uid://1np065kd0d37" path="res://scenes/WorldGrid.tscn" id="3_pbgo2"]
 [ext_resource type="Script" uid="uid://i5rbfi6c02g8" path="res://v2/scripts/ui/button_2.gd" id="5_8djus"]
+[ext_resource type="Script" uid="uid://d0aswbtfg04r7" path="res://v2/scripts/ui/button_3.gd" id="7_dgkst"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_04co1")
@@ -34,5 +35,14 @@ script = ExtResource("5_8djus")
 [node name="PathRegions" type="NavigationRegion2D" parent="."]
 unique_name_in_owner = true
 
+[node name="Button3" type="Button" parent="."]
+offset_left = 425.0
+offset_top = 5.0
+offset_right = 560.0
+offset_bottom = 39.0
+text = "pause"
+script = ExtResource("7_dgkst")
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
