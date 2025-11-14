@@ -6,7 +6,6 @@ extends Node2D
 @onready var building_manager : BuildingManager = load("res://scripts/systems/BuildingManager.gd").new()
 @onready var gauges : Gauges = load("res://scripts/models/game/Gauges.gd").new()
 @onready var projects_manager : ProjectsManager = load("res://scripts/models/projects/ProjectsManager.gd").new()
-
 @onready var game_started := false
 
 func _ready():

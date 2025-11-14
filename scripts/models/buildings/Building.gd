@@ -8,7 +8,6 @@ class_name Building
 @export var building_genre : Enums.BUILDING_GENRE
 @export var building_type: Enums.BUILDING_TYPE
 @export var pollution_per_second: float
-
 @onready var mouse_hover := false
 
 signal building_clicked(building : Building)

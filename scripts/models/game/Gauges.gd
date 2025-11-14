@@ -29,7 +29,8 @@ var update_time := 2.0
 
 ## GAUGES MANAGEMENT
 
-# Science
+
+## Science
 func get_science() -> float:
 	return science
 

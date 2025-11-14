@@ -3,6 +3,8 @@ class_name BuildingScience
 
 @export var producing: bool 	# whether the building is producing science atm
 @onready var door: Marker2D = $Door
+# whether the building is producing science atm
+@export var producing: bool
 
 @export var science_per_second: float:		# per scientist
 	set(value):
@@ -58,3 +60,6 @@ func science_production_pause() -> void:
 func get_door_position():
 	var door : Marker2D = get_node_or_null("Door")
 	return door.global_position
+
+func production_pause() -> void:
+	producing = false
