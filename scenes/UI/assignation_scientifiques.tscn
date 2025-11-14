@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://tw7k06bbbxk2"]
 
-[ext_resource type="Script" uid="uid://cuuxhh0fwdogf" path="res://scripts/assignation_scientifiques.gd" id="1_fs1uh"]
-[ext_resource type="Texture2D" uid="uid://pthdnyca7pek" path="res://assets/UI/test.png" id="2_ylqti"]
+[ext_resource type="Script" uid="uid://cuuxhh0fwdogf" path="res://scripts/UI/assignation_scientifiques.gd" id="1_fs1uh"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_v4cla"]
 
 [node name="AssignationScientifiques" type="MarginContainer"]
 custom_minimum_size = Vector2(300, 100)
@@ -19,12 +19,12 @@ theme_override_constants/margin_right = 5
 
 [node name="nine" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_ylqti")
-region_rect = Rect2(0, 0, 32, 32)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+texture = ExtResource("2_v4cla")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/nine"]
 layout_mode = 1

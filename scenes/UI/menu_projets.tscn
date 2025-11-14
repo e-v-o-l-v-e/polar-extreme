@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://28bld6ebjyy6"]
 
-[ext_resource type="Texture2D" uid="uid://pthdnyca7pek" path="res://assets/UI/test.png" id="1_bo12g"]
-[ext_resource type="Script" uid="uid://bo2vjg0co8bgq" path="res://scripts/menu_projets.gd" id="1_loijj"]
-[ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/projet.tscn" id="2_n1p1n"]
+[ext_resource type="Script" uid="uid://bo2vjg0co8bgq" path="res://scripts/UI/menu_projets.gd" id="1_loijj"]
+[ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="2_n1p1n"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="3_gypk2"]
 [ext_resource type="Texture2D" uid="uid://bkfv371chuo3x" path="res://icon.svg" id="4_itfo7"]
 
 [node name="MenuProjets" type="MarginContainer"]
@@ -26,12 +26,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ninePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_bo12g")
-region_rect = Rect2(0, 0, 32, 32)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+texture = ExtResource("3_gypk2")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
 [node name="textPasProjet" type="Label" parent="ninePatchRect"]
 layout_mode = 1

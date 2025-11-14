@@ -33,8 +33,6 @@ func _on_button_scientists_pressed() -> void:
 func _on_button_assigner_scientists_pressed() -> void:
 	pass
 
-# buildingsMenu
-### batiment catégorie 1 quand cliqué : met autre menu avec 1 btn par batiment ds la cat
 
 
 func _on_btn_path_pressed() -> void:
@@ -71,3 +69,10 @@ func _on_btn_back_pressed() -> void:
 	h_box_btn_cat_2.visible = false
 	h_box_btn_cat_3.visible = false
 	h_box_btns.visible = true
+
+
+func _on_btn_path_mouse_entered() -> void:
+	var test = Label
+	add_child(test)
+	test.text = "TEST"
+	test.visible = true

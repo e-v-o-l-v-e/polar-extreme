@@ -1,9 +1,9 @@
 [gd_scene load_steps=34 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://cknf5uouy4rdw" path="res://scripts/ui.gd" id="1_5en4g"]
+[ext_resource type="Script" uid="uid://cknf5uouy4rdw" path="res://scripts/UI/ui.gd" id="1_5en4g"]
 [ext_resource type="Texture2D" uid="uid://pthdnyca7pek" path="res://assets/UI/test.png" id="1_dj8aq"]
-[ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/menu_projets.tscn" id="3_ua6yw"]
-[ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/menu_scientifiques.tscn" id="4_ua6yw"]
+[ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
+[ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8aq"]
@@ -522,6 +522,7 @@ tile_set = SubResource("TileSet_grh26")
 
 [connection signal="pressed" from="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns/btnProjets" to="." method="_on_button_projets_pressed"]
 [connection signal="pressed" from="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns/btnScientists" to="." method="_on_button_scientists_pressed"]
+[connection signal="mouse_entered" from="BaseContainer/buildingsMenu/hBoxBtns/btnPath" to="." method="_on_btn_path_mouse_entered"]
 [connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtns/btnPath" to="." method="_on_btn_path_pressed"]
 [connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtns/btnCat1" to="." method="_on_btn_cat_1_pressed"]
 [connection signal="pressed" from="BaseContainer/buildingsMenu/hBoxBtns/btnCat2" to="." method="_on_btn_cat_2_pressed"]

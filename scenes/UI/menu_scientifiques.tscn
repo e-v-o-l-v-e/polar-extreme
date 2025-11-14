@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://w68s7km80fw0"]
 
-[ext_resource type="Script" uid="uid://du2odojqprp4c" path="res://scripts/menu_scientifiques.gd" id="1_2bolv"]
-[ext_resource type="Texture2D" uid="uid://pthdnyca7pek" path="res://assets/UI/test.png" id="1_y5bk0"]
-[ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/menu_assignation_scientifiques.tscn" id="2_y5bk0"]
+[ext_resource type="Script" uid="uid://du2odojqprp4c" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
+[ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/menu_assignation_scientifiques.tscn" id="2_y5bk0"]
 
 [node name="menu_scientifiques" type="MarginContainer"]
 custom_minimum_size = Vector2(300, 530)
@@ -25,12 +25,12 @@ layout_mode = 2
 
 [node name="ninePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_y5bk0")
-region_rect = Rect2(0, 0, 32, 32)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+texture = ExtResource("2_54jhy")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/ninePatchRect"]
 layout_mode = 1
