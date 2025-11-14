@@ -1,6 +1,6 @@
 extends Node
 
-signal build_batiment(bname : Enums.BUILDING_NAME)
+signal build_batiment(bname : Enums.BUILDING_TYPE)
 
 signal start_building(building:Building)
 signal start_placing_path()
@@ -8,7 +8,7 @@ signal start_placing_path()
 signal validate_building_placement(building:Building)
 signal validate_placing_path(path:Path)
 
-func emit_build_batiment(bname : Enums.BUILDING_NAME):
+func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 
 

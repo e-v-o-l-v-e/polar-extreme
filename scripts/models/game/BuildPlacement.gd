@@ -118,10 +118,8 @@ func _place_building(_anim_name: StringName) -> void:
 		var instance: Building = building_data
 		instance.rotation = preview.rotation
 		instance.position = placement_position
-		instance.name = instance.name + "_" ;
-		#+ str(building_data.get_id())
+		instance.name = instance.name + "_"+ str(building_data.get_id())
 		%WorldGrid.add_child(instance)
-		#GameController.add_building(instance)
 		UiController.emit_validate_building_placement(instance)
 		stop_building()
 	elif in_path_placement:

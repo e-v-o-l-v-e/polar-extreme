@@ -27,9 +27,9 @@ class_name BuildingScience
 @export var projets_list: Array[Project] = []
 
 func _init():
-	super._init()
+	#super._init()
 	building_genre = Enums.BUILDING_GENRE.SCIENCE
-	building_type = Enums.BUILDING_TYPE.LABO
+	building_type = Enums.BUILDING_TYPE.NONE
 	
 func change_max_scientists(n: int):
 	nb_scientists_max += n

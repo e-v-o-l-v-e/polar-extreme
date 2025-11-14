@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b050ogkjtljob"]
 
-[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://v2/scenes/buildings/BuildingUtility.tscn" id="1_mj3y0"]
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_mj3y0"]
 
 [node name="Toilet" instance=ExtResource("1_mj3y0")]
 script = null

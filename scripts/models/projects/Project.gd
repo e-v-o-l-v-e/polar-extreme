@@ -46,7 +46,8 @@ func _ready():
 	timer.timeout.connect(finish)
 	
 func console(string: String) -> void:
-	print(BuildingManager.get_building(building_id).get_building_name() + ": " + string + " project " + project_name)
+	pass
+	#print(BuildingManager.get_building(building_id).get_building_name() + ": " + string + " project " + project_name)
 
 func start():
 	timer.paused = false

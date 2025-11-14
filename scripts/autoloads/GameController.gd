@@ -13,8 +13,8 @@ func set_grid(grid : TileMapLayer):
 	UiController.build_batiment.connect(_on_build_batiment)
 	UiController.validate_building_placement.connect(_on_validate_building_placement)
 	
-func _on_build_batiment(bname:Enums.BUILDING_NAME):
-	var building := building_manager.create_building(Enums.BUILDING_NAME.ICE_MINE)
+func _on_build_batiment(bname:Enums.BUILDING_TYPE):
+	var building := building_manager.create_building(Enums.BUILDING_TYPE.ICEMINE)
 	UiController.emit_start_building(building)
 	
 func _on_build_path():
