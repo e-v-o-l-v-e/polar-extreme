@@ -11,10 +11,10 @@ signal validate_placing_path(path:Path)
 signal delete_building
 
 signal enroll_scientist()
+signal new_hour(hour)
 
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
-
 
 func emit_start_building(building:Building):
 	start_building.emit(building)
@@ -37,3 +37,5 @@ func emit_enroll_scientist():
 func emit_start_delete_object():
 	start_delete_object.emit()
 	
+func emit_new_hour(hour):
+	new_hour.emit(hour)

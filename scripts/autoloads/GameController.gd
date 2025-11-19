@@ -7,10 +7,17 @@ extends Node2D
 @onready var gauges : Gauges = load("res://scripts/models/game/Gauges.gd").new()
 @onready var projects_manager : ProjectsManager = load("res://scripts/models/projects/ProjectsManager.gd").new()
 
+@onready var game_started := false
+
 func _ready():
 	pass
 
+func _process(delta) -> void :
+	if game_started :
+		time_manager.process_time(delta)
+
 func set_grid(grid : TileMapLayer):
+	game_started = true
 	world_manager.world_grid = grid
 	UiController.build_batiment.connect(_on_build_batiment)
 	UiController.enroll_scientist.connect(_on_enroll_scientist)
@@ -43,3 +50,9 @@ func get_building_manager() -> BuildingManager:
 
 func get_projects_manager() -> ProjectsManager:
 	return projects_manager
+
+func notify_scientist_new_hour(hour : int):
+	UiController.emit_new_hour(hour)
+
+func get_random_building_position() -> Vector2:
+	return building_manager.get_random_building_position()

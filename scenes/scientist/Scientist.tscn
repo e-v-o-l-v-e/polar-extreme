@@ -1,10 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dk3tmvweer7i"]
+[gd_scene load_steps=9 format=3 uid="uid://dk3tmvweer7i"]
 
-[ext_resource type="Script" uid="uid://c2u5gfoek5pf7" path="res://v2/scripts/models/Scientist.gd" id="1_dg5wj"]
+[ext_resource type="Script" uid="uid://c2u5gfoek5pf7" path="res://scripts/models/scientists/Scientist.gd" id="1_dg5wj"]
 [ext_resource type="Texture2D" uid="uid://76whrb6dwfsa" path="res://assets/npc/scientifique.png" id="2_umeaf"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_umeaf"]
-radius = 7.28011
 
 [sub_resource type="Animation" id="Animation_yc63n"]
 length = 0.001
@@ -99,22 +96,23 @@ _data = {
 }
 
 [node name="Scientist" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("1_dg5wj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -11)
 texture = ExtResource("2_umeaf")
 hframes = 4
 vframes = 4
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 1.0
+navigation_layers = 2
 path_postprocessing = 1
+simplify_path = true
 debug_enabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
-shape = SubResource("CircleShape2D_umeaf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

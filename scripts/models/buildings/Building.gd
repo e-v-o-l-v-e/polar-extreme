@@ -10,6 +10,7 @@ class_name Building
 @export var pollution_per_second: float
 
 func get_id() -> int:
+func get_id():
 	return id
 	
 func set_id(new_id: int) -> void:

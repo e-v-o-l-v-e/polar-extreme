@@ -26,6 +26,8 @@ var buildings_positions = {
 	Enums.BUILDING_TYPE.NONE : []
 }
 
+var buildings_positions_no_group := []
+
 func create_building(btype : Enums.BUILDING_TYPE) -> Building:
 	var building : Building = building_factory.create_building(btype)
 	building.name = "Building#" + str(building_counter)
@@ -39,6 +41,8 @@ func register(building : Building):
 	building_counter += 1
 	var type = building.get_building_type()
 	buildings_positions[type].append(building.global_position)
+	buildings_positions[type].append(building.get_door_position())
+	buildings_positions_no_group.append(building.get_door_position())
 	
 func unregister(building:Building):
 	var type = building.get_building_type()
@@ -46,3 +50,11 @@ func unregister(building:Building):
 	
 func get_building(id :int) -> Building:
 	return buildingsIds[id]
+
+func get_random_building_position() -> Vector2:
+	if buildings_positions_no_group.size() != 0:
+		return buildings_positions_no_group.pick_random()
+	else :
+		return Vector2(0,0)
+	#var key = buildings_positions.keys().pick_random()
+	#return buildings_positions[key].pick_random()
