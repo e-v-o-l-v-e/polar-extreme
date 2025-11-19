@@ -12,4 +12,7 @@ nb_scientists_working = 0
 nb_scientists_slots = 0
 nb_scientists_slots_max = 0
 projets_list = []
+id = 0
+building_name = ""
+building_description = ""
 building_type = 3

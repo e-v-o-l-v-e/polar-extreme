@@ -46,6 +46,7 @@ func want_to_change() -> bool:
 	return ( i < hours_in_same_building ) && can_change_target
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
+	navigation_agent.debug_enabled = false
 	visible = false
 	can_change_target = true
 
@@ -54,6 +55,7 @@ func change_target():
 	visible = true
 	can_change_target = false
 	navigation_agent.target_position = get_random_building_position()
+	navigation_agent.debug_enabled = true
 
 func get_random_building_position() -> Vector2:
 	return GameController.get_random_building_position()

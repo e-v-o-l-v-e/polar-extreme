@@ -8,6 +8,8 @@ extends Node2D
 @onready var projects_manager : ProjectsManager = load("res://scripts/models/projects/ProjectsManager.gd").new()
 @onready var game_started := false
 
+@onready var game_started := false
+
 func _ready():
 	pass
 
