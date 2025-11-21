@@ -3,6 +3,3 @@
 [ext_resource type="PackedScene" uid="uid://bvccgvdeejgkb" path="res://scenes/buildings/Building.tscn" id="1_acm3a"]
 
 [node name="BuildingUtility" instance=ExtResource("1_acm3a")]
-id = 0
-building_name = ""
-building_description = ""

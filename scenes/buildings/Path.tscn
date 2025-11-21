@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6eb3xgrqgvie"]
 
 [ext_resource type="Script" uid="uid://cwd8yi0wa0cbo" path="res://scripts/models/buildings/Path.gd" id="1_sqppf"]
-[ext_resource type="Texture2D" uid="uid://cl7lasfrqm2ms" path="res://assets/ground/path.png" id="2_7p83t"]
-[ext_resource type="Texture2D" uid="uid://bipdwdckdjqcc" path="res://assets/ground/preview_path.png" id="2_trmy3"]
+[ext_resource type="Texture2D" uid="uid://b2t0d34356gch" path="res://assets/ground/path.png" id="2_7p83t"]
+[ext_resource type="Texture2D" uid="uid://bavicub0meegn" path="res://assets/ground/preview_path.png" id="2_trmy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqppf"]
 size = Vector2(30, 30)

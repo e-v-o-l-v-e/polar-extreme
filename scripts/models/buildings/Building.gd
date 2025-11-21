@@ -12,7 +12,7 @@ class_name Building
 
 signal building_clicked(building : Building)
 
-func get_id():
+func get_id() -> int:
 	return id
 	
 func set_id(new_id: int) -> void:
