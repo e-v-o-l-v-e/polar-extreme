@@ -8,7 +8,7 @@ var project_state: int:
 	set (value):
 		project_state = max(value, 0)	# 0: created, 1: running, 2: paused, 3: finished
 
-var building_id := -1	# associated building
+var building: BuildingScience	# associated building
 
 var requirement_scientists: int 	# number of scientifics required for the project
 var timer: Timer
@@ -37,9 +37,9 @@ func _init(pid: int, pname: String, rew_sci: int, rew_prod: int, rew_sl: int, re
 	reward_pollution_per_second = rew_poll_ps
 	project_state = 0
 	
-func set_building_id(id: int) -> void:
-	building_id = id
-
+func set_building(b: Building) -> void:
+	building = b
+	
 func _ready():
 	timer = Timer.new()
 	timer.one_shot = true
@@ -47,8 +47,19 @@ func _ready():
 	timer.timeout.connect(finish)
 	
 func console(string: String) -> void:
-	pass
-	#print(BuildingManager.get_building(building_id).get_building_name() + ": " + string + " project " + project_name)
+	print(building.get_building_name() + ": " + string + " project " + project_name)
+	
+func copy() -> Project:
+	var new_project = Project.new(
+		project_id,
+		project_name,
+		reward_science,
+		reward_production,
+		reward_slots,
+		reward_pollution,
+		reward_pollution_per_second
+	)
+	return new_project
 
 func start():
 	timer.paused = false
@@ -74,8 +85,6 @@ func pause():
 func finish():
 	project_state = 3
 	
-	var building: BuildingScience
-	building = GameController.get_building_manager().get_building(building_id)
 	building.change_pollution(reward_pollution_per_second)
 	building.scientists_add_slots(reward_production)
 	
@@ -86,5 +95,20 @@ func finish():
 	
 	console("project finished")
 	
-func time_left() -> int:
+func get_time_left() -> int:
 	return int(timer.time_left)
+
+func get_time_elapsed() -> float:
+	return project_time - timer.time_left
+
+func get_time_total() -> int:
+	return int(project_time)
+	
+func get_project_name() -> String:
+	return project_name
+	
+func get_description() -> String:
+	return project_description
+
+func get_project_state() -> int:
+	return project_state

@@ -50,7 +50,7 @@ var list_greenhouse: Array[Project] = [
 ]
 
 # --- Récupération de la liste associée au batiment
-func get_list(type: Enums.BUILDING_TYPE, id: int) -> Array[Project]:
+func get_list(type: Enums.BUILDING_TYPE, building: Building) -> Array[Project]:
 	var source: Array[Project]
 	
 	match type:
@@ -71,8 +71,8 @@ func get_list(type: Enums.BUILDING_TYPE, id: int) -> Array[Project]:
 		
 	var new_list: Array[Project]
 	for example_project: Project in source:
-		var new_project := example_project.duplicate()
-		new_project.set_building_id(id)
+		var new_project := example_project.copy()
+		new_project.set_building(building)
 		new_list.append(new_project)
 		
 	return new_list

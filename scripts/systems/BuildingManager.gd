@@ -31,6 +31,14 @@ var buildings_positions_no_group := []
 func create_building(btype : Enums.BUILDING_TYPE) -> Building:
 	var building : Building = building_factory.create_building(btype)
 	building.name = "Building#" + str(building_counter)
+	
+	var plist = GameController.get_projects_manager().get_list(btype, building)
+	if plist and building.has_method("set_projects"):
+		building.set_projects(plist)
+		print("ajoute la liste")
+		print(str(btype) + building.name)
+		print("\n")
+		
 	return building
 
 func create_path() -> Path:

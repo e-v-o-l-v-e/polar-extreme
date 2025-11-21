@@ -35,6 +35,9 @@ func _init():
 	building_genre = Enums.BUILDING_GENRE.SCIENCE
 	building_type = Enums.BUILDING_TYPE.NONE
 
+func set_projects(plist: Array[Project]) -> void:
+	projets_list = plist
+
 func scientists_change_working(n: int):
 	nb_scientists_working += n
 
