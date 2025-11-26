@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://biyp1uwmfu6u4"]
 
-[ext_resource type="Script" uid="uid://dsi64vk1vf7kx" path="res://scripts/UI/projet.gd" id="1_cg0em"]
+[ext_resource type="Script" uid="uid://dirtohj8dh3m3" path="res://scripts/UI/projet.gd" id="1_cg0em"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_h6gdv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cg0em"]
@@ -12,18 +12,19 @@ texture_margin_bottom = 10.0
 region_rect = Rect2(320, 448, 64, 64)
 
 [node name="Projet" type="MarginContainer"]
-custom_minimum_size = Vector2(300, 100)
-offset_right = 300.0
+offset_right = 290.0
 offset_bottom = 100.0
 script = ExtResource("1_cg0em")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(250, 100)
+custom_minimum_size = Vector2(290, 100)
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 3
 
 [node name="Button" type="Button" parent="MarginContainer"]
 layout_mode = 2
@@ -33,9 +34,15 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cg0em")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Button"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -41.5
+offset_right = 130.0
+offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 5

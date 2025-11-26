@@ -1,4 +1,5 @@
 extends Control
+class_name SettingsMenu
 
 @onready var resolution_option_button: OptionButton = $Panel/HBoxContainer/VBoxContainer/ResolutionContainer/Resolution
 

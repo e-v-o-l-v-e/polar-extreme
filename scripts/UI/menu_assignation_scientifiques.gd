@@ -2,11 +2,7 @@ extends MarginContainer
 
 @export var BatScene : PackedScene
 
-@onready var text_pas_bat: Label = $ninePatchRect/textPasBat
-@onready var bat_container: VBoxContainer = $ninePatchRect/batContainer
-
-@onready var prev: Button = $VBoxContainer/HBoxContainer/Prev
-@onready var next: Button = $VBoxContainer/HBoxContainer/Next
+@onready var bat_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/batContainer
 
 var nbBat = 0;
 var nbPage = 1;
@@ -15,19 +11,6 @@ var nbBatPerPage = 0;
 
 var arrayBats = Array()
 
-
-func _process(delta: float) -> void:
-	if (nbBat == 0):
-		text_pas_bat.visible = true
-	else :
-		text_pas_bat.visible = false
-	
-	if (nbBat >= 5):
-		prev.visible = true
-		next.visible = true
-	else :
-		prev.visible = false
-		next.visible = false
 
 
 func _on_prev_pressed() -> void:

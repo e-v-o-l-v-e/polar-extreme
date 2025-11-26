@@ -2,11 +2,8 @@ extends MarginContainer
 
 @export var projectScene : PackedScene
 
-@onready var text_pas_projet: Label = $ninePatchRect/textPasProjet
-@onready var projet_container: VBoxContainer = $ninePatchRect/projetContainer
+@onready var projet_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/projetContainer
 
-@onready var prev: Button = $VBoxContainer/HBoxContainer/Prev
-@onready var next: Button = $VBoxContainer/HBoxContainer/Next
 
 var nbProject = 0;
 var nbPage = 1;
@@ -14,20 +11,6 @@ var nbPageTot = 1;
 var nbProjPerPage = 0;
 
 var arrayProjects = Array()
-
-
-func _process(delta: float) -> void:
-	if (nbProject == 0):
-		text_pas_projet.visible = true
-	else :
-		text_pas_projet.visible = false
-	
-	if (nbProject >= 5):
-		prev.visible = true
-		next.visible = true
-	else :
-		prev.visible = false
-		next.visible = false
 
 
 func _on_prev_pressed() -> void:
@@ -63,32 +46,35 @@ func _on_next_pressed() -> void:
 
 func _on_button_test_pressed() -> void:
 	nbProject += 1
-	if (nbProject-1)%5 == 0 and nbProject > 1 :
-		nbPageTot += 1
+	#if (nbProject-1)%5 == 0 and nbProject > 1 :
+	#	nbPageTot += 1
 
 	var proj = projectScene.instantiate()
 	arrayProjects.append(proj)
 	projet_container.add_child(proj)
 	
 	proj.setName(str(nbProject))
-	proj.setVisibility(false)
+	#proj.setVisibility(false)
 	
-	if nbProjPerPage < 5 :
-		proj.setVisibility(true)
-		nbProjPerPage += 1
+	proj.setVisibility(true)
+	#nbProjPerPage += 1
+	
+	#if nbProjPerPage < 5 :
+	#	proj.setVisibility(true)
+	#	nbProjPerPage += 1
 
 
 func _on_button_test_2_pressed() -> void:
-	if (nbProject > 0) :
-		if (nbProject-1)%5 == 0 and nbProject > 1 :
-			nbPageTot -= 1
+	#if (nbProject > 0) :
+	#	if (nbProject-1)%5 == 0 and nbProject > 1 :
+	#		nbPageTot -= 1
 		
-		projet_container.remove_child(arrayProjects.get(nbProject-1))
-		arrayProjects.remove_at(nbProject-1)
+	projet_container.remove_child(arrayProjects.get(nbProject-1))
+	arrayProjects.remove_at(nbProject-1)
 		
-		nbProject -= 1
-		nbProjPerPage -= 1
-		if nbProjPerPage == 0 :
-			nbProjPerPage = 4
-			nbPageTot -= 1
-			_on_prev_pressed()
+	nbProject -= 1
+	#	nbProjPerPage -= 1
+	#	if nbProjPerPage == 0 :
+	#		nbProjPerPage = 4
+	#		nbPageTot -= 1
+	#		_on_prev_pressed()

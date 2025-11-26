@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://cknf5uouy4rdw" path="res://scripts/UI/ui.gd" id="1_5en4g"]
+[ext_resource type="Script" uid="uid://o8pamx1yydlh" path="res://scripts/UI/ui.gd" id="1_5en4g"]
 [ext_resource type="Texture2D" uid="uid://pthdnyca7pek" path="res://assets/UI/test.png" id="1_dj8aq"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
@@ -45,8 +45,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 
 [node name="hBoxScience" type="HBoxContainer" parent="BaseContainer"]
