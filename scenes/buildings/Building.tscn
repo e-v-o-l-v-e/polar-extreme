@@ -12,5 +12,8 @@ scale = Vector2(4, 4)
 
 [node name="BuildingZone" type="CollisionShape2D" parent="."]
 
+[node name="DoorCollision" type="CollisionShape2D" parent="."]
+debug_color = Color(0.856041, 0.473787, 0, 0.42)
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -3,6 +3,7 @@ class_name BuildPlacement
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var preview: Sprite2D = $PreviewSprite
+@onready var door: CollisionShape2D = $DoorPreview
 
 @export var effect_size: Vector2 = Vector2(3, 3)
 
@@ -69,14 +70,17 @@ func start_building(building: Building) -> void:
 	var sprite_node: Sprite2D = building.get_node_or_null("Sprite2D")
 	if sprite_node:
 		preview.texture = sprite_node.texture
+	
+	var door_node : CollisionShape2D = building.get_node_or_null("DoorCollision")
+	if door_node:
+		door.shape = door_node.shape;
+		door_offset = door_node.position  
+
+		
 
 	var building_zone: CollisionShape2D = building.get_node_or_null("BuildingZone")
 	if building_zone:
 		effect_size = building_zone.shape.get_rect().size / 32
-	
-	var door_node = building.get_node_or_null("Door")
-	if door_node and door_node is Marker2D:
-		door_offset = door_node.position / 32
 
 func stop_building() -> void:
 	in_placement = false
@@ -96,12 +100,13 @@ func _update_mouse_positions() -> void:
 	var world_grid_pos: Vector2 = map_to_local(tile_under_mouse)
 
 	preview.position = world_grid_pos
+	var rotated_offset = door_offset.rotated(preview.rotation)
+	door.position = world_grid_pos + rotated_offset
 
 func _handle_rotation_input() -> void:
 	if Input.is_key_pressed(KEY_R):
 		preview.rotate(PI / 2)
 		effect_size = Vector2(effect_size.y, effect_size.x)
-		door_offset = Vector2(-door_offset.y, door_offset.x)
 
 func _handle_placement_preview(event: InputEvent) -> void:
 	if is_dragging_path:
@@ -113,13 +118,11 @@ func _handle_placement_preview(event: InputEvent) -> void:
 	var tile_under_mouse: Vector2i = local_to_map(to_local(get_global_mouse_position()))
 	var size = effect_size.round()
 	
-	var is_even_x = int(size.x) % 2 == 0
-	var is_even_y = int(size.y) % 2 == 0
 	
-	var start_x = -int(size.x / 2) if is_even_x else -int(size.x / 2)
-	var end_x = int(size.x / 2) if is_even_x else int(size.x / 2) + 1
-	var start_y = -int(size.y / 2) if is_even_y else -int(size.y / 2)
-	var end_y = int(size.y / 2) if is_even_y else int(size.y / 2) + 1
+	var start_x = -int(size.x / 2)
+	var end_x =int(size.x / 2) + 1
+	var start_y = -int(size.y / 2)
+	var end_y = int(size.y / 2) + 1
 
 	for i in range(start_x, end_x):
 		for j in range(start_y, end_y):
@@ -145,58 +148,32 @@ func _handle_placement_preview(event: InputEvent) -> void:
 					set_cell(pos, 0, Vector2i(2, 0))
 	
 	if in_placement and building_data != null:
-		var door_tiles = _get_door_tiles(tile_under_mouse)
-		print(door_tiles)
-		var door_has_path = true
-		for t in door_tiles:
-			var world_pos = map_to_local(t)
-			print(_is_adjacent_to_path(world_pos))
-			
-			if not _is_adjacent_to_path(world_pos):
-				door_has_path = false
-				break
-		
-		if not door_has_path:
+		var door_ok = _door_touches_path(building_data, map_to_local(tile_under_mouse))
+		if not door_ok:
 			can_be_placed = false
 			for cell_pos in cell_array:
 				set_cell(cell_pos, 0, Vector2i(1, 0))
 
+		
+				set_cell(cell_pos, 0, Vector2i(1, 0))
 
+func _door_touches_path(building: Building, cell_world_pos: Vector2) -> bool:
+	var shape = door.shape
+	var shape_transform = Transform2D(building.global_rotation, building.global_position + door.position.rotated(building.global_rotation))
 
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = shape
+	query.transform = shape_transform
+	query.collide_with_areas = true
+	query.collision_mask = 0xFFFFFFFF
 
+	var result = get_world_2d().direct_space_state.intersect_shape(query, 8)
 
-func _get_door_tiles(center_tile: Vector2i) -> Array[Vector2i]:
-	var tiles: Array[Vector2i] = []
+	for hit in result:
+		if hit.collider is Path:
+			return true
 
-	var size = effect_size.round()
-	var even_x = int(size.x) % 2 == 0
-	var even_y = int(size.y) % 2 == 0
-
-	var door_tile_offset = Vector2i(round(door_offset.x), round(door_offset.y))
-	var base_tile = center_tile + door_tile_offset
-	#%WorldGrid.add_child(instance)  	
-	if not even_x and not even_y:
-		tiles.append(base_tile)
-		return tiles
-
-	if even_x and not even_y:
-		tiles.append(base_tile)
-		tiles.append(base_tile + Vector2i(-1, 0))
-
-	elif even_y and not even_x:
-		tiles.append(base_tile)
-		tiles.append(base_tile + Vector2i(0, -1))
-
-	elif even_x and even_y:
-		if abs(door_offset.x) > abs(door_offset.y):
-			tiles.append(base_tile)
-			tiles.append(base_tile + Vector2i(0, -1))
-		else:
-			tiles.append(base_tile)
-			tiles.append(base_tile + Vector2i(-1, 0))
-
-	return tiles
-
+	return false
 
 
 func _is_adjacent_to_path(cell_world_pos: Vector2) -> bool:

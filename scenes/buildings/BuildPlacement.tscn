@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cism5ivh6jv6b"]
+[gd_scene load_steps=11 format=3 uid="uid://cism5ivh6jv6b"]
 
-[ext_resource type="Texture2D" uid="uid://cx2ws71crh7uw" path="res://assets/ground/ground_status.png" id="1_1f3ra"]
+[ext_resource type="Texture2D" uid="uid://47ebm1o7ucn7" path="res://assets/ground/ground_status.png" id="1_1f3ra"]
 [ext_resource type="Script" uid="uid://c1g1qopd4e4k4" path="res://scripts/models/game/BuildPlacement.gd" id="2_tbs4h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1f3ra"]
@@ -84,6 +84,8 @@ _data = {
 &"invalidPlacement": SubResource("Animation_ewve8")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsdil"]
+
 [node name="PlacementGrid" type="TileMapLayer"]
 z_index = 10
 tile_set = SubResource("TileSet_f2w8h")
@@ -97,5 +99,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_0r04f"),
 &"placementAnimationLib": SubResource("AnimationLibrary_n26yl")
 }
+
+[node name="DoorPreview" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wsdil")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_place_building"]
