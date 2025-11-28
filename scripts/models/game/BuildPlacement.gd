@@ -25,6 +25,8 @@ var is_dragging_path: bool = false
 var path_start_pos: Vector2i
 var path_preview_cells: Array[Vector2i] = []
 
+var door_offset: Vector2 = Vector2.ZERO
+
 
 func _ready() -> void:
 	UiController.start_building.connect(_on_building_signal)
@@ -71,6 +73,10 @@ func start_building(building: Building) -> void:
 	var building_zone: CollisionShape2D = building.get_node_or_null("BuildingZone")
 	if building_zone:
 		effect_size = building_zone.shape.get_rect().size / 32
+	
+	var door_node = building.get_node_or_null("Door")
+	if door_node and door_node is Marker2D:
+		door_offset = door_node.position / 32
 
 func stop_building() -> void:
 	in_placement = false
@@ -81,6 +87,7 @@ func stop_building() -> void:
 	preview.rotation = 0;
 	is_dragging_path = false
 	path_preview_cells.clear()
+	door_offset = Vector2.ZERO
 	
 func _update_mouse_positions() -> void:
 	var mouse_pos_glob: Vector2 = get_global_mouse_position()
@@ -94,6 +101,7 @@ func _handle_rotation_input() -> void:
 	if Input.is_key_pressed(KEY_R):
 		preview.rotate(PI / 2)
 		effect_size = Vector2(effect_size.y, effect_size.x)
+		door_offset = Vector2(-door_offset.y, door_offset.x)
 
 func _handle_placement_preview(event: InputEvent) -> void:
 	if is_dragging_path:
@@ -104,9 +112,17 @@ func _handle_placement_preview(event: InputEvent) -> void:
 
 	var tile_under_mouse: Vector2i = local_to_map(to_local(get_global_mouse_position()))
 	var size = effect_size.round()
+	
+	var is_even_x = int(size.x) % 2 == 0
+	var is_even_y = int(size.y) % 2 == 0
+	
+	var start_x = -int(size.x / 2) if is_even_x else -int(size.x / 2)
+	var end_x = int(size.x / 2) if is_even_x else int(size.x / 2) + 1
+	var start_y = -int(size.y / 2) if is_even_y else -int(size.y / 2)
+	var end_y = int(size.y / 2) if is_even_y else int(size.y / 2) + 1
 
-	for i in range(-size.x / 2, size.x / 2 + 1):
-		for j in range(-size.y / 2, size.y / 2 + 1):
+	for i in range(start_x, end_x):
+		for j in range(start_y, end_y):
 			var pos: Vector2i = tile_under_mouse + Vector2i(i, j)
 			cell_array.append(pos)
 			var cell_world_pos: Vector2 = map_to_local(pos)
@@ -127,6 +143,61 @@ func _handle_placement_preview(event: InputEvent) -> void:
 					can_be_placed = false
 				else:
 					set_cell(pos, 0, Vector2i(2, 0))
+	
+	if in_placement and building_data != null:
+		var door_tiles = _get_door_tiles(tile_under_mouse)
+		print(door_tiles)
+		var door_has_path = true
+		for t in door_tiles:
+			var world_pos = map_to_local(t)
+			print(_is_adjacent_to_path(world_pos))
+			
+			if not _is_adjacent_to_path(world_pos):
+				door_has_path = false
+				break
+		
+		if not door_has_path:
+			can_be_placed = false
+			for cell_pos in cell_array:
+				set_cell(cell_pos, 0, Vector2i(1, 0))
+
+
+
+
+
+func _get_door_tiles(center_tile: Vector2i) -> Array[Vector2i]:
+	var tiles: Array[Vector2i] = []
+
+	var size = effect_size.round()
+	var even_x = int(size.x) % 2 == 0
+	var even_y = int(size.y) % 2 == 0
+
+	var door_tile_offset = Vector2i(round(door_offset.x), round(door_offset.y))
+	var base_tile = center_tile + door_tile_offset
+	#%WorldGrid.add_child(instance)  	
+	if not even_x and not even_y:
+		tiles.append(base_tile)
+		return tiles
+
+	if even_x and not even_y:
+		tiles.append(base_tile)
+		tiles.append(base_tile + Vector2i(-1, 0))
+
+	elif even_y and not even_x:
+		tiles.append(base_tile)
+		tiles.append(base_tile + Vector2i(0, -1))
+
+	elif even_x and even_y:
+		if abs(door_offset.x) > abs(door_offset.y):
+			tiles.append(base_tile)
+			tiles.append(base_tile + Vector2i(0, -1))
+		else:
+			tiles.append(base_tile)
+			tiles.append(base_tile + Vector2i(-1, 0))
+
+	return tiles
+
+
 
 func _is_adjacent_to_path(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
@@ -173,7 +244,6 @@ func _place_building(_anim_name: StringName) -> void:
 		instance.rotation = preview.rotation
 		instance.position = placement_position
 		instance.name = instance.name + "_"+ str(building_data.get_id())
-		#%WorldGrid.add_child(instance)
 		UiController.emit_validate_building_placement(instance)
 		stop_building()
 	elif in_path_placement:

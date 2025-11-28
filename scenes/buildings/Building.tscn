@@ -10,6 +10,4 @@ script = ExtResource("1_l1dv4")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 
-[node name="PathZone" type="CollisionShape2D" parent="."]
-
 [node name="BuildingZone" type="CollisionShape2D" parent="."]
