@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://bvq1yuq0x2vwr" path="res://scripts/UI/ui.gd" id="1_5en4g"]
-[ext_resource type="Texture2D" uid="uid://br7x6j8kdymg4" path="res://assets/UI/test.png" id="1_dj8aq"]
+[ext_resource type="Script" uid="uid://o8pamx1yydlh" path="res://scripts/UI/ui.gd" id="1_5en4g"]
+[ext_resource type="Texture2D" uid="uid://pthdnyca7pek" path="res://assets/UI/test.png" id="1_dj8aq"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
-[ext_resource type="Texture2D" uid="uid://b3ydrmlkaecqc" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
 [ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/button_buildings.tscn" id="6_84lt7"]
-[ext_resource type="Script" uid="uid://b60e3cj5ojd8k" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
-[ext_resource type="Script" uid="uid://5eqfsa5cb0gk" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
-[ext_resource type="Script" uid="uid://tm2521nspjyb" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
+[ext_resource type="Script" uid="uid://b23jf8at13mhg" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
+[ext_resource type="Script" uid="uid://d23ke5o0ph3ws" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
+[ext_resource type="Script" uid="uid://cly0kdbjknccm" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8aq"]
 texture = ExtResource("1_dj8aq")
