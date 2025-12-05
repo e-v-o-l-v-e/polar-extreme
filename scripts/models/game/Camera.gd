@@ -8,12 +8,16 @@ var smooth_zoom: bool = true
 
 var dragging := false
 var velocity := Vector2.ZERO
+var locked:=false;
 
 
 func _ready() -> void:
 	UiController.zoom_building.connect(_zoom_towards_position)
+	UiController.lock_scroll_cam.connect(_lock_zoom)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if(locked):
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == drag_button:
 			dragging = event.pressed
@@ -56,3 +60,7 @@ func _zoom_towards_position(target_global: Vector2) -> void:
 
 func get_screen_position(world_pos: Vector2) -> Vector2:
 	return (world_pos - global_position) / zoom + get_viewport_rect().size * 0.5
+	
+func _lock_zoom(lock:bool):
+	print(lock)
+	locked = lock

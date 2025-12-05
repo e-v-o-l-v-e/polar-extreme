@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://beyu84kk13che"]
+
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_q6c0r"]
+
+[node name="BuildingUtility" instance=ExtResource("1_q6c0r")]
+building_name = "Douche"
+building_description = "Espace limité où l'eau est un luxe comptabilisé. Les sessions sont courtes et régulées, faisant de ce moment une routine précieuse.Contraintes polaires : Production d'eau chaude extrêmement coûteuse en énergie. La faible humidité de l'air assèche la peau."

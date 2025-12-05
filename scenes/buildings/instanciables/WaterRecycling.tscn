@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw4ka37hokrdx"]
+
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_s6tpw"]
+
+[node name="BuildingUtility" instance=ExtResource("1_s6tpw")]
+building_name = "Recyclage de l'eau"
+building_description = "Unité de traitement technique et vitale. Elle transforme toutes les eaux usées (douches, lavabos, cuisines) en eau pure pour être réutilisée, souvent pour les toilettes ou les labos."

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ibme4fulau2m"]
+
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_g4h51"]
+
+[node name="BuildingUtility" instance=ExtResource("1_g4h51")]
+building_name = "Centrale électrique"
+building_description = " Le battement de cœur bruyant et chaud de la base. Abritant les générateurs, c'est la source d'énergie pour la chaleur, la lumière, la science et la communication."

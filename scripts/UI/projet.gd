@@ -23,3 +23,18 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	timer.start(time)	# temps en secondes
 	timePercentage.max_value = time
+
+
+func _on_mouse_entered() -> void:
+	UiController.emit_lock_scroll_cam(true)
+	UiController.emit_lock_scroll_cam(true)
+	UiController.emit_lock_scroll_cam(true)
+	UiController.emit_lock_scroll_cam(true)
+
+
+func _on_mouse_exited() -> void:
+	UiController.emit_lock_scroll_cam(false)
+	UiController.emit_lock_scroll_cam(false)
+	UiController.emit_lock_scroll_cam(false)
+	UiController.emit_lock_scroll_cam(false)
+	

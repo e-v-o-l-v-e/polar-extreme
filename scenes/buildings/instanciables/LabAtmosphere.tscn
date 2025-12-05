@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c41cttyipdd8w"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_vngcl"]
-[ext_resource type="Texture2D" uid="uid://bb4wvegr2prwa" path="res://assets/building/atmospheric.png" id="2_fw34e"]
+[ext_resource type="Texture2D" uid="uid://ccjveyjilnurs" path="res://assets/building/atmospheric.png" id="2_fw34e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ods"]
 size = Vector2(223, 223)
@@ -9,6 +9,8 @@ size = Vector2(223, 223)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vngcl"]
 
 [node name="Atmospheric" instance=ExtResource("1_vngcl")]
+building_name = "Laboratoire de physique de l'atmosphère"
+building_description = "Couronné d'instruments de mesure et d'antennes. Il étudie la composition de l'air, le trou dans la couche d'ozone et les rayonnements cosmiques dans l'un des airs les plus purs de la planète."
 building_type = 1
 
 [node name="Door" parent="." index="0"]

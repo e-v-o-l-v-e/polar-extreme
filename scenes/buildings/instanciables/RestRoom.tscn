@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd4f8pb2yquvu"]
+
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_1hgbn"]
+
+[node name="BuildingUtility" instance=ExtResource("1_1hgbn")]
+building_name = "Salle de repos"
+building_description = " Espace convivial avec canapés, jeux, musique et films. Dédié au divertissement et à la déconnexion, loin des laboratoires et des écrans de travail.Contraintes polaires : Renouveler les distractions (livres, films) pour lutter contre l'ennui et la lassitude du groupe."

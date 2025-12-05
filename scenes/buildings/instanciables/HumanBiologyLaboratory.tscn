@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://7ghed8llht3y"]
+
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_hv7a8"]
+
+[node name="BuildingScience" instance=ExtResource("1_hv7a8")]
+building_name = "Laboratoire de biologie humaine"
+building_description = "Équipé de matériel médical et physiologique de pointe. Il est dédié à l'étude de l'adaptation du corps humain à l'isolement, au froid extrême et aux cycles de lumière polaires."

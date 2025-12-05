@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chv6wvteu06gi"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_wxps8"]
-[ext_resource type="Texture2D" uid="uid://byckcwqjio88q" path="res://assets/building/greenhouse.png" id="2_fhjap"]
+[ext_resource type="Texture2D" uid="uid://boccoc4q5t4lx" path="res://assets/building/greenhouse.png" id="2_fhjap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaw7a"]
 size = Vector2(63, 159)
@@ -10,6 +10,8 @@ size = Vector2(63, 159)
 size = Vector2(20, 12)
 
 [node name="Greenhouse" instance=ExtResource("1_wxps8")]
+building_name = "Serre"
+building_description = "Une bulle de vie et de chlorophylle sous lumière artificielle. Cette unité de production hydroponique fournit des légumes frais et améliore le moral par sa simple présence"
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 79)
@@ -24,4 +26,3 @@ shape = SubResource("RectangleShape2D_xaw7a")
 [node name="DoorCollision" parent="." index="3"]
 position = Vector2(0, 86)
 shape = SubResource("RectangleShape2D_wxps8")
-debug_color = Color(0.856041, 0.473787, 0, 0.42)

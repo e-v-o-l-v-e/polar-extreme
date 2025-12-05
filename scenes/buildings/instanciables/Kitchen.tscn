@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctfquxsq4bfon"]
+
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_ubq47"]
+
+[node name="BuildingUtility" instance=ExtResource("1_ubq47")]
+building_name = "Cuisine"
+building_description = "Cœur chaleureux et odorant de la station. Lieu de transformation des vivres et de création culinaire, c'est un espace de travail partagé et de convivialité informelle"

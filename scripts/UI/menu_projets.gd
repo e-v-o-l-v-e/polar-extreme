@@ -78,3 +78,12 @@ func _on_button_test_2_pressed() -> void:
 	#		nbProjPerPage = 4
 	#		nbPageTot -= 1
 	#		_on_prev_pressed()
+
+
+func _on_mouse_entered() -> void:
+	UiController.emit_lock_scroll_cam(true)
+	
+
+
+func _on_mouse_exited() -> void:
+	UiController.emit_lock_scroll_cam(false)

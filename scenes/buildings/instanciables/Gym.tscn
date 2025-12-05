@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8fxodu5ccwv8"]
+
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_3q2pg"]
+
+[node name="BuildingUtility" instance=ExtResource("1_3q2pg")]
+building_name = "Salle de sport"
+building_description = "Équipée de vélos, tapis de course et poids. Indispensable pour lutter contre l'atrophie musculaire et la baisse de moral induites par le confinement et le froid."

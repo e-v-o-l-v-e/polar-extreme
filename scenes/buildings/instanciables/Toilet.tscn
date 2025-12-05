@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b050ogkjtljob"]
+[gd_scene load_steps=2 format=3 uid="uid://cmx71iw15xqpj"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_mj3y0"]
 
-[node name="Toilet" instance=ExtResource("1_mj3y0")]
-script = null
+[node name="BuildingUtility" instance=ExtResource("1_mj3y0")]
+building_name = "Toilets"
+building_description = "Installations sanitaires basiques mais essentielles. Conçues pour un usage économe en eau et un traitement séparé des déchets solides et liquides."

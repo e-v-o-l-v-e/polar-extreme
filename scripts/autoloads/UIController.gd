@@ -22,6 +22,8 @@ signal science_second_changed(science_per_second: float)
 signal pollution_changed(pollution: float)
 signal wellness_changed(wellness: float)
 
+signal lock_scroll_cam()
+
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 
@@ -66,3 +68,6 @@ func emit_wellness_changed(wellness: float) -> void:
 
 func emit_change_category(cat_num : int) -> void:
 	ui_change_category.emit(cat_num)
+
+func emit_lock_scroll_cam(locked :bool)->void:
+	lock_scroll_cam.emit(locked)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyqplkquxyduf"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_028sa"]
-[ext_resource type="Texture2D" uid="uid://v77v2v2flxsg" path="res://assets/building/glaciology.png" id="2_8vvkn"]
+[ext_resource type="Texture2D" uid="uid://dunf3hl1sjcpw" path="res://assets/building/glaciology.png" id="2_8vvkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od3lo"]
 size = Vector2(159, 95)
@@ -9,6 +9,8 @@ size = Vector2(159, 95)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vvkn"]
 
 [node name="Glaciology" instance=ExtResource("1_028sa")]
+building_name = "Glaciology"
+building_description = "Bâtiment aux parois blanches et aux surfaces ultra-propres. Ici, les carottes de glace, archives du climat terrestre, sont analysées. Ce cœur scientifique décrypte l'histoire du climat sur des centaines de milliers d'années.Contraintes polaires : Le maintien d'une température stable et très basse (-25°C) pour les échantillons est critique et énergivore"
 building_type = 0
 
 [node name="Door" parent="." index="0"]

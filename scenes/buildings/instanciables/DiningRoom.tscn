@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://8wskbvlktw4d"]
+
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_x7ujq"]
+
+[node name="BuildingUtility" instance=ExtResource("1_x7ujq")]
+building_name = "Salle à manger"
+building_description = "Grande table commune, bibliothèque et vue sur l'extérieur. Bien plus qu'un lieu de repas, c'est l'agora de la station où se tissent les liens et où se partagent les informations"
