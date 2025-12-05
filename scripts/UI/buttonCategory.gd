@@ -41,7 +41,6 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	UiController.emit_change_category(category)
-	label.text = "ta mere"
 		
 
 

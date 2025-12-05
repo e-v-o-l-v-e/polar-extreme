@@ -24,6 +24,8 @@ signal wellness_changed(wellness: float)
 
 signal lock_scroll_cam()
 
+signal click_on_building(building : Building)
+
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 
@@ -71,3 +73,6 @@ func emit_change_category(cat_num : int) -> void:
 
 func emit_lock_scroll_cam(locked :bool)->void:
 	lock_scroll_cam.emit(locked)
+
+func emit_click_on_building(building : Building)->void:
+	click_on_building.emit(building)

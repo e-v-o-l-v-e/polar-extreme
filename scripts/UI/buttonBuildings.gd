@@ -45,7 +45,6 @@ func _on_button_pressed() -> void:
 		afficherPopup()
 		_on_button_pressed()
 	else :
-		label.text = "ta mere"
 		UiController.emit_build_batiment(btype)
 
 

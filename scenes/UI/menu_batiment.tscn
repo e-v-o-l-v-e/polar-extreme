@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4q2wpp4uf3ys"]
 
-[ext_resource type="Script" uid="uid://8j55h6nlx8uw" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
+[ext_resource type="Script" uid="uid://v4fyd5plmira" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
+[ext_resource type="Texture2D" uid="uid://di4qun7bcut85" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
 [ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="3_qxndm"]
 
 [node name="menu_batiment" type="MarginContainer"]
@@ -113,20 +113,25 @@ layout_mode = 2
 theme_override_constants/separation = -3
 
 [node name="Projet" parent="NinePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Projet2" parent="NinePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
 layout_mode = 2
 
 [node name="Projet3" parent="NinePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
 layout_mode = 2
 
 [node name="Projet4" parent="NinePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
 layout_mode = 2
 
 [node name="Projet5" parent="NinePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
 layout_mode = 2
 
 [node name="Projet6" parent="NinePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]

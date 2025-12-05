@@ -59,3 +59,4 @@ func get_random_building_position() -> Vector2:
 
 func zoom_camera(building : Building):
 	UiController.emit_zoom_building(building.global_position)
+	

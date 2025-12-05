@@ -1,12 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://on73whrfey7o"]
-[ext_resource type="Script" uid="uid://b2rwet5e3fdg6" path="res://scripts/UI/ui.gd" id="1_5en4g"]
+
+[ext_resource type="Script" uid="uid://ywj2xkma8k07" path="res://scripts/UI/ui.gd" id="1_5en4g"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
-[ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
+[ext_resource type="Texture2D" uid="uid://di4qun7bcut85" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
 [ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/button_buildings.tscn" id="6_84lt7"]
-[ext_resource type="Script" uid="uid://bvay0e4771amc" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
-[ext_resource type="Script" uid="uid://7tdbxbu0iljy" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
-[ext_resource type="Script" uid="uid://kwxwteubqq42" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
+[ext_resource type="Script" uid="uid://cx1xswno0wlcl" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
+[ext_resource type="Script" uid="uid://tmqmjems0efw" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
+[ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/menu_batiment.tscn" id="9_e6oqk"]
+[ext_resource type="Script" uid="uid://c7st4ux7j3hbx" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8aq"]
 texture = ExtResource("5_75u2n")
@@ -377,6 +379,15 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 icon = SubResource("AtlasTexture_wgnrc")
+
+[node name="menu_batiment" parent="." instance=ExtResource("9_e6oqk")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_right = 0.0
+grow_horizontal = 0
 
 [connection signal="pressed" from="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns/btnProjets" to="." method="_on_button_projets_pressed"]
 [connection signal="pressed" from="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns/btnScientists" to="." method="_on_button_scientists_pressed"]
