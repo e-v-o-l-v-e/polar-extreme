@@ -7,7 +7,6 @@ extends MarginContainer
 @onready var lbl_name = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/lblName
 
 
-var aaaa = false
 # Called when the node enters the scene tree for the first time.
 func _enter_tree():
 	UiController.click_on_building.connect(_on_click_on_building)
@@ -22,9 +21,17 @@ func _on_click_on_building(building : Building):
 	
 	var liste = GameController.get_projects_manager().get_list(building.building_type, building)
 	
+	for proj in projet_container.get_children() :
+		projet_container.remove_child(proj)
+	
 	for project in liste :
 		var proj = projectScene.instantiate()
 		projet_container.add_child(proj)
 		
 		proj.setName(project.get_project_name())
+		
+		proj.setStatus(project.get_project_state())
+		
+		
+		
 		proj.setVisibility(true)

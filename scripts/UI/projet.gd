@@ -2,28 +2,43 @@ extends MarginContainer
 
 @onready var nom: Label = $MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/nom
 @onready var timePercentage: ProgressBar = $MarginContainer/Button/MarginContainer/VBoxContainer/ProgressBar
-@onready var timer: Timer = $Timer
-@onready var timeLeft: Label = $MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/timeLeft
+@onready var status: Label = $MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/timeLeft
 
-var ID
-var time = 30
+var timeTotal : int
+var timeLeft : int
 
 
 func setName(text : String) :
-	
 	nom.text = text
-	ID = int(text)
+	
+func setStatus(statusValue : int) :
+	if statusValue == 0:
+		status.text = "non commencé"
+	elif statusValue == 1:
+		status.text = "en cours"
+	elif statusValue == 2:
+		status.text = "en pause"
+	elif statusValue >= 3:
+		status.text = "fini"
+	
+func setTime(time : int) :
+	timeTotal = time
+	timePercentage.max_value = timeTotal
+	
+func setTimeLeft(time : int) :
+	timeLeft = time
 
 func setVisibility(vis : bool) :
 	visible = vis
 
 func _process(delta: float) -> void:
-	timePercentage.value = timer.wait_time - timer.time_left
-	timeLeft.text = "%d:%02d" % [floor(timer.time_left / 60), int(timer.time_left) % 60]	# pour afficher au format min:sec
+	pass
+	#timeLeft.text = "%d:%02d" % [floor(timer.time_left / 60), int(timer.time_left) % 60]	# pour afficher au format min:sec
 
 func _ready() -> void:
-	timer.start(time)	# temps en secondes
-	timePercentage.max_value = time
+	pass
+	#timer.start(time)	# temps en secondes
+	#timePercentage.max_value = time
 
 
 func _on_mouse_entered() -> void:
@@ -39,3 +54,7 @@ func _on_mouse_exited() -> void:
 	UiController.emit_lock_scroll_cam(false)
 	UiController.emit_lock_scroll_cam(false)
 	
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.
