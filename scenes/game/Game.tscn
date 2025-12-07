@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://1np065kd0d37" path="res://scenes/game/WorldGrid.tscn" id="3_pbgo2"]
 [ext_resource type="PackedScene" uid="uid://on73whrfey7o" path="res://scenes/UI/UI.tscn" id="5_wnrko"]
 
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_04co1")
 
@@ -23,4 +22,3 @@ unique_name_in_owner = true
 
 [node name="PathRegions" type="NavigationRegion2D" parent="."]
 unique_name_in_owner = true
-
