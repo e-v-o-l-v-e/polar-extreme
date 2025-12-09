@@ -5,14 +5,15 @@ class_name buttonBuildings
 
 # exports (permet de modifier pour chaque bouton) et autres vars
 @export var textBuildingName : String
-@export var textPopup : String
 @export var icon_pos : Vector2		# commence à (0,0)
+@export var btype : Enums.BUILDING_TYPE
+
+@export var popup : PackedScene
 
 @onready var button: Button = $VBoxContainer/Button
 @onready var label: Label = $VBoxContainer/Control/NinePatchRect/MarginContainer/Label
 @onready var nine_patch_rect: NinePatchRect = $VBoxContainer/Control/NinePatchRect
 
-@export var btype : Enums.BUILDING_TYPE
 
 var alreadyCliked := false
 
@@ -67,8 +68,5 @@ func _on_button_pressed() -> void:
 
 
 func afficherPopup() -> void :
-	var popup := Popup.new()
-	popup.add_child(Label.new())
-	popup.get_child(0).text = textPopup
-	add_child(popup)
-	popup.popup_centered()
+	pass
+	#popup.setDesc()

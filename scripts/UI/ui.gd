@@ -2,13 +2,13 @@ extends Control
 # https://www.kodeco.com/45869762-making-responsive-ui-in-godot/
 # https://kidscancode.org/godot_recipes/4.x/ui/level_select/index.html
 
-@onready var menu_projects: MarginContainer = $BaseContainer/hBoxProjScien/MenuProjects
-@onready var menu_scientists: MarginContainer = $BaseContainer/hBoxProjScien/menuScientifics
+@onready var menu_projects: MarginContainer = $hBoxProjScien/MenuProjects
+@onready var menu_scientists: MarginContainer = $hBoxProjScien/menuScientifics
 
-@onready var h_box_btns: HBoxContainer = $BaseContainer/buildingsMenu/hBoxBtns
-@onready var h_box_btn_cat_1: HBoxContainer = $BaseContainer/buildingsMenu/hBoxBtnCat1
-@onready var h_box_btn_cat_2: HBoxContainer = $BaseContainer/buildingsMenu/hBoxBtnCat2
-@onready var h_box_btn_cat_3: HBoxContainer = $BaseContainer/buildingsMenu/hBoxBtnCat3
+@onready var h_box_btns: HBoxContainer = $buildingsMenu/hBoxBtns
+@onready var h_box_btn_cat_1: HBoxContainer = $buildingsMenu/hBoxBtnCat1
+@onready var h_box_btn_cat_2: HBoxContainer = $buildingsMenu/hBoxBtnCat2
+@onready var h_box_btn_cat_3: HBoxContainer = $buildingsMenu/hBoxBtnCat3
 
 func _ready() -> void:
 	UiController.connect("ui_change_category", _handle_category_changed)
