@@ -12,13 +12,6 @@ size = Vector2(95, 95)
 texture_filter = 1
 building_name = "Mine de glace"
 building_description = "Un puits ou une cave foré dans la glace millénaire. Cet entrepôt naturel à -50°C préserve les précieuses carottes de glace avant leur analyse et fournit de l'eau de fonte \"pure\" pour les expériences"
-science_max_per_second = 0
-nb_scientists_working = 0
-nb_scientists_slots = 0
-nb_scientists_slots_max = 0
-
-[node name="Door" parent="." index="0"]
-position = Vector2(0, 40)
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 72)

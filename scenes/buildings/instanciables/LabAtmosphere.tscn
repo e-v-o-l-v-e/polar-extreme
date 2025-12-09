@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c41cttyipdd8w"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_vngcl"]
-[ext_resource type="Texture2D" uid="uid://ccjveyjilnurs" path="res://assets/building/atmospheric.png" id="2_fw34e"]
+[ext_resource type="Texture2D" uid="uid://srss4k2ej1uk" path="res://assets/building/atmospheric.png" id="2_fw34e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ods"]
 size = Vector2(223, 223)
