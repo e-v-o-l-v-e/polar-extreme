@@ -207,30 +207,33 @@ func _handle_building_click(event: InputEvent) -> void:
 		placement_position = preview.position
 		animation_playing = true  
 		animation.play("placementAnimationLib/goodPlacement")
-
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not can_be_placed:
+		animation.play("placementAnimationLib/invalidPlacement")
+		
 func _clear_previous_preview() -> void:
 	for cell_pos in cell_array:
 		set_cell(cell_pos, 0, Vector2i(0, 0))
 	cell_array.clear()
 
-func _place_building(_anim_name: StringName) -> void:
-	animation_playing = false 
-	_clear_previous_preview()
-	if in_placement :
-		var instance: Building = building_data
-		instance.rotation = preview.rotation
-		instance.position = placement_position
-		instance.name = instance.name + "_"+ str(building_data.get_id())
-		UiController.emit_validate_building_placement(instance)
-		stop_building()
-	elif in_path_placement:
-		var instance: Path = path_data
-		instance.position = placement_position
-		instance.name = "Path" + str(n_path)
-		n_path += 1
-		%PathRegions.add_child(instance)
-		UiController.emit_validate_building_path(instance)
-		build_path()
+func _handle_animation_end(_anim_name: StringName) -> void:
+	if _anim_name == "placementAnimationLib/goodPlacement" :
+		animation_playing = false 
+		_clear_previous_preview()
+		if in_placement :
+			var instance: Building = building_data
+			instance.rotation = preview.rotation
+			instance.position = placement_position
+			instance.name = instance.name + "_"+ str(building_data.get_id())
+			UiController.emit_validate_building_placement(instance)
+			stop_building()
+		elif in_path_placement:
+			var instance: Path = path_data
+			instance.position = placement_position
+			instance.name = "Path" + str(n_path)
+			n_path += 1
+			%PathRegions.add_child(instance)
+			UiController.emit_validate_building_path(instance)
+			build_path()
 	
 func _cell_collides(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
