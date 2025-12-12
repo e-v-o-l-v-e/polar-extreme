@@ -1,7 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd4f8pb2yquvu"]
+[gd_scene load_steps=5 format=3 uid="uid://bd4f8pb2yquvu"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_1hgbn"]
+[ext_resource type="Texture2D" uid="uid://btb0xad717y81" path="res://assets/buildings/life/restroom.png" id="2_ycalw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ef3"]
+size = Vector2(95, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lro8x"]
 
 [node name="RestRoom" instance=ExtResource("1_1hgbn")]
 building_name = "Salle de repos"
 building_description = " Espace convivial avec canapés, jeux, musique et films. Dédié au divertissement et à la déconnexion, loin des laboratoires et des écrans de travail.Contraintes polaires : Renouveler les distractions (livres, films) pour lutter contre l'ennui et la lassitude du groupe."
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 48)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_ycalw")
+
+[node name="BuildingZone" parent="." index="2"]
+shape = SubResource("RectangleShape2D_y4ef3")
+
+[node name="DoorCollision" parent="." index="3"]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_lro8x")

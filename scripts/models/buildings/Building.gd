@@ -46,3 +46,7 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	mouse_hover = false
+	
+func get_door_position():
+	var door : Marker2D = get_node_or_null("Door")
+	return door.global_position

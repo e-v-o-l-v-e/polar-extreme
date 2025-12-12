@@ -56,9 +56,5 @@ func science_production_pause() -> void:
 	producing = false
 	GameController.get_gauges().change_science_per_second(-1 * science_per_second)
 
-func get_door_position():
-	var door : Marker2D = get_node_or_null("Door")
-	return door.global_position
-
 func production_pause() -> void:
 	producing = false

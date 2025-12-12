@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://7ghed8llht3y"]
 
-[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_hv7a8"]
-[ext_resource type="Texture2D" uid="uid://qtwep8sf4qsw" path="res://assets/buildings/labo/biology.png" id="2_hb4v8"]
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_h1gip"]
+[ext_resource type="Texture2D" uid="uid://qtwep8sf4qsw" path="res://assets/buildings/labo/biology.png" id="2_f06i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb4v8"]
 size = Vector2(159, 159)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvrhd"]
 
-[node name="HumanBiology" instance=ExtResource("1_hv7a8")]
+[node name="HumanBiology" instance=ExtResource("1_h1gip")]
 building_name = "Laboratoire de biologie humaine"
 building_description = "Équipé de matériel médical et physiologique de pointe. Il est dédié à l'étude de l'adaptation du corps humain à l'isolement, au froid extrême et aux cycles de lumière polaires."
 
@@ -17,7 +17,7 @@ position = Vector2(0, 80)
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(1, 1)
-texture = ExtResource("2_hb4v8")
+texture = ExtResource("2_f06i3")
 
 [node name="BuildingZone" parent="." index="2"]
 shape = SubResource("RectangleShape2D_hb4v8")
