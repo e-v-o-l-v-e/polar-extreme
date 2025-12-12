@@ -1,99 +1,107 @@
-# T3 25 SCI25 A  
+# Polar Extreme (T3 25 SCI25 A)
 
-## Cahier des charges  
+## Équipe
 
-### 1. Présentation du projet
+- Claudel Gauthier : développeur back
+- Courseaux Lucie : chef d'équipe, dévelopeur back, designer
+- Dausse Capucine : dévelopeuse front, designer
+- Preiss Ivanoé : développeur back
 
-#### 1.1. Nom du jeu
-Polar Extreme
+## 1. Présentation
 
-#### 1.2. Type de jeu
-Jeu de gestion en 2D vue de dessus (Rimworld like)
+## 1.2 Concept
 
-### 2. Contexte & objectifs
+Polar Extrême est un jeu sérieux de gestion, en 2D vu du dessus, s'inspirant de Rimworld (entre autre).
 
-#### 2.1. Objectifs
-Comprendre les enjeux scientifiques, humains et environnementaux liés à l’implantation et à la gestion d’une station de recherche en Antarctique, un milieu extrême hostile.  
+Dans Polar Extreme le joueur devient le concepteur et chef d'une base scientifique en Antarctique. Il doit maximiser la production scientifique, tout en prenant en compte l'écosystème. Ce faisant il découvrira, entre autre, le fonctionnement d'une vraie base polaire, et les différents pôles scientifiques.
 
-- **Comprendre l’environnement de l'Antarctique**
-  Identifier les caractéristiques géographiques, climatiques et les contraintes de vie liées à ce milieu extrême et isolé.  
+## 1.2 Objectifs
 
-- **Relever les défis techniques et logistiques**
-  Analyser les enjeux de conception, de construction et de gestion durable d'une station scientifique en Antarctique.  
+L'objectif du jeu pour les développeurs.euses est de faire comprendre au joueur les enjeux scientifiques, humains et environnementaux liés à la construction et la gestion d’une station de recherche au pôles sud.
 
-- **Explorer les dimensions humaines**
+- **Scientifique**
+  Découvrir le travail des scientifiques dans une base polaire.
+
+- **Logistique**
+  Analyser les enjeux de conception, de construction et de gestion durable et écologique d'une station scientifique en Antarctique, un milieu extrêmement hostile à l'être humain.
+
+- **Humain**
   Comprendre les impacts psychologiques, culturels et sociaux de la vie en communauté dans un environnement isolé et multiculturel.  
 
-#### 2.2. Contraintes
-- Date début : 3 septembre 2025
-- Date fin : 19 décembre 2025
-- Equipe de 4 personnes
+## 2. Lancer le jeu.
 
-### 3. Description du gameplay
+### 2.1 Linux
 
-#### 3.1. Vue & style
-- 2D
-- Vue de dessus
-- Pixel art 
+Téléchargez et lancez [Polar Extreme Linux](./bin/polar-extreme-linux)
 
-#### 3.2. Mécaniques principales
-- Gestion d'une base polaire passant par
-  - Construction / amélioration de bâtiments
-  - Engagement de scientifiques (pnjs) permettant l'exploitation de ces bâtiments
-  - Construction de chemins permettant de relier ces batîments et d'y conduire les scientifiques
-- Production d'une monnaie / score appelée **Science** via la construction et la gestion de bâtiments
-- Limite de temps avec score final
+### 2.2 Windows
 
-#### 3.3. Durée de vie
-- 30 minutes de jeu pour une première partie
-- 2 fins possibles :
-  - Arriver à la fin du temps imparti : victoire & score
-  - Base s'effondre avant la fin du temps imparti : défaite & 0 point
+Téléchargez et lancez [Polar Extreme Windows](./bin/polar-extreme-windows)
 
-### 4. Spécifications techniques
+## 3. Gameplay
 
-#### 4.1. Moteur de jeu
-Godot 4 (GDScript)
+### 3.1 But du Jeu
 
-#### 4.2. Plateformes visées
+Le but du jeu pour le joueur est de produire de la science, dans la plus grande quantité possible.
+
+### 3.2 Fin du jeu
+
+Les parties durent 5 minutes par défault pour la démo, les joueurs peuvent continuer à jouer après s'ils le veulent, il y aura un tableau de meilleur score à 5 minutes.
+
+
+### 3.3 Bâtiments
+
+Les batiments se répartissent en 2 catégories : **Scientifique** et **Utilitaire**.
+Les bâtiments scientifiques servent à produire de la science et à lancer des projets octroyant diverses récompenses.
+Les bâtiments utilitaire servent à héberger et nourir les scientifiques, à produire de l'éléctricité, et à d'autres tâches n'ayant pas de lien direct avec la production de science.
+
+Le joueur doit placer ses batiments en fonction du terrain et des besoins.
+Les bâtiments doivent être reliés par des chemins pour permettre aux scientifiques de se déplacer sereinement.
+
+### 3.4 Science
+
+### 3.4.1 Bâtiments
+
+Chaque bâtiment scientifique peut produire de la science de manière passive, si des scientifiques y sont assignés. La quantité de science produite augmente proportionellement au nombre de scientifique dans le bâtiment.
+
+### 3.4.2 Projets
+
+Des projets peuvent être lancés dans les bâtiments scientifiques. Pour lancer un projet le joueur doit y consacrer un nombre de scientifique variables. Chaque projets peut donner
+  - un montant certain de science (affecté par le bien-être)
+  - une augmentation de la productivité du bâtiments
+  - une augmentation du nombre possible de scientifiques dans le batiments
+  - une certaine quantité de pollution
+  - une amélioration de l'impact écologique du batiment.
+
+### 3.5 Bien-Être
+
+Les scientifiques sont des êtres humains, ainsi leur santé impacte-t-elle grandement leur productivité et la qualité de leur travail, nous avons donc implémenté une jauge de bien-être. Lorsqu'elle est dans le positif cela veut dire que les scientifiques vont bien, ils sont donc plus productifs et cela augmente la science qu'ils créent. Lorsqu'elle est dans le négatif c'est l'inverse.
+
+### 3.6 Pollution
+
+Une autre jauge à prendre en compte est celle de pollution. Une base polaire ne doit pas détruire l'écosystème dans lequel elle se trouve, malheuresement l'activité humaine est problématique pour l'environnement, ainsi certains projets et bâtiments vont polluer et faire monter cette jauge. Si trop haute elle augmente la probabilité d'évenements climatiques dangeureux pour la base et les scientifiques. Elle affecte aussi la jauge de bien-être. Le joueur devra faire attention à cette jauge en choisissant les projets qu'il lance.
+
+## 4. Spécifications Techniques
+
+### 4.1 Moteur
+
+Le jeu a été codé sous Godot 4 en GDScript.
+
+### 4.2 Plateformes
+
+Le jeu est disponible sous les plateformes suivantes :
 - Windows
 - Linux
+- (Web & Android)
 
-### 5. Direction artistique
+### 4.3 Input
 
-#### 5.1. Graphismes
-- Pixel art 32px
-- Couleurs dominantes : blanc & bleu
+Le jeu se joue à la souris.
 
-#### 5.2. Interface utilisateur
-- UI moyennement chargée
-- Souris + clavier (possibilité de jouer uniquement souris)
+### 4.4 Interface Utilisateur
 
-#### 5.3. Inspirations visuelles
-- Rimworld
-
-## Explications avancées des mécaniques 
-
-### Menu du jeu
-- 3 options disponibles :
-  - Nouvelle partie
-  - Paramètres
-  - Quitter
-- Si possible : 4eme option pour voir les scores sur un site web
-
-### Paramètres
-- Résolution
-- Plein écran
-- VSync
-- Volume
-  - Effets sonores
-  - Musiques
-- Sélection avec clic droit ou clic gauche
-
-### En jeu
-
-#### Interface utilisateur
-![UI](assets/ui_readme.png)
+TODO: mettre image à jour
+![UI](assets/ui_readme.png) 
 
 - En haut à gauche : 
   - Compteur de Science + accès au déblocage de nouveaux bâtiments (≃ arbre de compétence)
@@ -108,58 +116,6 @@ Godot 4 (GDScript)
   - Jauge d'indice écologique
   - Jauge de bien-être global des scientifiques
 
-#### Construction d'un bâtiment
+# Crédits
 
-Quand le joueur veut créer un batîment, le menu de construction les affichera répartis en 3 catégories :
-- Recherche
-  - Laboratoire de glaciologie
-  - Laboratoire de physique de l'atmosphère
-  - Laboratoire de magnétisme & sismologie
-  - Laboratoire de biologie humaine
-  - Mine de glace
-  - Serre
-- Vie quotidienne
-  - Chambres
-  - Cuisines
-  - Salle à manger
-  - Toilettes
-  - Douches
-  - Salle de repos
-  - Salle de sport
-- Technique
-  - Tri des déchets
-  - Recyclage de l'eau
-  - Centrale électrique 
-
-#### Projets de recherche  
-- Chaque projet = taux de risque  
-  - Plus de risque = plus de récompenses, mais plus de chance de flop  
-- **Jauge de risques** :  
-  - Chaque lancement de projet = probabilité d’échec plus ou moins forte  
-  - En cas d'échec : impact sur bien-être des scientifiques et/ou impact sur l'écologie
-- **Tableau des projets en cours** :  
-  - Affiché sur le côté gauche de la zone de jeu (déroulant)
-  - A la fin du projet, bouton pour récupérer les récompenses
-
-#### Bien-être   
-- Jauge de bien-être :  
-  - Influence sur l’efficacité des projets  
-  - Comprise entre 0 et 200%
-- Beaucoup de bâtiments ont une influence sur le bien-être et la productivité  
-
-#### Jauges et compteurs principaux
-- **Science**  
-  - Affichée en haut à gauche  
-  - Production dépend des projets actifs  
-  - Arbre de progression : débloque de nouveaux bâtiments ou augmente les limites  
-- **Bien-être**
-  - Déterminé par de nombreux facteurs : qualité des batîments, surpopulation, propreté, etc...
-  - Influe sur la productivité de "science"  
-- **Productivité**  
-  - Nombre d’unités de science produites par secondes
-- **Écologie**  
-  - Respect de l'environnement par achat de bâtiments et lancement de projets + ou - éco-responsables
-  - Ajoute un bonus / malus de points à la fin de la partie
-
-## Crédits
   - Godot Engine : https://godotengine.org/license
