@@ -10,11 +10,11 @@ func enroll_scientist() -> Scientist :
 	scientist_total += 1
 	return scientist_factory.make_scientist()
 	
-func assign_scientist(n_scientist : int) :
-	scientist_occupied += n_scientist
+func assign_scientist() :
+	scientist_occupied += 1
 	
-func deassign_scientist(n_scientist : int) :
-	scientist_occupied -= n_scientist
+func deassign_scientist() :
+	scientist_occupied -= 1
 
 func enough_scientist_for_assignement(n_scientist : int) -> bool :
 	return n_scientist <= (scientist_total - scientist_occupied) 

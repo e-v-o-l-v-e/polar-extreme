@@ -11,6 +11,12 @@ signal validate_placing_path(path:Path)
 signal delete_building
 
 signal enroll_scientist()
+signal assign_scientist()
+signal deassign_scientist()
+signal update_assign_scientist()
+signal update_deassign_scientist()
+
+
 signal new_hour(hour)
 
 signal zoom_building(building_position : Vector2)
@@ -45,6 +51,20 @@ func emit_validate_building_path(path:Path):
 
 func emit_enroll_scientist():
 	enroll_scientist.emit()
+	
+func emit_assign_scientist():
+	assign_scientist.emit()
+	
+func emit_deassign_scientist():
+	deassign_scientist.emit()
+	
+func emit_update_assign_scientist():
+	print("dndefemeejifemfeef")
+	update_assign_scientist.emit()
+	
+func emit_update_deassign_scientist():
+	print("dndefemef")
+	update_deassign_scientist.emit()
 
 func emit_start_delete_object():
 	start_delete_object.emit()

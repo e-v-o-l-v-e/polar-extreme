@@ -23,6 +23,8 @@ func set_grid(grid : TileMapLayer):
 	UiController.enroll_scientist.connect(_on_enroll_scientist)
 	UiController.validate_building_placement.connect(_on_validate_building_placement)
 	UiController.delete_building.connect(_on_delete_building)
+	UiController.assign_scientist.connect(_on_assign_scientist)
+	UiController.deassign_scientist.connect(_on_deassign_scientist)
 
 func _on_build_batiment(bname:Enums.BUILDING_TYPE):
 	var building := building_manager.create_building(bname)
@@ -39,17 +41,20 @@ func _on_delete_building(building:Building):
 	building_manager.unregister(building)
 
 
-
-
 func _on_enroll_scientist():
 	var scientist_to_place : Scientist = scientist_manager.enroll_scientist()
 	world_manager.place_scientist(scientist_to_place)
 	
-func assign_scientist(n_scientist : int) :
-	scientist_manager.assign_scientist(n_scientist)
 	
-func deassign_scientist(n_scientist : int) :
-	scientist_manager.deassign_scientist(n_scientist)
+func _on_assign_scientist() :
+	scientist_manager.assign_scientist()
+	print("denmfemfemfe")
+	UiController.emit_update_assign_scientist()
+	
+func _on_deassign_scientist() :
+	scientist_manager.deassign_scientist()
+	print("denmfemfemfedzqdzqdzdzq")
+	UiController.emit_update_deassign_scientist()
 
 func enough_scientist_for_assignement(n_scientist : int) -> bool :
 	return scientist_manager.enough_scientist_for_assignement(n_scientist) 

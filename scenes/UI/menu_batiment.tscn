@@ -203,3 +203,5 @@ layout_mode = 2
 visible = false
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect/btnExpl" to="." method="_on_btn_expl_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3/btnRem" to="." method="_on_btn_rem_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3/btnAdd" to="." method="_on_btn_add_pressed"]

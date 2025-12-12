@@ -73,6 +73,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="ninePatchRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Projets"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -88,11 +88,13 @@ layout_mode = 2
 
 [node name="txtAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Assignés à un batiment"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Assignés"
 
 [node name="nbrAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "000"
 
 [node name="btnAssignToBat" type="Button" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -103,20 +105,6 @@ icon = SubResource("AtlasTexture_54jhy")
 flat = true
 expand_icon = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 50)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="txtAssignedProj" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Assignés à un projet"
-
-[node name="nbrAssignedProj" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 10
-text = "000"
-
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(225, 50)
 layout_mode = 2
@@ -124,11 +112,13 @@ size_flags_horizontal = 0
 
 [node name="txtUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Non assignés"
 
 [node name="nbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "000"
 
 [node name="MenuAssignationScientifiques" parent="HBoxContainer" instance=ExtResource("2_y5bk0")]

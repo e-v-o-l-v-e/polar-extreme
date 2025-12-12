@@ -21,11 +21,15 @@ func _ready() -> void:
 
 
 func _on_assignation_pressed() -> void:
+	UiController.emit_assign_scientist()
+	
 	nombreScientifiques += 1
 	nombre_scient.text = str(nombreScientifiques)
 
 
 func _on_desassignation_pressed() -> void:
 	if nombreScientifiques > 0:
+		UiController.emit_deassign_scientist()
+	
 		nombreScientifiques -= 1
 		nombre_scient.text = str(nombreScientifiques)
