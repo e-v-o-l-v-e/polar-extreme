@@ -1,8 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://cam8g26afpinm"]
+[gd_scene load_steps=9 format=3 uid="uid://cam8g26afpinm"]
 
 [ext_resource type="Script" uid="uid://bel4f5vei2xdu" path="res://scripts/models/scientists/Plane.gd" id="1_rkv03"]
 [ext_resource type="Texture2D" uid="uid://csq3ksmtrnacf" path="res://assets/npc/plane.png" id="2_jkmwb"]
+[ext_resource type="Texture2D" uid="uid://bu1bwhtqhohev" path="res://icon.svg" id="3_jkmwb"]
+[ext_resource type="Shader" uid="uid://dq1q3x41tstva" path="res://assets/path/path.gdshader" id="3_qfbax"]
 
-[node name="Plane" type="Sprite2D"]
-texture = ExtResource("2_jkmwb")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdu58"]
+shader = ExtResource("3_qfbax")
+
+[sub_resource type="Curve" id="Curve_qfbax"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.566667, 0.662921), -1.24844, -1.24844, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mdu58"]
+curve = SubResource("Curve_qfbax")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qfbax"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+angle_min = -90.0
+angle_max = 90.0
+inherit_velocity_ratio = 0.1
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.03
+scale_max = 0.1
+alpha_curve = SubResource("CurveTexture_mdu58")
+
+[node name="Plane" type="Node2D"]
 script = ExtResource("1_rkv03")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 2
+material = SubResource("ShaderMaterial_mdu58")
+position = Vector2(39, 0)
+amount = 16
+texture = ExtResource("3_jkmwb")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_qfbax")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
+texture = ExtResource("2_jkmwb")

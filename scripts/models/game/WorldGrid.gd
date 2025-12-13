@@ -10,6 +10,7 @@ var scientists_to_place : Array[Scientist]
 
 func _ready() -> void:
 	plane.make_scientist.connect(_on_make_scientist)
+	plane.anim_end.connect(_restart_animation)
 
 func get_scientist_spawn_position() -> Vector2:
 	return scientist_spawn_position.global_position
@@ -30,3 +31,7 @@ func _on_make_scientist():
 
 func add_building(building_scene : Building):
 	building_container.add_child(building_scene)
+	
+func _restart_animation():
+	if not scientists_to_place.is_empty() and not plane.anim:
+		plane.start_animation(Vector2(2000,scientist_spawn_position.global_position.y), scientist_spawn_position.global_position)

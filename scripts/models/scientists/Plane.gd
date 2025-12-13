@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 class_name ScientistPlane
 
 const SPEED : int = 200
@@ -9,6 +9,7 @@ var scientist_spawn_pos : Vector2
 var signal_emited : bool
 
 signal make_scientist
+signal anim_end
 
 func _ready() -> void:
 	visible = false
@@ -31,3 +32,4 @@ func _process(delta: float) -> void:
 			visible = false
 			anim = false
 			signal_emited = false
+			anim_end.emit()
