@@ -50,10 +50,12 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 	can_change_target = true
 
 func change_target():
-	hours_in_same_building = 0
-	visible = true
-	can_change_target = false
-	navigation_agent.target_position = get_random_building_position()
+	var new_position = get_random_building_position()
+	if new_position.distance_to(navigation_agent.target_position) > 10 :
+		navigation_agent.target_position = new_position
+		hours_in_same_building = 0
+		visible = true
+		can_change_target = false
 
 func get_random_building_position() -> Vector2:
 	return GameController.get_random_building_position()
