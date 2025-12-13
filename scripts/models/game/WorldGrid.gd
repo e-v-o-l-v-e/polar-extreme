@@ -4,13 +4,29 @@ class_name WorldGrid
 @onready var scientist_spawn_position: Marker2D = $ScientistSpawnPosition
 @onready var scientist_container = $ScientistContainer
 @onready var building_container = $BuildingContainer
+@onready var plane: ScientistPlane = $Plane
+
+var scientists_to_place : Array[Scientist]
+
+func _ready() -> void:
+	plane.make_scientist.connect(_on_make_scientist)
 
 func get_scientist_spawn_position() -> Vector2:
 	return scientist_spawn_position.global_position
 
 func add_scientist(scientist_scene : Scientist) :
-	scientist_scene.global_position = scientist_spawn_position.global_position
-	scientist_container.add_child(scientist_scene)
+	scientists_to_place.append(scientist_scene)
+	if not plane.anim :
+		plane.start_animation(Vector2(2000,scientist_spawn_position.global_position.y), scientist_spawn_position.global_position)
+	
+	
+func _on_make_scientist():
+	for scientist in scientists_to_place:
+		scientist.global_position = scientist_spawn_position.global_position
+		scientist.global_position.x += randf_range(-30,30)
+		scientist_container.add_child(scientist)
+		
+	scientists_to_place.clear()
 
 func add_building(building_scene : Building):
 	building_container.add_child(building_scene)

@@ -9,8 +9,6 @@ func _ready():
 	instance.position = world_grid_pos
 	instance.name = "Path" + str(0)
 	%PathRegions.add_child(instance)
-	
-
 
 func _on_button_4_pressed() -> void:
 	UiController.emit_start_delete_object()
