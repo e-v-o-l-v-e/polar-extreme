@@ -69,3 +69,4 @@ func get_building_description(btype : Enums.BUILDING_TYPE) -> String :
 	return building_descriptions[btype]
 	#var key = buildings_positions.keys().pick_random()
 	#return buildings_positions[key].pick_random()
+	

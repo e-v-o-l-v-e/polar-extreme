@@ -8,6 +8,9 @@ class_name Building
 @export var building_genre : Enums.BUILDING_GENRE
 @export var building_type: Enums.BUILDING_TYPE
 @export var pollution_per_second: float
+@export var max_scientist_number : int
+
+var scientist_number : int = 0
 
 @onready var mouse_hover := false
 
@@ -50,3 +53,23 @@ func _on_mouse_exited() -> void:
 func get_door_position():
 	var door : Marker2D = get_node_or_null("Door")
 	return door.global_position
+
+func add_scientist() -> bool:
+	if scientist_number + 1 <= max_scientist_number:
+		scientist_number += 1
+		return true
+	else :
+		return false
+	
+func remove_scientist() -> bool:
+	if scientist_number - 1 > 0:
+		scientist_number -= 1
+		return true
+	else:
+		return false
+	
+func get_scientist_number() -> int:
+	return scientist_number
+
+func get_max_scientist_number() -> int:
+	return max_scientist_number
