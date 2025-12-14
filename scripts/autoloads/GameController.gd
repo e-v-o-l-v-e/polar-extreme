@@ -103,6 +103,5 @@ func zoom_camera(building : Building):
 func get_building_description(btype : Enums.BUILDING_TYPE) -> String :
 	return building_manager.get_building_description(btype)
 
-
 func _update_gauges() :
 	gauges.update_gauges()

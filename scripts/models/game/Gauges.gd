@@ -33,7 +33,7 @@ func get_science() -> float:
 	return science
 
 func change_science(value: float) -> bool:
-	if science + value > 0:
+	if science + value >= 0:
 		science += value
 		print("Gauges, science : enough credit, deduce and validate request")
 		return true
