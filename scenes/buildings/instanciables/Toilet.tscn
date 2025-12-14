@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmx71iw15xqpj"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_mj3y0"]
-[ext_resource type="Texture2D" uid="uid://b35u50hu0ssjw" path="res://assets/buildings/life/toilets.png" id="2_mj3y0"]
+[ext_resource type="Texture2D" uid="uid://cf6ujqof3omr3" path="res://assets/buildings/life/toilets.png" id="2_mj3y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rafc"]
 size = Vector2(31, 31)
@@ -15,13 +15,13 @@ building_description = "Installations sanitaires basiques mais essentielles. Con
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 16)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1, 1)
 texture = ExtResource("2_mj3y0")
 
-[node name="BuildingZone" parent="." index="2"]
+[node name="BuildingZone" parent="." index="3"]
 shape = SubResource("RectangleShape2D_4rafc")
 
-[node name="DoorCollision" parent="." index="3"]
+[node name="DoorCollision" parent="." index="4"]
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_l3e4y")

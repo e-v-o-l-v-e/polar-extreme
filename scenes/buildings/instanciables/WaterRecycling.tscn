@@ -15,13 +15,13 @@ building_description = "Unité de traitement technique et vitale. Elle transform
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 80)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1, 1)
 texture = ExtResource("2_uips4")
 
-[node name="BuildingZone" parent="." index="2"]
+[node name="BuildingZone" parent="." index="3"]
 shape = SubResource("RectangleShape2D_75e2j")
 
-[node name="DoorCollision" parent="." index="3"]
+[node name="DoorCollision" parent="." index="4"]
 position = Vector2(0, 80)
 shape = SubResource("RectangleShape2D_5865t")

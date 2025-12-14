@@ -8,7 +8,7 @@ size = Vector2(95, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ddi8"]
 
-[node name="BuildingScience" instance=ExtResource("1_aj2hn")]
+[node name="IceMine" instance=ExtResource("1_aj2hn")]
 texture_filter = 1
 science_per_second = 3.0
 nb_scientists_slots = 3

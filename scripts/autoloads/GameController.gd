@@ -22,6 +22,7 @@ func _ready():
 func _process(delta) -> void :
 	if game_started :
 		time_manager.process_time(delta)
+		
 
 
 func set_grid(grid : TileMapLayer):

@@ -96,6 +96,7 @@ _data = {
 }
 
 [node name="Scientist" type="CharacterBody2D"]
+z_index = 1
 y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("1_dg5wj")

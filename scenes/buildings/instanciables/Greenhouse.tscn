@@ -16,13 +16,13 @@ building_description = "Une bulle de vie et de chlorophylle sous lumière artifi
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 79)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1, 1)
 texture = ExtResource("2_fhjap")
 
-[node name="BuildingZone" parent="." index="2"]
+[node name="BuildingZone" parent="." index="3"]
 shape = SubResource("RectangleShape2D_xaw7a")
 
-[node name="DoorCollision" parent="." index="3"]
+[node name="DoorCollision" parent="." index="4"]
 position = Vector2(0, 86)
 shape = SubResource("RectangleShape2D_wxps8")

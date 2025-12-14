@@ -9,16 +9,12 @@ size = Vector2(223, 223)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vngcl"]
 
 [node name="Atmospheric" instance=ExtResource("1_vngcl")]
-z_index = 2
 building_name = "Laboratoire de physique de l'atmosphère"
 building_description = "Couronné d'instruments de mesure et d'antennes. Il étudie la composition de l'air, le trou dans la couche d'ozone et les rayonnements cosmiques dans l'un des airs les plus purs de la planète."
 building_type = 1
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 112)
-
-[node name="GPUParticles2D" parent="." index="1"]
-preprocess = 0.2
 
 [node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1, 1)

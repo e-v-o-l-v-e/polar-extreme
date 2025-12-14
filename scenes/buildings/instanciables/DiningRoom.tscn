@@ -15,9 +15,6 @@ building_description = "Grande table commune, bibliothèque et vue sur l'extéri
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 47)
 
-[node name="GPUParticles2D" parent="." index="1"]
-preprocess = 0.2
-
 [node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1, 1)
 texture = ExtResource("2_xy5ji")
