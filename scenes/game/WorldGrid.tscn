@@ -1,47 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://1np065kd0d37"]
 
-[ext_resource type="Texture2D" uid="uid://bf1cw7f64qc81" path="res://assets/ground/base.png" id="1_6lrwf"]
+[ext_resource type="Texture2D" uid="uid://dsg8kf0ifpb2f" path="res://assets/ground/ground.png" id="1_c6rlt"]
 [ext_resource type="Script" uid="uid://bvmvi0q40lxv8" path="res://scripts/models/game/WorldGrid.gd" id="2_n77ic"]
 [ext_resource type="PackedScene" uid="uid://cam8g26afpinm" path="res://scenes/scientist/Plane.tscn" id="3_c6rlt"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_puwje"]
-texture = ExtResource("1_6lrwf")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rls5s"]
+texture = ExtResource("1_c6rlt")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/probability = 0.7
+0:0/0/probability = 0.97
 1:0/0 = 0
-1:0/0/probability = 0.3
+1:0/0/probability = 0.01
 2:0/0 = 0
-2:0/0/probability = 0.3
-0:1/0 = 0
-0:1/0/probability = 0.3
-1:1/0 = 0
-1:1/0/probability = 0.3
-2:1/0 = 0
-2:1/0/probability = 0.3
-0:2/0 = 0
-0:2/0/probability = 0.3
-1:2/0 = 0
-1:2/0/probability = 0.3
-2:2/0 = 0
-2:2/0/probability = 0.3
+2:0/0/probability = 0.01
 3:0/0 = 0
-3:0/0/probability = 0.3
-3:1/0 = 0
-3:1/0/probability = 0.3
-3:2/0 = 0
-3:2/0/probability = 0.3
-0:3/0 = 0
-0:3/0/probability = 0.3
-1:3/0 = 0
-1:3/0/probability = 0.3
-2:3/0 = 0
-2:3/0/probability = 0.3
-3:3/0 = 0
-3:3/0/probability = 0.3
+3:0/0/probability = 0.01
 
 [sub_resource type="TileSet" id="TileSet_bwisc"]
-sources/0 = SubResource("TileSetAtlasSource_puwje")
+tile_size = Vector2i(32, 32)
+sources/2 = SubResource("TileSetAtlasSource_rls5s")
 
 [node name="WorldGrid" type="TileMapLayer"]
 tile_set = SubResource("TileSet_bwisc")
