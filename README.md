@@ -119,3 +119,4 @@ TODO: mettre image à jour
 # Crédits
 
   - Godot Engine : https://godotengine.org/license
+  - Effets sonores fournis par Pixabay (https://pixabay.com)
