@@ -26,7 +26,7 @@ func _on_click_on_building(building : Building):
 	lbl_name.text = building.get_building_name()
 	lbl_desc.text = GameController.get_building_description(building.building_type)
 	
-	if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):
+	if buil.building_genre == Enums.BUILDING_GENRE.SCIENCE and buil.has_method("get_nbr_scientist"):
 		lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
 	
 		for proj in projet_container.get_children() :
