@@ -9,9 +9,15 @@ extends Node2D
 @onready var game_started := false
 
 const START_SCIENCE : int = 500
+var update_time := 1.0
 
 func _ready():
-	pass
+	var timer = Timer.new()
+	timer.wait_time = update_time
+	timer.autostart = true
+	timer.one_shot = false
+	add_child(timer)
+	timer.timeout.connect(_update_gauges)
 
 func _process(delta) -> void :
 	if game_started :
@@ -96,3 +102,7 @@ func zoom_camera(building : Building):
 	
 func get_building_description(btype : Enums.BUILDING_TYPE) -> String :
 	return building_manager.get_building_description(btype)
+
+
+func _update_gauges() :
+	gauges.update_gauges()
