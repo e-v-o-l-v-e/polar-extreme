@@ -13,7 +13,9 @@ class_name buttonBuildings
 @onready var nine_patch_rect: NinePatchRect = $VBoxContainer/Control/NinePatchRect
 @onready var popup: Popup = $Popup
 
-
+@export var building_path : String
+var building_scene
+var building_instance
 
 var alreadyCliked := false
 
@@ -36,25 +38,27 @@ func set_button_icon_hovered() -> void:
 	var atlas := AtlasTexture.new()
 	atlas.atlas = preload("res://assets/UI/tilesetT3_hovered.png")
 	atlas.region = Rect2(icon_pos * Vector2(64, 64), Vector2(64, 64))
-
 	button.icon = atlas
 	
-
+func _process(delta: float) -> void:
+	if building_scene:
+		button.disabled = building_instance.price > GameController.get_gauges().science
 
 func _ready() -> void:
 	label.text = textBuildingName
 	set_button_icon_nor()
-
+	if not building_path.is_empty():
+		building_scene = load(building_path)
+		building_instance = building_scene.instantiate()
+	
 
 func _on_button_mouse_entered() -> void:
 	set_button_icon_hovered()
 	nine_patch_rect.visible = true
 
-
 func _on_button_mouse_exited() -> void:
 	set_button_icon_nor()
 	nine_patch_rect.visible = false
-
 
 func _on_button_pressed() -> void:
 	set_button_icon_pressed()
@@ -65,7 +69,6 @@ func _on_button_pressed() -> void:
 	else :
 		UiController.emit_build_batiment(btype)
 		set_button_icon_nor()
-
 
 func afficherPopup() -> void :
 	popup.visible = true
