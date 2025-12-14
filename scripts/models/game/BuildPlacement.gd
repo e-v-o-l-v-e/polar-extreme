@@ -383,6 +383,7 @@ func _place_all_paths() -> void:
 		%PathRegions.add_child(instance)
 		UiController.emit_validate_building_path(instance)
 	
+	animation.play("placementAnimationLib/goodPathPlacement")
 	build_path()
 	
 	

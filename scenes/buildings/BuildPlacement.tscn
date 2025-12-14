@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cism5ivh6jv6b"]
+[gd_scene load_steps=13 format=3 uid="uid://cism5ivh6jv6b"]
 
 [ext_resource type="Texture2D" uid="uid://wldownj4btbw" path="res://assets/ground/ground_status.png" id="1_1f3ra"]
 [ext_resource type="Script" uid="uid://c1g1qopd4e4k4" path="res://scripts/models/game/BuildPlacement.gd" id="2_tbs4h"]
+[ext_resource type="AudioStream" uid="uid://cexedo07tvgl" path="res://assets/sounds/snow-step-1-81064.mp3" id="3_pc82g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1f3ra"]
 texture = ExtResource("1_1f3ra")
@@ -60,6 +61,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1.5, 1.5), Vector2(1, 1)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.133937,
+"start_offset": 0.22,
+"stream": ExtResource("3_pc82g")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ewve8"]
 resource_name = "invalidPlacement"
@@ -78,8 +94,28 @@ tracks/0/keys = {
 "values": [Vector2(-10, 0), Vector2(-10, 0), Vector2(10, 0), Vector2(-10, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_pc82g"]
+resource_name = "goodPathPlacement"
+length = 0.15
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.1339,
+"start_offset": 0.22,
+"stream": ExtResource("3_pc82g")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n26yl"]
 _data = {
+&"goodPathPlacement": SubResource("Animation_pc82g"),
 &"goodPlacement": SubResource("Animation_wsdil"),
 &"invalidPlacement": SubResource("Animation_ewve8")
 }
@@ -102,5 +138,8 @@ libraries = {
 
 [node name="DoorPreview" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wsdil")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_handle_animation_end"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cam8g26afpinm"]
+[gd_scene load_steps=10 format=3 uid="uid://cam8g26afpinm"]
 
 [ext_resource type="Script" uid="uid://bel4f5vei2xdu" path="res://scripts/models/scientists/Plane.gd" id="1_rkv03"]
 [ext_resource type="Texture2D" uid="uid://csq3ksmtrnacf" path="res://assets/npc/plane.png" id="2_jkmwb"]
 [ext_resource type="Texture2D" uid="uid://bu1bwhtqhohev" path="res://icon.svg" id="3_jkmwb"]
 [ext_resource type="Shader" uid="uid://dq1q3x41tstva" path="res://assets/path/path.gdshader" id="3_qfbax"]
+[ext_resource type="AudioStream" uid="uid://gkyrerxjbmko" path="res://assets/sounds/plane-78723.mp3" id="5_mdu58"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mdu58"]
 shader = ExtResource("3_qfbax")
@@ -44,3 +45,9 @@ process_material = SubResource("ParticleProcessMaterial_qfbax")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
 texture = ExtResource("2_jkmwb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mdu58")
+autoplay = true
+max_distance = 500.0
+parameters/looping = true
