@@ -6,6 +6,10 @@ var scientist_factory : ScientistFactory = load("res://scripts/factories/Scienti
 var scientist_total = 0
 var scientist_occupied = 0
 
+const SCIENTIST_START_PRICE : float = 1
+const SCIENTIST_PRICE_FACTOR : float = 1.1
+var scientist_price = SCIENTIST_START_PRICE
+
 func enroll_scientist() -> Scientist :
 	scientist_total += 1
 	return scientist_factory.make_scientist()
@@ -24,3 +28,9 @@ func get_scientist_total() -> int :
 	
 func get_scientist_occupied() -> int :
 	return scientist_occupied
+
+func get_scientist_price() -> float:
+	return scientist_price
+	
+func increase_price()->void:
+	scientist_price += scientist_price * SCIENTIST_PRICE_FACTOR

@@ -104,3 +104,11 @@ func get_building_description(btype : Enums.BUILDING_TYPE) -> String :
 
 func _update_gauges() :
 	gauges.update_gauges()
+
+func pay_scientist() ->bool:
+	if gauges.science >= scientist_manager.get_scientist_price():
+		gauges.change_science(-scientist_manager.get_scientist_price())
+		scientist_manager.increase_price()
+		return true
+	else:
+		return false
