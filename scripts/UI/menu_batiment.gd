@@ -2,6 +2,8 @@ extends MarginContainer
 
 @export var projectScene : PackedScene
 
+@onready var menu_batiment: MarginContainer = $"."
+
 @onready var lbl_name: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/lblName
 @onready var projet_container: VBoxContainer = $NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer
 
@@ -21,6 +23,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _on_click_on_building(building : Building):
+	menu_batiment.visible = true
 	buil = building
 	
 	lbl_name.text = building.get_building_name()
@@ -63,3 +66,7 @@ func _on_btn_rem_pressed() -> void:
 		if buil.remove_scientist() :
 			UiController.emit_deassign_scientist()
 			lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
+
+
+func _on_btn_quit_pressed() -> void:
+	menu_batiment.visible = false

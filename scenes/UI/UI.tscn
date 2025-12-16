@@ -28,21 +28,6 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_t1j05"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_81vvl"]
 resource_name = "not_enough_credit"
 length = 0.9
@@ -306,8 +291,8 @@ category = 1
 [node name="btnCat2" parent="buildingsMenu/hBoxBtns" instance=ExtResource("6_84lt7")]
 layout_mode = 2
 script = ExtResource("8_2ttv2")
-textBuildingName = "Créer un bâtiment de ..."
-textPopup = "Les bâtiments de ..."
+textBuildingName = "Créer un bâtiment de vie commune"
+textPopup = "Les bâtiments de vie commune"
 icon_pos = Vector2(1, 0)
 category = 2
 
@@ -547,6 +532,7 @@ flat = true
 expand_icon = true
 
 [node name="menu_batiment" parent="." instance=ExtResource("9_e6oqk")]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -563,6 +549,7 @@ mouse_filter = 0
 mouse_force_pass_scroll_events = false
 
 [node name="AffichageProjet" parent="." instance=ExtResource("12_81vvl")]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_top = 0.0
@@ -593,3 +580,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="buildingsMenu/hBoxBtnCat1/btnBack" to="." method="_on_btn_back_pressed"]
 [connection signal="pressed" from="buildingsMenu/hBoxBtnCat2/btnBack" to="." method="_on_btn_back_pressed"]
 [connection signal="pressed" from="buildingsMenu/hBoxBtnCat3/btnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="ParametersMargin/Parameters" to="." method="_on_parameters_pressed"]

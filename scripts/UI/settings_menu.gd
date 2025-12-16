@@ -9,18 +9,18 @@ func _ready() -> void:
 	$Panel/HBoxContainer/VBoxContainer/Volume.value = db_to_linear(AudioServer.get_bus_volume_db(0))
 
 func add_resolutions():
-	for r in GuiAutoload.resolutions:
+	for r in Gui.resolutions:
 		resolution_option_button.add_item(r)
 		
 func update_button_values():
 	var window_size_string = str(get_window().size.x, "x", get_window().size.y)
-	var resolution_index = GuiAutoload.gui_components.find(window_size_string)
+	var resolution_index = Gui.gui_components.find(window_size_string)
 	resolution_option_button.selected = resolution_index
 
 func _on_option_button_item_selected(index: int) -> void:
 	var key = resolution_option_button.get_item_text(index)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	get_window().set_size(GuiAutoload.resolutions[key])
+	get_window().set_size(Gui.resolutions[key])
 	center_window()
 
 func center_window():

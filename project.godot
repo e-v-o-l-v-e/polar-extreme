@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 Enums="*res://scripts/autoloads/Enums.gd"
 GameController="*res://scripts/autoloads/GameController.gd"
 UiController="*res://scripts/autoloads/UIController.gd"
-GuiAutoload="*res://scripts/autoload/gui_autoload.gd"
+Gui="*res://scripts/autoloads/Gui.gd"
 
 [display]
 
