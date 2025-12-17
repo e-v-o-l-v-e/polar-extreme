@@ -6,10 +6,13 @@ extends MarginContainer
 
 @onready var lbl_name: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/lblName
 @onready var projet_container: VBoxContainer = $NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer
+@onready var assignement_container: HBoxContainer = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2
+@onready var lbl_project: Label = $NinePatchRect/VBoxContainer/VBoxContainer/Label
 
 @onready var lbl_desc: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/lblDesc
 @onready var pop_desc_building: Popup = $popDescBuilding
 @onready var lbl_nbr: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/lblNbr
+
 
 var buil : Building
 
@@ -31,9 +34,13 @@ func _on_click_on_building(building : Building):
 	
 	lbl_name.text = building.get_building_name()
 	lbl_desc.text = GameController.get_building_description(building.building_type)
+	assignement_container.visible = (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE)
+	lbl_project.visible = (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE)
+	projet_container.visible = (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE)
 	
 	if buil.building_genre == Enums.BUILDING_GENRE.SCIENCE and buil.has_method("get_nbr_scientist"):
 		lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
+		
 	
 		for proj in projet_container.get_children() :
 			projet_container.remove_child(proj)

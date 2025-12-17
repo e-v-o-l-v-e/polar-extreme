@@ -17,7 +17,6 @@ class_name buttonBuildings
 var building_scene
 var building_instance
 
-var alreadyCliked := false
 
 # methodes
 func set_button_icon_nor() -> void:
@@ -41,16 +40,15 @@ func set_button_icon_hovered() -> void:
 	button.icon = atlas
 	
 func _process(delta: float) -> void:
-	
 	if building_scene:
 		button.disabled = building_instance.price > GameController.get_gauges().science
 
 func _ready() -> void:
-	label.text = textBuildingName
 	set_button_icon_nor()
 	if not building_path.is_empty():
 		building_scene = load(building_path)
 		building_instance = building_scene.instantiate()
+		label.text = textBuildingName + "\n(Coût : " + str(building_instance.price) + ")"
 	
 
 func _on_button_mouse_entered() -> void:
@@ -63,13 +61,8 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	set_button_icon_pressed()
-	if !alreadyCliked :
-		alreadyCliked = true
-		afficherPopup()
-		_on_button_pressed()
-	else :
-		UiController.emit_build_batiment(btype)
-		set_button_icon_nor()
+	UiController.emit_build_batiment(btype)
+	set_button_icon_nor()
 
 func afficherPopup() -> void :
 	popup.visible = true

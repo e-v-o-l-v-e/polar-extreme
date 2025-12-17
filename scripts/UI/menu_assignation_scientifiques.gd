@@ -59,10 +59,12 @@ func _update_build_list(new_building : Building):
 		for build in bat_container.get_children() :
 			bat_container.remove_child(build)
 		
-	for build in listBuildings :
-		add_bat_to_list(build)
+	for build : Building in listBuildings :
+		if build.building_genre == Enums.BUILDING_GENRE.SCIENCE:
+			add_bat_to_list(build)
 	if new_building:
-		add_bat_to_list(new_building)
+		if new_building.building_genre == Enums.BUILDING_GENRE.SCIENCE:
+			add_bat_to_list(new_building)
 
 func add_bat_to_list(building : Building):
 	var Bat := BatScene.instantiate()
