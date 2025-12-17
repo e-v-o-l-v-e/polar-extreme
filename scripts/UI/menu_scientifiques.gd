@@ -39,7 +39,7 @@ func _on_visibility_changed() -> void:
 func _on_btn_recruit_pressed() -> void:
 	if GameController.pay_scientist():
 		UiController.emit_enroll_scientist()
-		nbr_unassigned.text = str(GameController.get_scientist_total())
+		nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
 		nbrScientists += 1
 		nbrScientistsUnassigned += 1
 		_update_recruit_price()
