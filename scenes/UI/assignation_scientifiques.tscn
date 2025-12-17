@@ -1,15 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://tw7k06bbbxk2"]
+[gd_scene load_steps=12 format=3 uid="uid://tw7k06bbbxk2"]
 
-[ext_resource type="Script" uid="uid://cuhmeynu3wwv6" path="res://scripts/UI/assignation_scientifiques.gd" id="1_fs1uh"]
-[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="2_v4cla"]
-[ext_resource type="AudioStream" uid="uid://c5axf30pf6gv2" path="res://assets/sounds/cancel-36118.mp3" id="3_8arik"]
+[ext_resource type="Script" uid="uid://clxy3avwab3cl" path="res://scripts/UI/assignation_scientifiques.gd" id="1_fs1uh"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_v4cla"]
+[ext_resource type="AudioStream" uid="uid://decv6sjk825g7" path="res://assets/sounds/cancel-36118.mp3" id="3_8arik"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_j0pj8"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_qu5ql"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4cla"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcub3"]
 atlas = ExtResource("2_v4cla")
 region = Rect2(256, 128, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8arik"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6ws4"]
+atlas = ExtResource("3_j0pj8")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6tne"]
+atlas = ExtResource("4_qu5ql")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhqeg"]
 atlas = ExtResource("2_v4cla")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wluu2"]
+atlas = ExtResource("3_j0pj8")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktwyy"]
+atlas = ExtResource("4_qu5ql")
 region = Rect2(256, 192, 64, 64)
 
 [node name="AssignationScientifiques" type="MarginContainer"]
@@ -74,26 +92,29 @@ text = "0/0"
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="assignation" type="Button" parent="MarginContainer/nine/MarginContainer/HBoxContainer"]
+[node name="assignation" type="TextureButton" parent="MarginContainer/nine/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
 layout_mode = 2
-icon = SubResource("AtlasTexture_v4cla")
-flat = true
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_bcub3")
+texture_pressed = SubResource("AtlasTexture_t6ws4")
+texture_hover = SubResource("AtlasTexture_y6tne")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/nine/MarginContainer/HBoxContainer/assignation"]
 stream = ExtResource("3_8arik")
 volume_db = 10.0
 
-[node name="desassignation" type="Button" parent="MarginContainer/nine/MarginContainer/HBoxContainer"]
+[node name="desassignation" type="TextureButton" parent="MarginContainer/nine/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
 layout_mode = 2
-icon = SubResource("AtlasTexture_8arik")
-flat = true
-icon_alignment = 1
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_dhqeg")
+texture_pressed = SubResource("AtlasTexture_wluu2")
+texture_hover = SubResource("AtlasTexture_ktwyy")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="MarginContainer/nine/MarginContainer/HBoxContainer/assignation" to="." method="_on_assignation_pressed"]
 [connection signal="pressed" from="MarginContainer/nine/MarginContainer/HBoxContainer/desassignation" to="." method="_on_desassignation_pressed"]

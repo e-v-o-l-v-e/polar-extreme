@@ -1,16 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://on73whrfey7o"]
+[gd_scene load_steps=29 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://cfglvx6t7ul1r" path="res://scripts/UI/ui.gd" id="1_5en4g"]
+[ext_resource type="Script" uid="uid://o8pamx1yydlh" path="res://scripts/UI/ui.gd" id="1_5en4g"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
-[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
 [ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/button_buildings.tscn" id="6_84lt7"]
-[ext_resource type="Script" uid="uid://d0ltfahl0385u" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
-[ext_resource type="Script" uid="uid://belta2lfpl277" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
+[ext_resource type="Script" uid="uid://b23jf8at13mhg" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
+[ext_resource type="Script" uid="uid://d23ke5o0ph3ws" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
 [ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/menu_batiment.tscn" id="9_e6oqk"]
-[ext_resource type="Texture2D" uid="uid://ddioolhpqigaw" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
-[ext_resource type="Script" uid="uid://rvw3dbm3viha" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
-[ext_resource type="Texture2D" uid="uid://bmvyfsf5ftlhg" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
+[ext_resource type="Script" uid="uid://cly0kdbjknccm" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
 [ext_resource type="PackedScene" uid="uid://crfeo28407j76" path="res://scenes/UI/affichage_projet.tscn" id="12_81vvl"]
 [ext_resource type="PackedScene" uid="uid://bcmr70ltlhs1e" path="res://scenes/UI/gauges.tscn" id="13_t1j05"]
 
@@ -51,40 +51,52 @@ _data = {
 &"not_enough_credit": SubResource("Animation_81vvl")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8aq"]
-texture = ExtResource("5_75u2n")
-region_rect = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ob0dx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1j05"]
 atlas = ExtResource("5_75u2n")
-region = Rect2(192, 65, 64, 63)
+region = Rect2(192, 64, 64, 64)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ua6yw"]
-texture = ExtResource("5_75u2n")
-region_rect = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odk7"]
+atlas = ExtResource("10_81vvl")
+region = Rect2(192, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_81vvl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_alvv5"]
+atlas = ExtResource("9_ob0dx")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw5bg"]
 atlas = ExtResource("5_75u2n")
 region = Rect2(256, 64, 64, 64)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1j05"]
-texture = ExtResource("9_ob0dx")
-region_rect = Rect2(0, 448, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfcp0"]
+atlas = ExtResource("10_81vvl")
+region = Rect2(256, 64, 64, 64)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0odk7"]
-texture = ExtResource("10_81vvl")
-region_rect = Rect2(0, 448, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ait"]
+atlas = ExtResource("9_ob0dx")
+region = Rect2(256, 64, 64, 64)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alvv5"]
-texture = ExtResource("5_75u2n")
-region_rect = Rect2(0, 448, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6q2i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrqhp"]
 atlas = ExtResource("5_75u2n")
 region = Rect2(0, 448, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wgnrc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppsko"]
+atlas = ExtResource("10_81vvl")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5wdm"]
+atlas = ExtResource("9_ob0dx")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouxww"]
 atlas = ExtResource("5_75u2n")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce6m7"]
+atlas = ExtResource("10_81vvl")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok71f"]
+atlas = ExtResource("9_ob0dx")
 region = Rect2(320, 0, 64, 64)
 
 [node name="GameUI" type="Control"]
@@ -208,19 +220,19 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="btnProjets" type="Button" parent="hBoxProjScien/projScienMenu/vBoxBtns"]
-custom_minimum_size = Vector2(64, 64)
+[node name="btnProjets" type="TextureButton" parent="hBoxProjScien/projScienMenu/vBoxBtns"]
 layout_mode = 2
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dj8aq")
-icon = SubResource("AtlasTexture_ob0dx")
-flat = true
+texture_normal = SubResource("AtlasTexture_t1j05")
+texture_pressed = SubResource("AtlasTexture_0odk7")
+texture_hover = SubResource("AtlasTexture_alvv5")
+stretch_mode = 3
 
-[node name="btnScientists" type="Button" parent="hBoxProjScien/projScienMenu/vBoxBtns"]
+[node name="btnScientists" type="TextureButton" parent="hBoxProjScien/projScienMenu/vBoxBtns"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ua6yw")
-icon = SubResource("AtlasTexture_81vvl")
-flat = true
+texture_normal = SubResource("AtlasTexture_uw5bg")
+texture_pressed = SubResource("AtlasTexture_jfcp0")
+texture_hover = SubResource("AtlasTexture_04ait")
 
 [node name="MenuProjects" parent="hBoxProjScien" instance=ExtResource("3_ua6yw")]
 visible = false
@@ -377,16 +389,14 @@ textBuildingName = "Serre"
 icon_pos = Vector2(0, 6)
 btype = 5
 
-[node name="btnBack" type="Button" parent="buildingsMenu/hBoxBtnCat1"]
+[node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat1"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_t1j05")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_0odk7")
-theme_override_styles/normal = SubResource("StyleBoxTexture_alvv5")
-icon = SubResource("AtlasTexture_u6q2i")
-flat = true
+texture_normal = SubResource("AtlasTexture_mrqhp")
+texture_pressed = SubResource("AtlasTexture_ppsko")
+texture_hover = SubResource("AtlasTexture_y5wdm")
 
 [node name="hBoxBtnCat2" type="HBoxContainer" parent="buildingsMenu"]
 visible = false
@@ -446,16 +456,14 @@ textBuildingName = "Salle de sport"
 icon_pos = Vector2(1, 7)
 btype = 11
 
-[node name="btnBack" type="Button" parent="buildingsMenu/hBoxBtnCat2"]
+[node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_t1j05")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_0odk7")
-theme_override_styles/normal = SubResource("StyleBoxTexture_alvv5")
-icon = SubResource("AtlasTexture_u6q2i")
-flat = true
+texture_normal = SubResource("AtlasTexture_mrqhp")
+texture_pressed = SubResource("AtlasTexture_ppsko")
+texture_hover = SubResource("AtlasTexture_y5wdm")
 
 [node name="hBoxBtnCat3" type="HBoxContainer" parent="buildingsMenu"]
 visible = false
@@ -494,16 +502,14 @@ textBuildingName = "Centrale électrique"
 icon_pos = Vector2(2, 3)
 btype = 14
 
-[node name="btnBack" type="Button" parent="buildingsMenu/hBoxBtnCat3"]
+[node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat3"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_t1j05")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_0odk7")
-theme_override_styles/normal = SubResource("StyleBoxTexture_alvv5")
-icon = SubResource("AtlasTexture_u6q2i")
-flat = true
+texture_normal = SubResource("AtlasTexture_mrqhp")
+texture_pressed = SubResource("AtlasTexture_ppsko")
+texture_hover = SubResource("AtlasTexture_y5wdm")
 
 [node name="ParametersMargin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -523,14 +529,15 @@ mouse_force_pass_scroll_events = false
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Parameters" type="Button" parent="ParametersMargin"]
+[node name="Parameters" type="TextureButton" parent="ParametersMargin"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-icon = SubResource("AtlasTexture_wgnrc")
-flat = true
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_ouxww")
+texture_pressed = SubResource("AtlasTexture_ce6m7")
+texture_hover = SubResource("AtlasTexture_ok71f")
+stretch_mode = 0
 
 [node name="menu_batiment" parent="." instance=ExtResource("9_e6oqk")]
 visible = false
