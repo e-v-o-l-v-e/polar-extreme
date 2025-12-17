@@ -13,7 +13,7 @@ func setName(text : String) :
 func setVisibility(vis : bool) :
 	visible = vis
 
-func setBuiliding(building : Building) :
+func setBuilding(building : Building) :
 	buil = building
 	
 	if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):

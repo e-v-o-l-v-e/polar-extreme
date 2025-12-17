@@ -11,7 +11,8 @@ var nbBatPerPage = 0;
 
 var arrayBats = Array()
 
-
+func _ready() -> void:
+	UiController.validate_building_placement.connect(_update_build_list)
 
 
 
@@ -49,18 +50,30 @@ var arrayBats = Array()
 
 func _on_visibility_changed() -> void:
 	if visible == true :
-		var listBuildings = GameController.get_all_buildings()
-		if bat_container :
-			for build in bat_container.get_children() :
-				bat_container.remove_child(build)
+		_update_build_list(null)
 			
-		for build in listBuildings :
-			var Bat := BatScene.instantiate()
 			
-			arrayBats.append(Bat)
-			bat_container.add_child(Bat)
-			
-			Bat.setBuiliding(build)
-			Bat.setName(build.building_name)
-			Bat.setVisibility(true)
-			
+func _update_build_list(new_building : Building):
+	var listBuildings = GameController.get_all_buildings()
+	if bat_container :
+		for build in bat_container.get_children() :
+			bat_container.remove_child(build)
+		
+	for build in listBuildings :
+		var Bat := BatScene.instantiate()
+		
+		arrayBats.append(Bat)
+		bat_container.add_child(Bat)
+		
+		Bat.setBuilding(build)
+		Bat.setName(build.building_name)
+		Bat.setVisibility(true)
+	if new_building:
+		var Bat := BatScene.instantiate()
+		
+		arrayBats.append(Bat)
+		bat_container.add_child(Bat)
+		
+		Bat.setBuilding(new_building)
+		Bat.setName(new_building.building_name)
+		Bat.setVisibility(true)
