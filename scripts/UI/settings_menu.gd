@@ -6,24 +6,27 @@ class_name SettingsMenu
 @onready var sfx_volume: HSlider = $Panel/HBoxContainer/VBoxContainer/SFXVolume
 @onready var music_volume: HSlider = $Panel/HBoxContainer/VBoxContainer/MusicVolume
 
+const VOLUME_MODIFIFACTOR := 50
+
 func _ready() -> void:
 	add_resolutions()
 	update_button_values()
 	
 	if master_volume:
-		master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(0))
+		master_volume.value = 50
 	
 	if sfx_volume:
 		var sfx_bus_index = AudioServer.get_bus_index("SFX")
 		if sfx_bus_index != -1:
-			sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus_index))
+			sfx_volume.value = 50
 	
 	if music_volume:
 		var music_bus_index = AudioServer.get_bus_index("Music")
 		if music_bus_index != -1:
-			music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(music_bus_index))
+			music_volume.value = 50
 	
 	set_process_input(true)
+	
 func add_resolutions():
 	for r in settingsValue.resolutions:
 		resolution_option_button.add_item(r)
@@ -72,14 +75,18 @@ func _on_fullscreen_toggled(toggled_on: bool) -> void:
 		center_window()
 
 func _on_h_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0, linear_to_db(value/10))
+	AudioServer.set_bus_volume_db(0, linear_to_db(value / VOLUME_MODIFIFACTOR))
 
 func _on_sfx_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value/10))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value / VOLUME_MODIFIFACTOR))
 
 func _on_music_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value/10))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value / VOLUME_MODIFIFACTOR))
 
 func close_menu():
 	hide()
 	get_tree().paused = false
+
+
+func _on_back_to_game_btn_pressed() -> void:
+	close_menu()

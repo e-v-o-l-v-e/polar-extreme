@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmplrmtisrhmp"]
+[gd_scene load_steps=8 format=3 uid="uid://dmplrmtisrhmp"]
 
-[ext_resource type="Script" uid="uid://48i6llhlns51" path="res://scripts/UI/settings_menu.gd" id="1_05p07"]
+[ext_resource type="Script" uid="uid://csn62h8i0vf0k" path="res://scripts/UI/settings_menu.gd" id="1_05p07"]
+[ext_resource type="FontFile" uid="uid://x7clyu6xw4hq" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
 
 [sub_resource type="Theme" id="Theme_05p07"]
 default_font_size = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05p07"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvq1v"]
+bg_color = Color(0.592157, 0.694118, 1, 0.639216)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cr101"]
-font_size = 46
+font = ExtResource("2_yk8t3")
+font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_05p07"]
 font_size = 24
@@ -33,7 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_05p07")
-theme_override_styles/panel = SubResource("StyleBoxFlat_05p07")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvq1v")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -46,11 +49,13 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 19
 alignment = 1
 
 [node name="SettingsLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Settings"
+text = "Paramètres"
 label_settings = SubResource("LabelSettings_cr101")
 horizontal_alignment = 1
 
@@ -61,7 +66,7 @@ size_flags_vertical = 4
 
 [node name="ResolutionLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer/ResolutionContainer"]
 layout_mode = 2
-text = "Resolution"
+text = "Résolution"
 label_settings = SubResource("LabelSettings_05p07")
 horizontal_alignment = 1
 
@@ -75,13 +80,13 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "FullScreen"
+text = "Plein écran"
 
 [node name="VSync" type="CheckBox" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Vsync"
+text = "Synchronisation verticale"
 
 [node name="VolumeLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,6 +96,8 @@ horizontal_alignment = 1
 
 [node name="Volume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+step = 10.0
+value = 100.0
 
 [node name="VolumeSFX" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -100,15 +107,25 @@ horizontal_alignment = 1
 
 [node name="SFXVolume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+step = 10.0
+value = 100.0
 
 [node name="VolumeMusic" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Music"
+text = "Musique"
 label_settings = SubResource("LabelSettings_wswnh")
 horizontal_alignment = 1
 
 [node name="MusicVolume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+step = 10.0
+value = 100.0
+
+[node name="BackToGameBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Retour au jeu"
 
 [connection signal="item_selected" from="Panel/HBoxContainer/VBoxContainer/ResolutionContainer/Resolution" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
@@ -116,3 +133,4 @@ layout_mode = 2
 [connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
 [connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/BackToGameBtn" to="." method="_on_back_to_game_btn_pressed"]

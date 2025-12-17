@@ -30,6 +30,7 @@ func _input(_event: InputEvent) -> void:
 func open() -> void:
 	var settings_menu = get_node("SettingsMenu")
 	settings_menu.visible = !settings_menu.visible
+	get_tree().paused = settings_menu.visible
 	
 	if settings_menu.visible:
 		settings_menu.update_button_values()

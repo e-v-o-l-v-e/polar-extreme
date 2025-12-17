@@ -592,6 +592,16 @@ layout_mode = 1
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 
+[node name="Control" parent="." instance=ExtResource("13_t1j05")]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 250.0
+grow_horizontal = 0
+
 [node name="lblBuildingsBasicInfo" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
