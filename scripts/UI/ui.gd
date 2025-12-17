@@ -30,7 +30,7 @@ func _ready() -> void:
 	UiController.validate_building_placement.connect(_hide_keybinds)
 	menu_scientists.not_enough_science.connect(_on_not_enough_science)
 	lbl_science.text = "0"
-	lbl_science_per_sec.text = "0 sciences/sec"
+	lbl_science_per_sec.text = "0 / sec"
 
 # projScienMenu
 
@@ -71,7 +71,18 @@ func _on_science_changed(new_science : float) ->void:
 
 
 func _on_science_second_changed(new_science) ->void:
-	lbl_science_per_sec.text = str(new_science) + " sciences/sec"
+	if(new_science > 1000000000):
+		new_science = new_science / 1000000000
+		lbl_science_per_sec.text = str(round(new_science * 10.0) / 10.0) + " B / sec"
+	elif (new_science > 1000000):
+		new_science = new_science / 1000000
+		lbl_science_per_sec.text = str(round(new_science * 10.0) / 10.0) + " M / sec"
+	elif(new_science > 1000):
+		new_science = new_science / 1000
+		lbl_science_per_sec.text = str(round(new_science * 10.0) / 10.0) + " K / sec"
+	else :
+		var science_int : int = int(new_science)
+		lbl_science_per_sec.text = str(science_int) + " / sec"
 
 func _on_display_building_basic_info(building: Building):
 	lbl_buildings_basic_info.add_theme_color_override("font_color", Color.BLACK)
