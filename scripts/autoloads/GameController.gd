@@ -46,6 +46,7 @@ func _on_validate_building_placement(building:Building):
 	building_manager.register(building)
 	world_manager.place_building(building)
 	gauges.change_science(-building.price)
+	print(-building.price)
 
 func _on_delete_building(building:Building):
 	building_manager.unregister(building)

@@ -342,6 +342,7 @@ size_flags_vertical = 4
 script = ExtResource("9_u6q2i")
 textBuildingName = "Laboratoire de glaciologie"
 icon_pos = Vector2(0, 1)
+building_path = "res://scenes/buildings/instanciables/LabGlaciology.tscn"
 
 [node name="btnLabPhysicAtmo" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -351,6 +352,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Laboratoire de physique de l'atmosphère"
 icon_pos = Vector2(0, 2)
 btype = 1
+building_path = "res://scenes/buildings/instanciables/LabAtmosphere.tscn"
 
 [node name="btnLabMagne" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -360,6 +362,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Laboratoire de magnétisme & sismologie"
 icon_pos = Vector2(0, 3)
 btype = 2
+building_path = "res://scenes/buildings/instanciables/LabMagnetism.tscn"
 
 [node name="btnLabBiology" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -369,6 +372,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Laboratoire de biologie humaine"
 icon_pos = Vector2(0, 4)
 btype = 3
+building_path = "res://scenes/buildings/instanciables/LabBiology.tscn"
 
 [node name="btnIcemine" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -388,6 +392,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Serre"
 icon_pos = Vector2(0, 6)
 btype = 5
+building_path = "res://scenes/buildings/instanciables/Greenhouse.tscn"
 
 [node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat1"]
 custom_minimum_size = Vector2(64, 64)
@@ -420,6 +425,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Chambres"
 icon_pos = Vector2(1, 1)
 btype = 6
+building_path = "res://scenes/buildings/instanciables/Bedroom.tscn"
 
 [node name="btnKitchen" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -427,6 +433,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Cuisines"
 icon_pos = Vector2(1, 2)
 btype = 7
+building_path = "res://scenes/buildings/instanciables/DiningRoom.tscn"
 
 [node name="btnToilets" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -434,6 +441,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Toilettes"
 icon_pos = Vector2(1, 4)
 btype = 9
+building_path = "res://scenes/buildings/instanciables/Toilet.tscn"
 
 [node name="btnShower" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -441,6 +449,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Douches"
 icon_pos = Vector2(1, 5)
 btype = 8
+building_path = "res://scenes/buildings/instanciables/Shower.tscn"
 
 [node name="btnRest" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -448,6 +457,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Salle de repos"
 icon_pos = Vector2(1, 6)
 btype = 10
+building_path = "res://scenes/buildings/instanciables/RestRoom.tscn"
 
 [node name="btnSport" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -455,6 +465,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Salle de sport"
 icon_pos = Vector2(1, 7)
 btype = 11
+building_path = "res://scenes/buildings/instanciables/Gym.tscn"
 
 [node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat2"]
 custom_minimum_size = Vector2(64, 64)
@@ -494,6 +505,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Recyclage de l'eau"
 icon_pos = Vector2(2, 2)
 btype = 13
+building_path = "res://scenes/buildings/instanciables/WaterRecycling.tscn"
 
 [node name="btnElec" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("6_84lt7")]
 layout_mode = 2
@@ -501,6 +513,7 @@ script = ExtResource("9_u6q2i")
 textBuildingName = "Centrale électrique"
 icon_pos = Vector2(2, 3)
 btype = 14
+building_path = "res://scenes/buildings/instanciables/PowerStation.tscn"
 
 [node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat3"]
 custom_minimum_size = Vector2(64, 64)
