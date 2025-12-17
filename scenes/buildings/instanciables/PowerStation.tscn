@@ -11,6 +11,7 @@ size = Vector2(95, 95)
 [node name="PowerStation" instance=ExtResource("1_g4h51")]
 building_name = "Centrale électrique"
 building_description = " Le battement de cœur bruyant et chaud de la base. Abritant les générateurs, c'est la source d'énergie pour la chaleur, la lumière, la science et la communication."
+building_genre = 1
 pollution_per_second = 3.0
 price = 980
 

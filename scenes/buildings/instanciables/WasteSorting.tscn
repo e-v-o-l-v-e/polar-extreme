@@ -11,6 +11,7 @@ size = Vector2(95, 95)
 [node name="WasteSorting" instance=ExtResource("1_4tvit")]
 building_name = "Tri des déchets"
 building_description = " Salle technique stricte avec des bacs de couleurs. Chaque type de déchet (organique, plastique, métal, dangereux) y est scrupuleusement séparé pour un traitement adapté."
+building_genre = 1
 pollution_per_second = 3.0
 price = 1500
 

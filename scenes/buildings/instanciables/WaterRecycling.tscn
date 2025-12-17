@@ -11,6 +11,7 @@ size = Vector2(95, 159)
 [node name="WaterRecycling" instance=ExtResource("1_s6tpw")]
 building_name = "Recyclage de l'eau"
 building_description = "Unité de traitement technique et vitale. Elle transforme toutes les eaux usées (douches, lavabos, cuisines) en eau pure pour être réutilisée, souvent pour les toilettes ou les labos."
+building_genre = 1
 pollution_per_second = 2.0
 price = 1800
 
