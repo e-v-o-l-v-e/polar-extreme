@@ -17,6 +17,13 @@ extends MarginContainer
 @onready var lbl_time_left: Label = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/lblTimeLeft
 @onready var timer: Timer = $Timer
 
+@onready var nine_icon: NinePatchRect = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/nineIcon
+
+@export var icon_normal: Texture2D
+@export var icon_pressed: Texture2D
+@export var icon_hover: Texture2D
+
+
 var project : Project
 
 # Called when the node enters the scene tree for the first time.
@@ -67,8 +74,30 @@ func setVisibility(vis : bool) :
 
 
 func _on_btn_start_pressed() -> void:
+	nine_icon.texture = icon_pressed
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
 	UiController.emit_start_project(project)
+	nine_icon.texture = icon_normal
 
 
 func _on_btn_quit_pressed() -> void:
 	setVisibility(false)
+
+
+func _on_btn_start_mouse_entered() -> void:
+	nine_icon.texture = icon_hover
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
+
+
+func _on_btn_start_mouse_exited() -> void:
+	nine_icon.texture = icon_normal
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10

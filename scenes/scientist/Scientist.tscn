@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dk3tmvweer7i"]
 
 [ext_resource type="Script" uid="uid://c2u5gfoek5pf7" path="res://scripts/models/scientists/Scientist.gd" id="1_dg5wj"]
-[ext_resource type="Texture2D" uid="uid://byvwmxayjl2ph" path="res://assets/npc/scientifique.png" id="2_umeaf"]
+[ext_resource type="Texture2D" uid="uid://bv1ddjtuyw0s6" path="res://assets/npc/scientifique.png" id="2_umeaf"]
 
 [sub_resource type="Animation" id="Animation_yc63n"]
 length = 0.001

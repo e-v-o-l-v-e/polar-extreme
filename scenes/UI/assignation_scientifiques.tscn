@@ -6,18 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_j0pj8"]
 [ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_qu5ql"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcub3"]
-atlas = ExtResource("2_v4cla")
-region = Rect2(256, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6ws4"]
-atlas = ExtResource("3_j0pj8")
-region = Rect2(256, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6tne"]
-atlas = ExtResource("4_qu5ql")
-region = Rect2(256, 128, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhqeg"]
 atlas = ExtResource("2_v4cla")
 region = Rect2(256, 192, 64, 64)
@@ -29,6 +17,18 @@ region = Rect2(256, 192, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktwyy"]
 atlas = ExtResource("4_qu5ql")
 region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcub3"]
+atlas = ExtResource("2_v4cla")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6ws4"]
+atlas = ExtResource("3_j0pj8")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6tne"]
+atlas = ExtResource("4_qu5ql")
+region = Rect2(256, 128, 64, 64)
 
 [node name="AssignationScientifiques" type="MarginContainer"]
 custom_minimum_size = Vector2(290, 100)
@@ -92,10 +92,22 @@ text = "0/0"
 horizontal_alignment = 2
 autowrap_mode = 2
 
+[node name="desassignation" type="TextureButton" parent="MarginContainer/nine/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_direction = 3
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_dhqeg")
+texture_pressed = SubResource("AtlasTexture_wluu2")
+texture_hover = SubResource("AtlasTexture_ktwyy")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="assignation" type="TextureButton" parent="MarginContainer/nine/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_bcub3")
 texture_pressed = SubResource("AtlasTexture_t6ws4")
 texture_hover = SubResource("AtlasTexture_y6tne")
@@ -107,15 +119,5 @@ stream = ExtResource("3_8arik")
 volume_db = 10.0
 bus = &"SFX"
 
-[node name="desassignation" type="TextureButton" parent="MarginContainer/nine/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_direction = 3
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_dhqeg")
-texture_pressed = SubResource("AtlasTexture_wluu2")
-texture_hover = SubResource("AtlasTexture_ktwyy")
-ignore_texture_size = true
-stretch_mode = 0
-
-[connection signal="pressed" from="MarginContainer/nine/MarginContainer/HBoxContainer/assignation" to="." method="_on_assignation_pressed"]
 [connection signal="pressed" from="MarginContainer/nine/MarginContainer/HBoxContainer/desassignation" to="." method="_on_desassignation_pressed"]
+[connection signal="pressed" from="MarginContainer/nine/MarginContainer/HBoxContainer/assignation" to="." method="_on_assignation_pressed"]

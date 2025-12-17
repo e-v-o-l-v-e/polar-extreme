@@ -109,6 +109,8 @@ func _update_gauges() :
 func pay_scientist() ->bool:
 	if gauges.science >= scientist_manager.get_scientist_price():
 		gauges.change_science(-scientist_manager.get_scientist_price())
+		gauges.change_pollution(scientist_manager.get_scientist_pollution_travel())
+		gauges.change_pollution_per_second(scientist_manager.get_scientist_pollution_per_second())
 		scientist_manager.increase_price()
 		return true
 	else:

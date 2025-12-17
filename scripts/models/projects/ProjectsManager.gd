@@ -46,7 +46,7 @@ var list_greenhouse: Array[Project] = [
 	Project.new(0, "Régénération des sols", 0, 30, 0, -3, 0),
 	Project.new(1, "Amélioration du rendement", 0, 50, 0, -4, 0),
 	Project.new(2, "Efficacité photosynthétique", 0, 60, 0, -5, 0),
-	Project.new(3, "Filtration de la pollution", 0, 40, 0, -6, -1)
+	Project.new(3, "Filtration de la pollution", 0, 40, 0, -5, -10)
 ]
 
 # --- Récupération de la liste associée au batiment

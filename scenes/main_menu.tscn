@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8875cfmnqme0"]
+
+[ext_resource type="Script" uid="uid://bagg4ueyobuse" path="res://scenes/MainMenu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://x7clyu6xw4hq" path="res://assets/font/Jersey10-Regular.ttf" id="1_l6cm7"]
+
+[sub_resource type="Gradient" id="Gradient_ekxnf"]
+colors = PackedColorArray(0.713726, 0.713726, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqqt6"]
+gradient = SubResource("Gradient_ekxnf")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font = ExtResource("1_l6cm7")
+font_size = 200
+shadow_size = 32
+shadow_color = Color(0.457333, 0.630597, 1, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bqqt6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.240625
+anchor_top = 0.2
+anchor_right = 0.759375
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+text = "Polar Extreme"
+label_settings = SubResource("LabelSettings_wu84c")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -498.0
+offset_top = 624.0
+offset_right = 498.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGameBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.71691, 0.810688, 1, 1)
+theme_override_colors/font_color = Color(0.437799, 0.616361, 1, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 90
+text = "Commencer la partie"
+flat = true
+
+[node name="QuitGameBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.71691, 0.810688, 1, 1)
+theme_override_colors/font_color = Color(0.528762, 0.681711, 1, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 75
+text = "Quitter"
+flat = true

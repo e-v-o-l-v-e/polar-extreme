@@ -1,24 +1,58 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4q2wpp4uf3ys"]
+[gd_scene load_steps=19 format=3 uid="uid://b4q2wpp4uf3ys"]
 
-[ext_resource type="Script" uid="uid://8j55h6nlx8uw" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
+[ext_resource type="Script" uid="uid://c1cuov3pax63o" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
+[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
 [ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="3_qxndm"]
-[ext_resource type="PackedScene" uid="uid://6p4mfp5atp" path="res://scenes/UI/popup_desc_buindings.tscn" id="4_qxndm"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="4_8pln5"]
+[ext_resource type="PackedScene" uid="uid://c8nnuxedv5wlo" path="res://scenes/UI/popup_desc_buindings.tscn" id="4_qxndm"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="5_ugwoq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_js0e2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7fcw"]
 atlas = ExtResource("1_ymk3k")
 region = Rect2(320, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pln5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu6j1"]
+atlas = ExtResource("4_8pln5")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb2fw"]
+atlas = ExtResource("5_ugwoq")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ythgw"]
 atlas = ExtResource("1_ymk3k")
 region = Rect2(0, 448, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qxndm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pln5"]
+atlas = ExtResource("4_8pln5")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugwoq"]
+atlas = ExtResource("5_ugwoq")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3flx3"]
 atlas = ExtResource("1_ymk3k")
 region = Rect2(256, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_al7u3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x4jk"]
+atlas = ExtResource("4_8pln5")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p77ak"]
+atlas = ExtResource("5_ugwoq")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebc2k"]
 atlas = ExtResource("1_ymk3k")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsmqy"]
+atlas = ExtResource("4_8pln5")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v1vn"]
+atlas = ExtResource("5_ugwoq")
 region = Rect2(256, 128, 64, 64)
 
 [node name="menu_batiment" type="MarginContainer"]
@@ -73,11 +107,9 @@ theme_override_constants/separation = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = -4
 alignment = 1
 
 [node name="lblName" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(210, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -87,22 +119,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="btnExpl" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="btnExpl" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-icon = SubResource("AtlasTexture_js0e2")
-flat = true
-icon_alignment = 1
-expand_icon = true
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_s7fcw")
+texture_pressed = SubResource("AtlasTexture_uu6j1")
+texture_hover = SubResource("AtlasTexture_mb2fw")
 
-[node name="btnQuit" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="btnQuit" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-icon = SubResource("AtlasTexture_8pln5")
-flat = true
-icon_alignment = 1
-expand_icon = true
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_ythgw")
+texture_pressed = SubResource("AtlasTexture_8pln5")
+texture_hover = SubResource("AtlasTexture_ugwoq")
 
 [node name="lblDesc" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(330, 100)
@@ -119,14 +150,16 @@ text_overrun_behavior = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="lblScient" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(180, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
-text = "Nombre de scientifiques"
+text = "Nombre de
+scientifiques"
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -136,34 +169,30 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
-text = "0/0"
+text = "00/00"
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = -4
-
-[node name="btnRem" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="btnRem" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-icon = SubResource("AtlasTexture_qxndm")
-flat = true
-expand_icon = true
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_3flx3")
+texture_pressed = SubResource("AtlasTexture_7x4jk")
+texture_hover = SubResource("AtlasTexture_p77ak")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="btnAdd" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="btnAdd" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-icon = SubResource("AtlasTexture_al7u3")
-flat = true
-expand_icon = true
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_ebc2k")
+texture_pressed = SubResource("AtlasTexture_tsmqy")
+texture_hover = SubResource("AtlasTexture_7v1vn")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -211,5 +240,5 @@ visible = false
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/btnExpl" to="." method="_on_btn_expl_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3/btnRem" to="." method="_on_btn_rem_pressed"]
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3/btnAdd" to="." method="_on_btn_add_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/btnRem" to="." method="_on_btn_rem_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/btnAdd" to="." method="_on_btn_add_pressed"]

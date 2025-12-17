@@ -1,10 +1,16 @@
 extends MarginContainer
+@onready var lbl_name: Label = $MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblName
+@onready var lbl_status: Label = $MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblStatus
+@onready var progress_bar: ProgressBar = $MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
+@onready var lbl_time_left: Label = $MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/HBoxContainer2/lblTimeLeft
 
-@onready var lbl_name: Label = $MarginContainer/NinePatchRect/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblName
-@onready var lbl_status: Label = $MarginContainer/NinePatchRect/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblStatus
-@onready var progress_bar: ProgressBar = $MarginContainer/NinePatchRect/Button/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
-@onready var lbl_time_left: Label = $MarginContainer/NinePatchRect/Button/MarginContainer/VBoxContainer/HBoxContainer2/lblTimeLeft
 @onready var timer: Timer = $Timer
+@onready var nine_icon: NinePatchRect = $MarginContainer/ninIcon
+
+
+@export var icon_normal: Texture2D
+@export var icon_pressed: Texture2D
+@export var icon_hover: Texture2D
 
 
 var project : Project
@@ -57,4 +63,26 @@ func startProject() -> void:
 
 
 func _on_button_pressed() -> void:
+	nine_icon.texture = icon_pressed
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
 	UiController.emit_open_project_menu(project)
+	nine_icon.texture = icon_normal
+
+
+func _on_button_mouse_entered() -> void:
+	nine_icon.texture = icon_hover
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
+
+
+func _on_button_mouse_exited() -> void:
+	nine_icon.texture = icon_normal
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
