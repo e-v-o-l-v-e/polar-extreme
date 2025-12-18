@@ -148,7 +148,7 @@ func _update_mouse_positions() -> void:
 ## Handles preview rotation with the R key.
 ## Rotates the preview by 90° and swaps dimensions.
 func _handle_rotation_input() -> void:
-	if Input.is_key_pressed(KEY_R):
+	if Input.is_physical_key_pressed(KEY_R):
 		preview.rotate(PI / 2)
 		effect_size = Vector2(effect_size.y, effect_size.x)
 
