@@ -122,7 +122,7 @@ func pay_scientist() ->int:
 		
 func init_default(world_grid):
 	var defaultBedRoom = building_manager.create_building(Enums.BUILDING_TYPE.DORMITORY)
-	var mouse_pos_glob: Vector2 = Vector2(1000,560)
+	var mouse_pos_glob: Vector2 = Vector2(1000,480)
 	var mouse_pos_grid: Vector2 = to_local(mouse_pos_glob)
 	var tile_under_mouse: Vector2i = world_grid.local_to_map(mouse_pos_grid)
 	var world_grid_pos: Vector2 = world_grid.map_to_local(tile_under_mouse)

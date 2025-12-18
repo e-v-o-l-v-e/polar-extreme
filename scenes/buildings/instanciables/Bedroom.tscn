@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxu3w7sl8f7sh"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_3yoo0"]
-[ext_resource type="Texture2D" uid="uid://cetx343vbeaae" path="res://assets/buildings/life/dormitory.png" id="2_418p8"]
+[ext_resource type="Texture2D" uid="uid://ccvby55shu5ol" path="res://assets/buildings/life/showers.png" id="2_418p8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_418p8"]
-size = Vector2(95, 31)
+size = Vector2(95, 159)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjibq"]
 
@@ -17,7 +17,7 @@ building_type = 6
 price = 600
 
 [node name="Door" parent="." index="0"]
-position = Vector2(0, 16)
+position = Vector2(0, 80)
 
 [node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1, 1)
@@ -27,5 +27,5 @@ texture = ExtResource("2_418p8")
 shape = SubResource("RectangleShape2D_418p8")
 
 [node name="DoorCollision" parent="." index="4"]
-position = Vector2(0, 16)
+position = Vector2(0, 80)
 shape = SubResource("RectangleShape2D_sjibq")
