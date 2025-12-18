@@ -9,6 +9,7 @@ class_name Building
 @export var building_type: Enums.BUILDING_TYPE
 @export var pollution_per_second := 0
 @export var price : int
+@export var scientist_places := 0
 
 @onready var particles: GPUParticles2D = $GPUParticles2D
 @onready var building_zone: CollisionShape2D = $BuildingZone
@@ -68,23 +69,3 @@ func emit_particles():
 		
 func _on_gpu_particles_2d_finished() -> void:
 	particles.queue_free()
-
-#func add_scientist() -> bool:
-	#if scientist_number < max_scientist_number:
-		#scientist_number += 1
-		#return true
-	#else :
-		#return false
-	#
-#func remove_scientist() -> bool:
-	#if scientist_number > 0:
-		#scientist_number -= 1
-		#return true
-	#else:
-		#return false
-	#
-#func get_scientist_number() -> int:
-	#return scientist_number
-#
-#func get_max_scientist_number() -> int:
-	#return max_scientist_number
