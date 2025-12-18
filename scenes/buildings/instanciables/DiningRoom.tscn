@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://8wskbvlktw4d"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_x7ujq"]
-[ext_resource type="Texture2D" uid="uid://bc731fmmn7p7b" path="res://assets/buildings/life/canteen.png" id="2_xy5ji"]
+[ext_resource type="Texture2D" uid="uid://yv40tvqmojf1" path="res://assets/buildings/life/canteen.png" id="2_xy5ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjlrj"]
 size = Vector2(95, 95)

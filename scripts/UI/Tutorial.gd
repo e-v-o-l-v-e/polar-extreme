@@ -52,3 +52,7 @@ func _on_next_btn_pressed() -> void:
 func _on_back_btn_pressed() -> void:
 	index = min(0,index - 1)
 	show_image(index)
+
+
+func _on_skip_btn_pressed() -> void:
+	get_tree().change_scene_to_packed(game_scene)
