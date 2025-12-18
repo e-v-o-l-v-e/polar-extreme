@@ -4,13 +4,14 @@ extends MarginContainer
 @export var projectScene : PackedScene
 
 @onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/projectContainer
-
+@onready var notif : NotificationIndicator = $"../projScienMenu/vBoxBtns/btnProjets/NotifProject"
 
 var arrayProjects : Array		## list of SubMenuProjects
 
 
 ## connects the signal
 func _ready() -> void:
+	notif.setVisible(false);
 	UiController.start_project.connect(_on_start_project)
 
 
@@ -24,3 +25,17 @@ func _on_start_project(project : Project) -> void:
 	proj.startProject()
 	proj.setVisibility(true)
 	arrayProjects.append(proj)
+
+
+func _process(delta: float) -> void:
+	var finished_count := 0
+
+	for proj in arrayProjects:
+		var proje :Project = proj.project
+		print(proje.get_project_state())
+		if proje.get_project_state() >= 3:
+			finished_count += 1
+	if(finished_count>0):
+		notif.set_text(str(finished_count))
+	else:
+		notif.setVisible(false)

@@ -79,6 +79,7 @@ func afficherPopup() -> void :
 
 	
 func _process(delta: float) -> void:
+	var i:int
 	var container := get_category_container()
 	if container == null:
 		notif.visible = false
@@ -88,9 +89,10 @@ func _process(delta: float) -> void:
 	for node in get_children_of_children(container):
 		if node is buttonBuildings and node.notif.visible:
 			show = true
-			break
+			i+=1
 
 	notif.visible = show
+	notif.set_text(str(i))
 
 
 

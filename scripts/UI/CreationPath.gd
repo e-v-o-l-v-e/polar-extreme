@@ -70,14 +70,8 @@ func _on_button_pressed() -> void:
 	set_button_icon_pressed()
 	if !alreadyCliked :
 		alreadyCliked = true
-		afficherPopup()
 		_on_button_pressed()
 	else :
 		UiController.emit_start_building_path()
-
-
-func afficherPopup() -> void :
-	popup.visible = true
-	popup.setDesc(textPopup)
 
 	

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://biyp1uwmfu6u4"]
 
-[ext_resource type="Script" uid="uid://dirtohj8dh3m3" path="res://scripts/UI/SubProject.gd" id="1_q0y6d"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_32int"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_u7rw4"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_nidt7"]
+[ext_resource type="Script" uid="uid://dd1xdf88l72l4" path="res://scripts/UI/SubProject.gd" id="1_q0y6d"]
+[ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="2_32int"]
+[ext_resource type="Texture2D" uid="uid://cg7tukcrc8n4s" path="res://assets/UI/tilesetT3_pressed.png" id="3_u7rw4"]
+[ext_resource type="Texture2D" uid="uid://wrb14d8klmxe" path="res://assets/UI/tilesetT3_hovered.png" id="4_nidt7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvfha"]
 atlas = ExtResource("2_32int")

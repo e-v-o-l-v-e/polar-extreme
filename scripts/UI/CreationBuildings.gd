@@ -53,6 +53,7 @@ func _process(_delta: float) -> void:
 		is_buyable = building_instance.price <= GameController.get_gauges().science
 		btn_crea_building.disabled = !is_buyable
 		notif.setVisible(is_buyable)
+		notif.set_text("!")
 
 
 ## changes the icon of the button to the normal version

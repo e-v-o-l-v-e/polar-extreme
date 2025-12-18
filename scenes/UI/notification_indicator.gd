@@ -1,9 +1,9 @@
 extends Control
 class_name NotificationIndicator
-@onready var label := $NumberLabel
+@onready var label := $Background/NumberLabel
 
 func setVisible(visible : bool):
 	self.visible =visible
 
-func increament_number():
-	label.text=int(label.text)+1
+func set_text(text:String):
+	label.text=text

@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8xnd4wuguu2m"]
+[gd_scene load_steps=5 format=3 uid="uid://b8xnd4wuguu2m"]
 
-[ext_resource type="Texture2D" uid="uid://dasefarj08f6c" path="res://assets/cursor/Ice-move.png" id="1_buocr"]
 [ext_resource type="Script" uid="uid://cu02ixp3cmo0u" path="res://scenes/UI/notification_indicator.gd" id="1_exut0"]
+[ext_resource type="Texture2D" uid="uid://feensn13ox2q" path="res://assets/others/notifTile.png" id="2_exut0"]
+[ext_resource type="FontFile" uid="uid://b5byf38x5xkml" path="res://assets/font/Jersey10-Regular.ttf" id="3_0oe1o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_buocr"]
 line_spacing = 0.0
-font_size = 32
+font = ExtResource("3_0oe1o")
+font_size = 30
 font_color = Color(1, 0, 0, 1)
 
 [node name="NotificationIndicator" type="Control"]
@@ -18,15 +20,21 @@ grow_vertical = 2
 script = ExtResource("1_exut0")
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(1.4375, 1.4375)
-texture = ExtResource("1_buocr")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_exut0")
 
-[node name="NumberLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = -5.0
-offset_top = -27.0
-offset_right = 4.0
-offset_bottom = 18.0
+[node name="NumberLabel" type="Label" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.5
+offset_top = -17.0
+offset_right = -16.5
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1, 1.04)
-text = "!"
+text = "0"
 label_settings = SubResource("LabelSettings_buocr")
+horizontal_alignment = 1
+vertical_alignment = 1

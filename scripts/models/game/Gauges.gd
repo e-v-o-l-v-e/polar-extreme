@@ -40,7 +40,7 @@ func change_science(value: float) -> bool:
 		#print("Gauges, science : enough credit, deduce and validate request")
 		return true
 	else:
-		print("Gauges, science : NOT enough credit, do no deduce and deny request")
+		#print("Gauges, science : NOT enough credit, do no deduce and deny request")
 		return false
 
 func get_science_per_second() -> float:
@@ -48,8 +48,8 @@ func get_science_per_second() -> float:
 
 func change_science_per_second(value: float) -> void:
 	science_per_seconds += value
-	print(science_per_seconds)
-	print("bbbbb")
+	#print(science_per_seconds)
+	#print("bbbbb")
 
 
 ## Pollution
@@ -62,7 +62,7 @@ func get_pollution_per_second() -> float:
 func change_pollution(value: float) -> bool:
 	pollution += value * (100 / wellness)
 	if pollution <= 0:
-		print("Gauges, pollution : pollution < 0, gain 1% wellness") 
+		#print("Gauges, pollution : pollution < 0, gain 1% wellness") 
 		change_wellness(0.01)
 	return true
 
