@@ -3,7 +3,7 @@ extends MarginContainer
 
 @export var projectScene : PackedScene
 
-@onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/projectContainer
+@onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/MarginContainer/ScrollContainer/projectContainer
 
 
 var arrayProjects : Array		## list of SubMenuProjects
