@@ -28,6 +28,9 @@ extends MarginContainer
 @export var icon_pressed: Texture2D
 @export var icon_hover: Texture2D
 
+@onready var animation_player = $AnimationPlayer
+@onready var audio = $NinePatchRect/MarginContainer/VBoxContainer/nineIcon/btnStart/AudioStart
+
 
 var project : Project
 
@@ -56,20 +59,37 @@ func _on_open_project_menu(proj : Project) -> void:
 	lbl_name.text = project.get_project_name()
 	setStatus(project.get_project_state())
 	lbl_nb_scientist.text = "Scientifiques nécessaires pour lancer le projet : " + str(project.requirement_scientists) 
-	
+		
 	lbl_reward_nbr_sc.text = str(project.reward_science)
+	if project.reward_science > 0:
+		lbl_reward_nbr_sc.add_theme_color_override("font_color", Color.RED)
+
 	lbl_reward_nbr_sc_ps.text = str(project.reward_production)
+	if project.reward_production > 0:
+		lbl_reward_nbr_sc_ps.add_theme_color_override("font_color", Color.RED)
+
 	lbl_reward_nbr_slots.text = str(project.reward_slots)
+	if project.reward_slots > 0:
+		lbl_reward_nbr_slots.add_theme_color_override("font_color", Color.RED)
+
 	lbl_reward_nbr_poll.text = str(project.reward_pollution)
+	if project.reward_pollution > 0:
+		lbl_reward_nbr_poll.add_theme_color_override("font_color", Color.RED)
+
 	lbl_reward_nbr_poll_ps.text = str(project.reward_pollution_per_second)
+	if project.reward_pollution_per_second > 0:
+		lbl_reward_nbr_poll_ps.add_theme_color_override("font_color", Color.RED)
+
 	lbl_reward_nbr_wb.text = str(project.reward_wellness)
+	if project.reward_wellness > 0:
+		lbl_reward_nbr_wb.add_theme_color_override("font_color", Color.RED)
+
 	
 	lbl_time.text = str(project.project_time) + " sec."
 	
-	#lbl_time_left.text = str(project.get_time_total())
+	nine_icon.visible = (project.get_project_state() == 0)
 	
-	if project.get_project_state() != 0 :
-		btn_start.disabled = true
+	animation_player.play("show_g/show")
 
 
 ## show the status of the project
@@ -82,7 +102,7 @@ func setStatus(statusValue : int) -> void:
 	elif statusValue == 2:
 		lbl_status.text = "en pause"
 	elif statusValue >= 3:
-		lbl_status.text = "fini"
+		lbl_status.text = "terminé"
 
 
 ## change the visibility of the menu
@@ -102,6 +122,7 @@ func _on_btn_start_pressed() -> void:
 		UiController.emit_start_project(project)
 		btn_start.disabled = true
 		nine_icon.texture = icon_normal
+		audio.play()
 		setVisibility(false)
 	else :
 		btn_animation.play("not_enough_scientist")

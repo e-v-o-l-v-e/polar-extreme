@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbkq81vgo5viw"]
 
 [ext_resource type="PackedScene" uid="uid://c8nnuxedv5wlo" path="res://scenes/UI/PopupBuildingDesc.tscn" id="2_c4jj5"]
-[ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="2_fk482"]
+[ext_resource type="Texture2D" uid="uid://cewsw8vxclwog" path="res://assets/UI/tilesetT3.png" id="2_fk482"]
 [ext_resource type="PackedScene" uid="uid://b8xnd4wuguu2m" path="res://scenes/UI/NotificationIndicator.tscn" id="3_sjmpd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fk482"]
@@ -28,10 +28,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -75.0
-offset_top = -208.0
-offset_right = 75.0
-offset_bottom = 4.0
+offset_left = -131.5
+offset_top = -212.0
+offset_right = 131.5
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2

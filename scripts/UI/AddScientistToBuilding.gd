@@ -4,6 +4,7 @@ extends MarginContainer
 @export var BatScene : PackedScene
 
 @onready var bat_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/batContainer
+@onready var animation_player = $AnimationPlayer
 
 
 var arrayBats = Array()		## list of SubMenuAddScientistToBuilding
@@ -18,6 +19,7 @@ func _ready() -> void:
 func _on_visibility_changed() -> void:
 	if visible == true :
 		_update_build_list(null)
+		animation_player.play("show_g/show")
 
 
 ## removes all the SubMenus, then adds them all back in (not duplicates)

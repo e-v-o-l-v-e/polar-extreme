@@ -19,6 +19,8 @@ class_name ScientistMenu
 @export var icon_pressed: Texture2D
 @export var icon_hover: Texture2D
 
+@onready var animation_show = $AnimationPlayer
+
 signal not_enough_science()
 
 
@@ -45,7 +47,7 @@ func _on_visibility_changed() -> void:
 		_update_assign_text()
 		_update_recruit_price()
 		_update_free_spaces()
-		
+		animation_show.play("show_g/show")
 
 
 ## recruits a scientist

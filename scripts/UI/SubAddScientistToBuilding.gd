@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var nom: Label = $MarginContainer/nine/MarginContainer/HBoxContainer/nom
 @onready var nombre_scient: Label = $MarginContainer/nine/MarginContainer/HBoxContainer/nombreScient
 @onready var audio: AudioStreamPlayer2D = $MarginContainer/nine/MarginContainer/HBoxContainer/assignation/AudioStreamPlayer2D
+@onready var animation_player = $AnimationPlayer
 
 
 var buil : Building
@@ -19,6 +20,8 @@ func setName(text : String) :
 ## entry : the visibility to have (bool)
 func setVisibility(vis : bool) :
 	visible = vis
+	if visible :
+		animation_player.play("show_g/show")
 
 
 ## set the building and update the number of scientist displayed

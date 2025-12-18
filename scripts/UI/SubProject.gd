@@ -15,6 +15,8 @@ extends MarginContainer
 @export var icon_pressed: Texture2D
 @export var icon_hover: Texture2D
 
+@onready var animation_player = $AnimationPlayer
+
 
 var project : Project
 
@@ -62,7 +64,7 @@ func setStatus(statusValue : int) -> void:
 	elif statusValue == 2:
 		lbl_status.text = "en pause"
 	elif statusValue >= 3:
-		lbl_status.text = "fini"
+		lbl_status.text = "terminé"
 
 
 ## change the visibility of the menu
@@ -70,6 +72,8 @@ func setStatus(statusValue : int) -> void:
 func setVisibility(vis : bool, timer_displayed : bool) -> void:
 	visible = vis
 	container_timer.visible = timer_displayed
+	if visible:
+		animation_player.play("show_g/show")
 
 
 ## start the project

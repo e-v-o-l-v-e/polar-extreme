@@ -17,6 +17,7 @@ extends MarginContainer
 @onready var lbl_nbr: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/lblNbr
 
 @onready var audio = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/btnAdd/AudioStreamPlayer2D
+@onready var animation = $AnimationPlayer
 
 
 var buil : Building
@@ -64,6 +65,8 @@ func _on_click_on_building(building : Building):
 			proj.setProject(project)
 			proj.instanciateProject()
 			proj.setVisibility(true, false)
+			
+	animation.play("show")
 
 
 ## displays a popup with the description of the building

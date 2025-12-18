@@ -13,7 +13,7 @@ building_name = "Tri des déchets"
 building_description = "Salle technique stricte avec des bacs de couleurs. Chaque type de déchet (organique, plastique, métal, dangereux) y est scrupuleusement séparé pour un traitement adapté"
 building_genre = 1
 building_type = 12
-pollution_per_second = -16.0
+pollution_per_second = -30.0
 price = 1500
 
 [node name="Door" parent="." index="0"]
