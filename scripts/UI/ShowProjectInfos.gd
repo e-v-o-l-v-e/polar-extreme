@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 ## opens the menu and fills the informations
 ## entry : the project (Project)
 func _on_open_project_menu(proj : Project) -> void:
+	btn_start.disabled = true
 	setVisibility(true)
 	project = proj
 	

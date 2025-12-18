@@ -298,7 +298,6 @@ theme_override_constants/separation = 10
 layout_mode = 2
 script = ExtResource("8_x51tq")
 textBuildingName = "Ajouter des chemins"
-textPopup = "Les chemins servent à ne pas mourir de froid"
 icon_pos = Vector2(3, 0)
 
 [node name="btnCat1" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
