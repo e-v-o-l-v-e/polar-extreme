@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxu3w7sl8f7sh"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_3yoo0"]
-[ext_resource type="Texture2D" uid="uid://ccvby55shu5ol" path="res://assets/buildings/life/showers.png" id="2_418p8"]
+[ext_resource type="Texture2D" uid="uid://dxcebxgik818c" path="res://assets/buildings/life/showers.png" id="2_418p8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_418p8"]
 size = Vector2(95, 159)
@@ -16,6 +16,7 @@ building_genre = 1
 building_type = 6
 pollution_per_second = 1.0
 price = 600
+wellness_value = -1.0
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 80)

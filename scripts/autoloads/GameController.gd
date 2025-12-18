@@ -47,6 +47,7 @@ func _on_validate_building_placement(building:Building):
 	building_manager.register(building)
 	world_manager.place_building(building)
 	gauges.change_science(-building.price)
+	GameController.gauges.change_wellness(building.wellness_value)
 	#gauges.change_pollution_per_second(building.pollution_per_second)
 
 func _on_delete_building(building:Building):

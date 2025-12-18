@@ -39,6 +39,12 @@ class_name Building
 ## Tracks whether the mouse cursor is currently over this building
 var mouse_hover: bool = false
 
+## How much wellness a building will add
+@export var wellness_value : float:
+	set(value):
+		GameController.gauges.change_wellness(value - wellness_value)
+		wellness_value = value
+
 
 ## Gets the unique identifier of this building.
 ## [return] The building's ID number

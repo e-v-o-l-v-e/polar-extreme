@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://8wskbvlktw4d"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_x7ujq"]
-[ext_resource type="Texture2D" uid="uid://yv40tvqmojf1" path="res://assets/buildings/life/canteen.png" id="2_xy5ji"]
+[ext_resource type="Texture2D" uid="uid://dlv8t3ix3kjgy" path="res://assets/buildings/life/canteen.png" id="2_xy5ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjlrj"]
 size = Vector2(95, 95)
@@ -15,6 +15,7 @@ building_genre = 1
 building_type = 7
 pollution_per_second = 1.0
 price = 1100
+wellness_value = 4.0
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 47)

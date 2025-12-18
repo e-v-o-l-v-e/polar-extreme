@@ -39,7 +39,7 @@ func create_building(btype : Enums.BUILDING_TYPE) -> Building:
 		print("ajoute la liste")
 		print(str(btype) + building.name)
 		print("\n")
-		
+				
 	return building
 
 func create_path() -> Path:

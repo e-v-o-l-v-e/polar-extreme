@@ -11,7 +11,7 @@ var science_per_seconds := 0.0:
 		science_per_seconds = value
 		UiController.emit_science_second_changed(science_per_seconds)
 
-var pollution := 0.0:
+var pollution := 100.0:
 	set(value):
 		if value <= 0 :
 			pollution = 0
@@ -23,13 +23,12 @@ var pollution_per_seconds := 0.0:
 		print("previous: " + str(pollution_per_seconds) + ", new: "   + str(value))
 		pollution_per_seconds = value
 
-var wellness := 100.0:
+var wellness := 110.0:
 	set (value):
 		wellness = clamp(value, wellness_min, wellness_max)
 		UiController.emit_wellness_changed(wellness)
 var wellness_max := 200.0
-var wellness_min := 001.0
-var wellness_decrement_factor := -0.9
+var wellness_min := 10.0
 
 ### GAUGES MANAGEMENT ##
 
@@ -59,9 +58,6 @@ func get_pollution_per_second() -> float:
 	return pollution_per_seconds
 
 func change_pollution(value: float) -> bool:
-	var changed = false
-	if pollution > 0:
-		changed = true
 	if value > 0:
 		# more wellness = less pollution gain (and the reverse)
 		pollution += value * (100 / wellness)
@@ -69,10 +65,9 @@ func change_pollution(value: float) -> bool:
 		# more wellness = more pollution loss
 		pollution += value * (wellness / 100)
 		
+	# gain 0.01 wellness per tick if pollution is 0
 	if pollution <= 0:
-		change_wellness(0)
-		if changed:
-			print("Gauges, pollution : pollution < 0, gain 0.1% wellness per update") 
+		change_wellness(0.01)
 	return true
 
 func change_pollution_per_second(value: float) -> void:
@@ -86,12 +81,9 @@ func get_wellness() -> float:
 	return wellness
 
 func change_wellness(w: float) -> void:
-	var new_wellness = wellness + w
-	wellness = new_wellness if (new_wellness > wellness_min) else wellness_min
-
+	wellness += w
 
 ## UPDATE (every 2 seconds)
 func update_gauges():
 	change_science(science_per_seconds * GameController.update_time)
 	change_pollution(pollution_per_seconds * GameController.update_time)
-	change_wellness(wellness_decrement_factor * GameController.update_time)

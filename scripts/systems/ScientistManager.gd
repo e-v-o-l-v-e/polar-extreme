@@ -11,7 +11,10 @@ class_name ScientistManager
 var scientist_factory: ScientistFactory = load("res://scripts/factories/ScientistFactory.gd").new()
 
 ## Total number of scientists enrolled (both working and idle)
-var scientist_total: int = 0
+var scientist_total: int = 0: 
+	set(value):
+		scientist_total = value
+		GameController.gauges.change_wellness(value * scientist_wellness_cost)
 
 ## Number of scientists currently assigned to buildings
 var scientist_occupied: int = 0:
@@ -23,10 +26,12 @@ var scientist_occupied: int = 0:
 const SCIENTIST_START_PRICE: float = 1.0
 
 ## Multiplier applied to price after each hire (exponential growth)
-@export var scientist_price_factor: float = 1.2
+@export var scientist_price_factor: float = 2
 
 ## Current cost to hire the next scientist
 var scientist_price: float = SCIENTIST_START_PRICE
+
+@export var scientist_wellness_cost = -1
 
 ## Pollution generated when you recruit a scientist
 @export var scientist_pollution_travel: int = 50
@@ -130,3 +135,5 @@ func increase_price() -> void:
 		scientist_price_factor = 1.01
 	elif scientist_price > 1000:
 		scientist_price_factor = 1.1
+	elif scientist_price > 100:
+		scientist_price_factor = 1.5
