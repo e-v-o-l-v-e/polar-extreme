@@ -61,17 +61,6 @@ func start():
 		project_state = 1
 	elif project_state == 2:
 		project_state = 1
-		
-	#if project_state == 0:
-		#console("starting")
-		#project_state = 1
-	#elif project_state == 1:
-		#console("already running")
-	#elif project_state == 2:
-		#console("resuming")
-		#project_state = 1
-	#elif project_state >= 3:
-		#console("already finished")
 
 	
 func pause():
@@ -89,6 +78,7 @@ func finish():
 	var gauges = GameController.get_gauges()
 	gauges.change_wellness(reward_wellness)
 	gauges.change_pollution(reward_pollution)
+	gauges.change_science(reward_science)
 
 	
 func get_time_left() -> int:

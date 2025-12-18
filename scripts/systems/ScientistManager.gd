@@ -28,7 +28,7 @@ const SCIENTIST_START_PRICE: float = 1.0
 ## Current cost to hire the next scientist
 var scientist_price: float = SCIENTIST_START_PRICE
 
-## Pollution generated when a scientist travels between buildings
+## Pollution generated when you recruit a scientist
 @export var scientist_pollution_travel: int = 50
 
 ## Pollution generated per second per scientist (minimum value: 2)
@@ -63,13 +63,6 @@ func change_scientists_assigned(n: int) :
 	scientist_occupied += n
 
 
-## Checks if there are enough idle scientists available for assignment.
-## [param n_scientist] Number of scientists needed
-## [return] True if enough unoccupied scientists exist, False otherwise
-func enough_scientist_for_assignement(n_scientist: int) -> bool:
-	return n_scientist <= (scientist_total - scientist_occupied)
-
-
 ## Gets the total number of enrolled scientists.
 ## [return] Total scientist count (occupied + unoccupied)
 func get_scientist_total() -> int:
@@ -80,6 +73,14 @@ func get_scientist_total() -> int:
 ## [return] Number of occupied scientists
 func get_scientist_occupied() -> int:
 	return scientist_occupied
+	
+ 
+## Checks if there are enough idle scientists available for assignment.
+## [param n_scientist] Number of scientists needed
+## [return] True if enough unoccupied scientists exist, False otherwise
+func enough_scientist_for_assignement(n_scientist: int) -> bool:
+	return n_scientist <= (scientist_total - scientist_occupied)
+
 
 
 ## Gets the number of idle scientists available for assignment.
@@ -122,10 +123,10 @@ func change_scientist_pollution_travel(x: int) -> void:
 ## Growth factor decreases at high prices:
 ## - 1.2x up to 1000
 ## - 1.1x from 1000 to 10000
-## - 1.0x (flat) above 10000
+## - 1.01x (flat) above 10000
 func increase_price() -> void:
 	scientist_price = scientist_price * scientist_price_factor
 	if scientist_price > 10000:
-		scientist_price_factor = 1.0
+		scientist_price_factor = 1.01
 	elif scientist_price > 1000:
 		scientist_price_factor = 1.1

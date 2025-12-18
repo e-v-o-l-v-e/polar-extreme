@@ -34,7 +34,8 @@ func set_grid(grid : TileMapLayer):
 	UiController.deassign_scientist.connect(_on_deassign_scientist)
 	
 	gauges.change_science(START_SCIENCE)
-
+	gauges.set_pollution_per_second(0)
+	
 func _on_build_batiment(bname:Enums.BUILDING_TYPE):
 	var building := building_manager.create_building(bname)
 	UiController.emit_start_building(building)
@@ -46,7 +47,7 @@ func _on_validate_building_placement(building:Building):
 	building_manager.register(building)
 	world_manager.place_building(building)
 	gauges.change_science(-building.price)
-	gauges.change_pollution_per_second(building.pollution_per_second)
+	#gauges.change_pollution_per_second(building.pollution_per_second)
 
 func _on_delete_building(building:Building):
 	building_manager.unregister(building)

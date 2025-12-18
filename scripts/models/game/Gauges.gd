@@ -18,7 +18,10 @@ var pollution := 0.0:
 		else:
 			pollution = value
 		UiController.emit_pollution_changed(pollution)
-var pollution_per_seconds := 0.0
+var pollution_per_seconds := 0.0:
+	set(value):
+		print("previous: " + str(pollution_per_seconds) + ", new: "   + str(value))
+		pollution_per_seconds = value
 
 var wellness := 100.0:
 	set (value):
@@ -67,15 +70,16 @@ func change_pollution(value: float) -> bool:
 		pollution += value * (wellness / 100)
 		
 	if pollution <= 0:
-		change_wellness(0.1)
+		change_wellness(0)
 		if changed:
 			print("Gauges, pollution : pollution < 0, gain 0.1% wellness per update") 
-
 	return true
 
 func change_pollution_per_second(value: float) -> void:
 	pollution_per_seconds += value
 
+func set_pollution_per_second(value: float) -> void:
+	pollution_per_seconds = value
 
 # Wellness
 func get_wellness() -> float:
