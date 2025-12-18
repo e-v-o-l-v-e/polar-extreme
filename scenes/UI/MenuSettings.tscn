@@ -1,13 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmplrmtisrhmp"]
+[gd_scene load_steps=12 format=3 uid="uid://dmplrmtisrhmp"]
 
-[ext_resource type="Script" uid="uid://5jc1ng50u2dy" path="res://scripts/UI/Settings.gd" id="1_05p07"]
-[ext_resource type="FontFile" uid="uid://dkpxuth1jl368" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
+[ext_resource type="Script" uid="uid://j414twamiby7" path="res://scripts/UI/Settings.gd" id="1_05p07"]
+[ext_resource type="FontFile" uid="uid://bme4qpb5271lg" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
 
-[sub_resource type="Theme" id="Theme_05p07"]
-default_font_size = 0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l116f"]
+bg_color = Color(0.592157, 0.694118, 1, 0.639216)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha253"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvq1v"]
-bg_color = Color(0.592157, 0.694118, 1, 0.639216)
+bg_color = Color(0.592157, 0.694118, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l116f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cr101"]
 font = ExtResource("2_yk8t3")
@@ -18,6 +22,10 @@ font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_wswnh"]
 font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k22xe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v3rl"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -35,10 +43,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_05p07")
-theme_override_styles/panel = SubResource("StyleBoxFlat_dvq1v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l116f")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,106 +53,139 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ha253")
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvq1v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l116f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/separation = 19
 alignment = 1
 
-[node name="SettingsLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="SettingsLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Paramètres"
 label_settings = SubResource("LabelSettings_cr101")
 horizontal_alignment = 1
 
-[node name="ResolutionContainer" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="ResolutionContainer" type="HBoxContainer" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ResolutionLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer/ResolutionContainer"]
+[node name="ResolutionLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer/ResolutionContainer"]
 layout_mode = 2
 text = "Résolution"
 label_settings = SubResource("LabelSettings_05p07")
 horizontal_alignment = 1
 
-[node name="Resolution" type="OptionButton" parent="Panel/HBoxContainer/VBoxContainer/ResolutionContainer"]
+[node name="Resolution" type="OptionButton" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer/ResolutionContainer"]
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Fullscreen" type="CheckBox" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="Fullscreen" type="CheckBox" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Plein écran"
 
-[node name="VSync" type="CheckBox" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="VSync" type="CheckBox" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Synchronisation verticale"
 
-[node name="MouseSetting" type="CheckBox" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="MouseSetting" type="CheckBox" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Inverser les cliques de la souris"
+text = "Inverser clic gauche/droite"
 
-[node name="VolumeLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="VolumeLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Master"
 label_settings = SubResource("LabelSettings_wswnh")
 horizontal_alignment = 1
 
-[node name="Volume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="Volume" type="HSlider" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 step = 10.0
 value = 100.0
 
-[node name="VolumeSFX" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="VolumeSFX" type="Label" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "SFX"
 label_settings = SubResource("LabelSettings_wswnh")
 horizontal_alignment = 1
 
-[node name="SFXVolume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="SFXVolume" type="HSlider" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 step = 10.0
 value = 100.0
 
-[node name="VolumeMusic" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="VolumeMusic" type="Label" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Musique"
 label_settings = SubResource("LabelSettings_wswnh")
 horizontal_alignment = 1
 
-[node name="MusicVolume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="MusicVolume" type="HSlider" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 step = 10.0
 value = 100.0
 
-[node name="BackToGameBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="BackToGameBtn" type="Button" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "Retour au jeu"
 
-[node name="QuitGameBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="QuitGameBtn" type="Button" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Quitter le jeu"
 
-[connection signal="item_selected" from="Panel/HBoxContainer/VBoxContainer/ResolutionContainer/Resolution" to="." method="_on_option_button_item_selected"]
-[connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
-[connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/VSync" to="." method="_on_v_sync_toggled"]
-[connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/MouseSetting" to="." method="_on_mousse_toggled"]
-[connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
-[connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/BackToGameBtn" to="." method="_on_back_to_game_btn_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/QuitGameBtn" to="." method="_on_quit_game_btn_pressed"]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_k22xe")
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0v3rl")
+
+[connection signal="item_selected" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/ResolutionContainer/Resolution" to="." method="_on_option_button_item_selected"]
+[connection signal="toggled" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/VSync" to="." method="_on_v_sync_toggled"]
+[connection signal="toggled" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/MouseSetting" to="." method="_on_mousse_toggled"]
+[connection signal="value_changed" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/BackToGameBtn" to="." method="_on_back_to_game_btn_pressed"]
+[connection signal="pressed" from="HBoxContainer/Panel/VBoxContainer/VBoxContainer/QuitGameBtn" to="." method="_on_quit_game_btn_pressed"]

@@ -1,10 +1,10 @@
 extends Control
 class_name SettingsMenu
 
-@onready var resolution_option_button: OptionButton = $Panel/HBoxContainer/VBoxContainer/ResolutionContainer/Resolution
-@onready var master_volume: HSlider = $Panel/HBoxContainer/VBoxContainer/Volume
-@onready var sfx_volume: HSlider = $Panel/HBoxContainer/VBoxContainer/SFXVolume
-@onready var music_volume: HSlider = $Panel/HBoxContainer/VBoxContainer/MusicVolume
+@onready var resolution_option_button: OptionButton = $HBoxContainer/Panel/VBoxContainer/VBoxContainer/ResolutionContainer/Resolution
+@onready var master_volume: HSlider = $HBoxContainer/Panel/VBoxContainer/VBoxContainer/Volume
+@onready var sfx_volume: HSlider = $HBoxContainer/Panel/VBoxContainer/VBoxContainer/SFXVolume
+@onready var music_volume: HSlider = $HBoxContainer/Panel/VBoxContainer/VBoxContainer/MusicVolume
 
 const VOLUME_MODIFIFACTOR := 50
 
