@@ -23,13 +23,16 @@ boot_splash/minimum_display_time=1000
 Enums="*res://scripts/autoloads/Enums.gd"
 GameController="*res://scripts/autoloads/GameController.gd"
 UiController="*res://scripts/autoloads/UIController.gd"
-Gui="*res://scripts/autoloads/Gui.gd"
 settingsValue="*res://scripts/autoloads/settingsValue.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[editor]
+
+resource_uid=false
 
 [gui]
 
