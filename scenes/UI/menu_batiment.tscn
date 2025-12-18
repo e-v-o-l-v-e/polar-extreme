@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://b4q2wpp4uf3ys"]
 
-[ext_resource type="Script" uid="uid://c1cuov3pax63o" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
-[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
+[ext_resource type="Script" uid="uid://6h4au2h86n50" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
+[ext_resource type="Texture2D" uid="uid://bc6jalajur06e" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
 [ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="3_qxndm"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="4_8pln5"]
+[ext_resource type="Texture2D" uid="uid://c8hmhrfagtxn8" path="res://assets/UI/tilesetT3_pressed.png" id="4_8pln5"]
 [ext_resource type="PackedScene" uid="uid://c8nnuxedv5wlo" path="res://scenes/UI/popup_desc_buindings.tscn" id="4_qxndm"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="5_ugwoq"]
+[ext_resource type="Texture2D" uid="uid://ksvfqlmtk3gp" path="res://assets/UI/tilesetT3_hovered.png" id="5_ugwoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7fcw"]
 atlas = ExtResource("1_ymk3k")
@@ -74,7 +74,7 @@ patch_margin_bottom = 10
 
 [node name="gyfesuifqmoE" type="Label" parent="NinePatchRect"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 332.0
 offset_top = 123.0
 offset_right = 841.0

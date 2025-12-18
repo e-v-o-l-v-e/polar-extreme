@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dmplrmtisrhmp"]
 
-[ext_resource type="Script" uid="uid://48i6llhlns51" path="res://scripts/UI/settings_menu.gd" id="1_05p07"]
+[ext_resource type="Script" uid="uid://chnic6tesfts4" path="res://scripts/UI/settings_menu.gd" id="1_05p07"]
 
 [sub_resource type="Theme" id="Theme_05p07"]
 default_font_size = 0

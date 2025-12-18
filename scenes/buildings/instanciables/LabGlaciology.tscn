@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyqplkquxyduf"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_2st8v"]
-[ext_resource type="Texture2D" uid="uid://c7fw0wlgs6w3g" path="res://assets/buildings/labo/glaciology.png" id="2_wi6qq"]
+[ext_resource type="Texture2D" uid="uid://cfyunqut37csg" path="res://assets/buildings/labo/glaciology.png" id="2_wi6qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od3lo"]
 size = Vector2(159, 95)

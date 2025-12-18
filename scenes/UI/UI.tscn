@@ -1,16 +1,16 @@
 [gd_scene load_steps=29 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://cfglvx6t7ul1r" path="res://scripts/UI/ui.gd" id="1_5en4g"]
+[ext_resource type="Script" uid="uid://b5f0rictnbkrx" path="res://scripts/UI/ui.gd" id="1_5en4g"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
-[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
+[ext_resource type="Texture2D" uid="uid://bc6jalajur06e" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
 [ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/button_buildings.tscn" id="6_84lt7"]
-[ext_resource type="Script" uid="uid://d0ltfahl0385u" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
-[ext_resource type="Script" uid="uid://belta2lfpl277" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
+[ext_resource type="Script" uid="uid://chkrwetyx3tum" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
+[ext_resource type="Script" uid="uid://cqvlngn0cfvid" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
 [ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/menu_batiment.tscn" id="9_e6oqk"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
-[ext_resource type="Script" uid="uid://cly0kdbjknccm" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
+[ext_resource type="Texture2D" uid="uid://ksvfqlmtk3gp" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
+[ext_resource type="Script" uid="uid://w46dgocm6vbt" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
+[ext_resource type="Texture2D" uid="uid://c8hmhrfagtxn8" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
 [ext_resource type="PackedScene" uid="uid://c65o5y2weg82m" path="res://scenes/UI/affichage_projet.tscn" id="12_81vvl"]
 [ext_resource type="PackedScene" uid="uid://cws5sxnaq0d7j" path="res://scenes/UI/gauges.tscn" id="13_t1j05"]
 
@@ -104,6 +104,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 123.0
+offset_top = 84.0
+offset_right = 123.0
+offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -113,7 +117,7 @@ mouse_force_pass_scroll_events = false
 script = ExtResource("1_5en4g")
 
 [node name="hBoxScience" type="HBoxContainer" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_right = 354.0
 offset_bottom = 100.0
 size_flags_horizontal = 0

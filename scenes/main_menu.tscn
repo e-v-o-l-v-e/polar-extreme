@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8875cfmnqme0"]
 
-[ext_resource type="Script" uid="uid://bagg4ueyobuse" path="res://scenes/MainMenu.gd" id="1_ekxnf"]
-[ext_resource type="FontFile" uid="uid://x7clyu6xw4hq" path="res://assets/font/Jersey10-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://cysvk8rk0um0u" path="res://scenes/MainMenu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://cfogg5ktdtr26" path="res://assets/font/Jersey10-Regular.ttf" id="1_l6cm7"]
 
 [sub_resource type="Gradient" id="Gradient_ekxnf"]
 colors = PackedColorArray(0.713726, 0.713726, 1, 1, 1, 1, 1, 1)
@@ -63,8 +63,8 @@ grow_vertical = 2
 [node name="StartGameBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0.71691, 0.810688, 1, 1)
 theme_override_colors/font_color = Color(0.437799, 0.616361, 1, 1)
+theme_override_colors/font_hover_color = Color(0.71691, 0.810688, 1, 1)
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 90
 text = "Commencer la partie"
@@ -73,8 +73,8 @@ flat = true
 [node name="QuitGameBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0.71691, 0.810688, 1, 1)
 theme_override_colors/font_color = Color(0.528762, 0.681711, 1, 1)
+theme_override_colors/font_hover_color = Color(0.71691, 0.810688, 1, 1)
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 75
 text = "Quitter"
