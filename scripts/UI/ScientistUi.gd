@@ -10,6 +10,7 @@ class_name ScientistMenu
 @onready var lbl_nbr_assigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/lblNbrAssigned
 
 @onready var btn_recruit: Button = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit
+@onready var audio_recruit: AudioStreamPlayer2D = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit/AudioRecruit
 
 @onready var animation: AnimationPlayer = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit/AnimationPlayer
 @onready var nine_icon: NinePatchRect = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon
@@ -54,14 +55,20 @@ func _on_btn_recruit_pressed() -> void:
 	nine_icon.patch_margin_left = 10
 	nine_icon.patch_margin_right = 10
 	nine_icon.patch_margin_top = 10
-	if GameController.pay_scientist():
+	var status : int = GameController.pay_scientist()
+	if status == 0:
 		UiController.emit_enroll_scientist()
+		audio_recruit.play()
 		_update_assign_text()
 		_update_recruit_price()
 	else:
 		if not animation.is_playing():
-			animation.play("not_enough_credit")
-			#not_enough_science.emit()
+			if status == 1:
+				animation.play("not_enough_credit")
+				btn_recruit.text = "Science insuffisante ! "
+			else:
+				animation.play("not_enough_credit")
+				btn_recruit.text = "Pas assez de place !\n Construisez des chambres..."
 	nine_icon.texture = icon_normal
 
 

@@ -107,15 +107,18 @@ func get_building_description(btype : Enums.BUILDING_TYPE) -> String :
 func _update_gauges() :
 	gauges.update_gauges()
 
-func pay_scientist() ->bool:
-	if gauges.science >= scientist_manager.get_scientist_price() and building_manager.get_free_spaces() > scientist_manager.scientist_total:
-		gauges.change_science(-scientist_manager.get_scientist_price())
-		gauges.change_pollution(scientist_manager.get_scientist_pollution_travel())
-		gauges.change_pollution_per_second(scientist_manager.get_scientist_pollution_per_second())
-		scientist_manager.increase_price()
-		return true
+func pay_scientist() ->int:
+	if gauges.science >= scientist_manager.get_scientist_price():
+		if(building_manager.get_free_spaces() > scientist_manager.scientist_total):
+			gauges.change_science(-scientist_manager.get_scientist_price())
+			gauges.change_pollution(scientist_manager.get_scientist_pollution_travel())
+			gauges.change_pollution_per_second(scientist_manager.get_scientist_pollution_per_second())
+			scientist_manager.increase_price()
+			return 0
+		else:
+			return 2
 	else:
-		return false
+		return 1
 		
 func init_default(world_grid):
 	var defaultBedRoom = building_manager.create_building(Enums.BUILDING_TYPE.DORMITORY)
