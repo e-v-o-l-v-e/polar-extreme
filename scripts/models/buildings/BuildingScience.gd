@@ -9,9 +9,6 @@ class_name BuildingScience
 
 @onready var door: Marker2D = $Door
 
-## Whether the building is currently producing science
-@export var producing: bool
-
 ## Science points generated per second per scientist
 @export var science_per_second: float:		# per scientist
 	set(value):
@@ -90,17 +87,6 @@ func building_get_type() -> Enums.BUILDING_TYPE:
 ## [param value] Amount to add to science_per_second (can be negative)
 func change_science_per_second_production(value: float) -> void:
 	science_per_second += value
-
-
-## Pauses science production and updates global science generation.
-func science_production_pause() -> void:
-	producing = false
-	GameController.get_gauges().change_science_per_second(-1 * science_per_second)
-
-
-## Pauses production without updating science generation.
-func production_pause() -> void:
-	producing = false
 
 
 ## Gets the list of available research projects.

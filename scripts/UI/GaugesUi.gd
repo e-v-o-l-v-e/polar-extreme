@@ -1,8 +1,8 @@
 extends Control
 ## displays the gauges of wellness and pollution
 
-@onready var label: Label = $NinePatchRect/MarginContainer/HBoxContainer/Label
-@onready var progress_bar: ProgressBar = $NinePatchRect/MarginContainer/HBoxContainer/NinePatchRect/MarginContainer/ProgressBar
+@onready var wellness_bar: ProgressBar = $WellnessBar/MarginContainer/ProgressBar
+@onready var pollution_bar: ProgressBar = $PollutionBar/MarginContainer/ProgressBar
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,17 +19,17 @@ func _process(delta: float) -> void:
 ## updates the wellness
 ## entry : the wellness (float)
 func _on_wellness_changed(wellness : float) ->void :
-	progress_bar.value = wellness
+	wellness_bar.value = wellness
 
 
 ## updates the pollution
 ## entry : the pollution (float)
 func _on_pollution_changed(pollution : float) ->void :
-	label.text = str(round(pollution * 10.0 )/ 10.0)
+	pollution_bar.value = round(pollution * 10.0 )/ 10.0
 
 func _on_progress_bar_mouse_entered() -> void:
-	progress_bar.show_percentage = true
+	wellness_bar.show_percentage = true
 
 
 func _on_progress_bar_mouse_exited() -> void:
-	progress_bar.show_percentage = false
+	wellness_bar.show_percentage = false
