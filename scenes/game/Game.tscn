@@ -1,11 +1,26 @@
-[gd_scene load_steps=7 format=4 uid="uid://b3djkfr0ekhwm"]
+[gd_scene load_steps=9 format=4 uid="uid://b3djkfr0ekhwm"]
 
 [ext_resource type="Script" uid="uid://bh27yuhryhlr0" path="res://scripts/models/game/Game.gd" id="1_04co1"]
 [ext_resource type="PackedScene" uid="uid://cism5ivh6jv6b" path="res://scenes/buildings/BuildPlacement.tscn" id="2_pbgo2"]
 [ext_resource type="PackedScene" uid="uid://dybfqr0devca8" path="res://scenes/game/Camera.tscn" id="2_puwje"]
 [ext_resource type="PackedScene" uid="uid://1np065kd0d37" path="res://scenes/game/WorldGrid.tscn" id="3_pbgo2"]
+[ext_resource type="Shader" uid="uid://dv5u62akx1kem" path="res://assets/shader/Camera.gdshader" id="4_gg4pt"]
 [ext_resource type="PackedScene" uid="uid://on73whrfey7o" path="res://scenes/UI/MainUi.tscn" id="5_wnrko"]
 [ext_resource type="PackedScene" uid="uid://c6eb3xgrqgvie" path="res://scenes/buildings/Path.tscn" id="6_365ku"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gg4pt"]
+shader = ExtResource("4_gg4pt")
+shader_parameter/rain_amount = 199.725
+shader_parameter/near_rain_length = 0.01
+shader_parameter/far_rain_length = 0.01
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 0.46
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.678
+shader_parameter/rain_color = Color(1, 1, 0.956863, 1)
+shader_parameter/base_rain_speed = 0.1
+shader_parameter/additional_rain_speed = 0.1
+shader_parameter/slant = 0.171
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_04co1")
@@ -17,6 +32,16 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera/CanvasLayer"]
+material = SubResource("ShaderMaterial_gg4pt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [node name="GameUI" parent="Camera/CanvasLayer" instance=ExtResource("5_wnrko")]
 
