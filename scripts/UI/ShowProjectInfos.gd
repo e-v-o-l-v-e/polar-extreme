@@ -60,29 +60,41 @@ func _on_open_project_menu(proj : Project) -> void:
 	setStatus(project.get_project_state())
 	lbl_nb_scientist.text = "Scientifiques nécessaires pour lancer le projet : " + str(project.requirement_scientists) 
 		
-	lbl_reward_nbr_sc.text = "+" + str(project.reward_science)
+	lbl_reward_nbr_sc.text = str(project.reward_science)
 	if project.reward_science > 0:
-		lbl_reward_nbr_sc.add_theme_color_override("font_color", Color.RED)
+		lbl_reward_nbr_sc.text = "+" + str(lbl_reward_nbr_sc.text)
+	if project.reward_science == 0:
+		lbl_reward_nbr_sc.add_theme_color_override("font_color", Color.GRAY)
 
-	lbl_reward_nbr_sc_ps.text = "+" + str(project.reward_production) + " / scientifique"
+	lbl_reward_nbr_sc_ps.text = str(project.reward_production)
 	if project.reward_production > 0:
-		lbl_reward_nbr_sc_ps.add_theme_color_override("font_color", Color.RED)
+		lbl_reward_nbr_sc_ps.text = "+" + str(project.reward_production) + " / scientifique"
+	if project.reward_production == 0:
+		lbl_reward_nbr_sc_ps.add_theme_color_override("font_color", Color.GRAY)
 
-	lbl_reward_nbr_slots.text = "+" + str(project.reward_slots)
+	lbl_reward_nbr_slots.text = str(project.reward_slots)
 	if project.reward_slots > 0:
-		lbl_reward_nbr_slots.add_theme_color_override("font_color", Color.RED)
+		lbl_reward_nbr_slots.text = "+" + str(lbl_reward_nbr_slots.text)
+	if project.reward_slots == 0:
+		lbl_reward_nbr_slots.add_theme_color_override("font_color", Color.GRAY)
 
-	lbl_reward_nbr_poll.text = "+" + str(project.reward_pollution)
+	lbl_reward_nbr_poll.text = str(project.reward_pollution)
 	if project.reward_pollution > 0:
-		lbl_reward_nbr_poll.add_theme_color_override("font_color", Color.RED)
+		lbl_reward_nbr_poll.text = "+" + str(lbl_reward_nbr_poll.text)
+	if project.reward_pollution == 0:
+		lbl_reward_nbr_poll.add_theme_color_override("font_color", Color.GRAY)
 
-	lbl_reward_nbr_poll_ps.text = "+" + str(project.reward_pollution_per_second)
+	lbl_reward_nbr_poll_ps.text = str(project.reward_pollution_per_second)
 	if project.reward_pollution_per_second > 0:
-		lbl_reward_nbr_poll_ps.add_theme_color_override("font_color", Color.RED)
+		lbl_reward_nbr_poll_ps.text = "+" + str(lbl_reward_nbr_poll_ps.text)
+	if project.reward_pollution_per_second == 0:
+		lbl_reward_nbr_poll_ps.add_theme_color_override("font_color", Color.GRAY)
 
-	lbl_reward_nbr_wb.text = "+" + str(project.reward_wellness)
+	lbl_reward_nbr_wb.text = str(project.reward_wellness)
 	if project.reward_wellness > 0:
-		lbl_reward_nbr_wb.add_theme_color_override("font_color", Color.RED)
+		lbl_reward_nbr_wb.text = "+" + str(lbl_reward_nbr_wb.text)
+	if project.reward_wellness == 0:
+		lbl_reward_nbr_wb.add_theme_color_override("font_color", Color.GRAY)
 
 	
 	lbl_time.text = str(project.project_time) + " sec."
