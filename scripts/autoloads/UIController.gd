@@ -31,6 +31,7 @@ signal wellness_changed(wellness: float)
 signal lock_scroll_cam()
 
 signal click_on_building(building : Building)
+signal close_menu_building()
 
 signal open_project_menu(proj : Project)
 signal start_project(proj : Project)

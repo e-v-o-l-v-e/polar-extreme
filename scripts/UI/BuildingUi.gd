@@ -17,6 +17,7 @@ extends MarginContainer
 @onready var pop_desc_building: Popup = $popDescBuilding
 @onready var lbl_nbr: Label = $HBoxContainer/NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/lblNbr
 @onready var audio: AudioStreamPlayer2D = $HBoxContainer/NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/btnAdd/AudioStreamPlayer2D
+@onready var sub_menu_show_project_infos: MarginContainer = $"../SubMenuShowProjectInfos"
 
 var buil : Building
 
@@ -29,6 +30,7 @@ var project_ui_list : Array		##list of SubMenuProject
 func _enter_tree():
 	UiController.click_on_building.connect(_on_click_on_building)
 	UiController.project_change_state.connect(_on_project_change_state)
+	UiController.close_menu_building.connect(_on_close_building_menu)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,6 +78,9 @@ func _on_project_change_state(proj : Project) -> void:
 			project.setStatus(proj.get_project_state())
 
 
+func _on_close_building_menu() -> void:
+	sub_menu_show_project_infos.visible = false
+
 ## displays a popup with the description of the building
 func _on_btn_expl_pressed() -> void:
 	pop_desc_building.visible = true
@@ -106,3 +111,4 @@ func _on_btn_rem_pressed() -> void:
 ## closes the menu
 func _on_btn_quit_pressed() -> void:
 	menu_batiment.visible = false
+	UiController.close_menu_building.emit()
