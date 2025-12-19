@@ -7,18 +7,16 @@ extends MarginContainer
 
 @onready var menu_batiment: MarginContainer = $"."
 
-@onready var lbl_name: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/lblName
-@onready var projet_container: VBoxContainer = $NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer
-@onready var assignement_container: HBoxContainer = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2
-@onready var lbl_project: Label = $NinePatchRect/VBoxContainer/VBoxContainer/Label
-
-@onready var lbl_desc: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/lblDesc
-@onready var pop_desc_building: Popup = $popDescBuilding
-@onready var lbl_nbr: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/lblNbr
-
-@onready var audio = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/btnAdd/AudioStreamPlayer2D
 @onready var animation = $AnimationPlayer
 
+@onready var lbl_name: Label = $HBoxContainer/NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/lblName
+@onready var projet_container: VBoxContainer = $HBoxContainer/NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer
+@onready var assignement_container: HBoxContainer = $HBoxContainer/NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2
+@onready var lbl_project: Label = $HBoxContainer/NinePatchRect/VBoxContainer/VBoxContainer/Label
+@onready var lbl_desc: Label = $HBoxContainer/NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/lblDesc
+@onready var pop_desc_building: Popup = $popDescBuilding
+@onready var lbl_nbr: Label = $HBoxContainer/NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/lblNbr
+@onready var audio: AudioStreamPlayer2D = $HBoxContainer/NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/btnAdd/AudioStreamPlayer2D
 
 var buil : Building
 
