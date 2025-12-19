@@ -3,7 +3,7 @@
 ## Équipe
 
 - Claudel Gauthier : développeur back
-- Courseaux Lucie : chef d'équipe, dévelopeur back, designer
+- Courseaux Lucas : chef d'équipe, dévelopeur back, designer
 - Dausse Capucine : dévelopeuse front, designer
 - Preiss Ivanoé : développeur back
 
