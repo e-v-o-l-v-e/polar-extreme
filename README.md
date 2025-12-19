@@ -34,6 +34,10 @@ L'objectif du jeu pour les développeurs.euses est de faire comprendre au joueur
 
 Téléchargez et lancez [Polar Extreme Windows](https://git.unistra.fr/polar-extreme/T3-25-SCI25-A/-/raw/main/PolarExtreme.exe?ref_type=heads&inline=false).
 
+### 2.2 Linux
+
+Téléchargez et lancez [Polar Extreme Windows](https://git.unistra.fr/polar-extreme/T3-25-SCI25-A/-/raw/main/PolarExtreme.x86_64?ref_type=heads&inline=false).
+
 ## 3. Gameplay
 
 ### 3.1 But du Jeu
