@@ -128,7 +128,7 @@ custom_minimum_size = Vector2(330, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
-text = "Desc
+text = "Infos
 
 
 "

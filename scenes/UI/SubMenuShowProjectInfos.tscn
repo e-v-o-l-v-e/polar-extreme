@@ -241,7 +241,6 @@ theme_override_constants/v_separation = 5
 columns = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(234, 0)
 layout_mode = 2
 
 [node name="lblRewardScience" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/GridContainer/HBoxContainer"]
@@ -266,7 +265,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
-text = "Science par secondes :"
+text = "Science par seconde :"
 
 [node name="lblRewardNbrScPS" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/GridContainer/HBoxContainer2"]
 layout_mode = 2
@@ -316,7 +315,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
-text = "Pollution par secondes :"
+text = "Pollution par seconde :"
 
 [node name="lblRewardNbrPollPS" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/GridContainer/HBoxContainer5"]
 layout_mode = 2
