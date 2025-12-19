@@ -30,13 +30,13 @@ L'objectif du jeu pour les développeurs.euses est de faire comprendre au joueur
 
 ## 2. Lancer le jeu.
 
-### 2.1 Linux
+### 2.1 Windows
 
-Téléchargez et lancez [Polar Extreme Linux](./bin/polar-extreme-linux)
+Téléchargez et lancez [Polar Extreme Windows](https://git.unistra.fr/polar-extreme/T3-25-SCI25-A/-/raw/main/PolarExtreme.exe?ref_type=heads&inline=false).
 
-### 2.2 Windows
+### 2.2 Linux
 
-Téléchargez et lancez [Polar Extreme Windows](./bin/polar-extreme-windows)
+Téléchargez et lancez [Polar Extreme Linux](https://git.unistra.fr/polar-extreme/T3-25-SCI25-A/-/raw/main/PolarExtreme.x86_64?ref_type=heads&inline=false).
 
 ## 3. Gameplay
 
