@@ -30,13 +30,9 @@ L'objectif du jeu pour les développeurs.euses est de faire comprendre au joueur
 
 ## 2. Lancer le jeu.
 
-### 2.1 Linux
+### 2.1 Windows
 
-Téléchargez et lancez [Polar Extreme Linux](./bin/polar-extreme-linux)
-
-### 2.2 Windows
-
-Téléchargez et lancez [Polar Extreme Windows](./bin/polar-extreme-windows)
+Téléchargez et lancez [Polar Extreme Windows](./PolarExtreme.exe)
 
 ## 3. Gameplay
 
