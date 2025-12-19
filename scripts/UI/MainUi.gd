@@ -22,8 +22,8 @@ func _ready() -> void:
 	UiController.ui_change_category.connect(_handle_category_changed)
 	UiController.science_changed.connect(_on_science_changed)
 	UiController.science_second_changed.connect(_on_science_second_changed)
-	UiController.trigger_end_game.connect(_on_science_second_changed)
-	menu_scientists.not_enough_science.connect(endscreendisplay)
+	UiController.trigger_end_game.connect(endscreendisplay)
+	menu_scientists.not_enough_science.connect(_on_not_enough_science)
 	lbl_science.text = "0"
 	lbl_science_per_sec.text = "0 / sec"
 	Input.set_custom_mouse_cursor(load("res://assets/cursor/ice_link.png"),Input.CURSOR_POINTING_HAND)

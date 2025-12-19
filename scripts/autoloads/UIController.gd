@@ -113,6 +113,6 @@ func emit_open_project_menu(proj : Project) -> void:
 
 func emit_start_project(proj : Project) -> void:
 	start_project.emit(proj)
-	
+
 func emit_trigger_end_game()->void:
 	trigger_end_game.emit()
