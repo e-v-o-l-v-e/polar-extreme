@@ -3,7 +3,7 @@ extends Node
 
 var science := 0.0:
 	set(value):
-		science = value
+		science = max(value, 0)
 		UiController.emit_science_changed(science)
 		
 var science_per_seconds := 0.0:
@@ -17,18 +17,24 @@ var pollution := 100.0:
 			pollution = 0
 		else:
 			pollution = value
+		if pollution >= max_pollution:
+			print("looooose pollution")
 		UiController.emit_pollution_changed(pollution)
+
+## int, player loose if pollution reach this height
+var max_pollution := 10000
+
 var pollution_per_seconds := 0.0:
 	set(value):
-		print("previous: " + str(pollution_per_seconds) + ", new: "   + str(value))
 		pollution_per_seconds = value
 
 var wellness := 110.0:
 	set (value):
 		wellness = clamp(value, wellness_min, wellness_max)
 		UiController.emit_wellness_changed(wellness)
+
+var wellness_min := 25.0
 var wellness_max := 200.0
-var wellness_min := 10.0
 
 ### GAUGES MANAGEMENT ##
 
@@ -36,12 +42,11 @@ var wellness_min := 10.0
 func get_science() -> float:
 	return science
 
-func change_science(value: float) -> bool:
-	if science + value >= 0:
-		science += value
-		return true
+func change_science(value: float) -> void:
+	if value > 0:
+		science += value * (wellness / 100.0)
 	else:
-		return false
+		science += value
 
 func get_science_per_second() -> float:
 	return science_per_seconds
@@ -83,7 +88,8 @@ func get_wellness() -> float:
 func change_wellness(w: float) -> void:
 	wellness += w
 
-## UPDATE (every 2 seconds)
+## UPDATE (every update_time seconds)
 func update_gauges():
 	change_science(science_per_seconds * GameController.update_time)
 	change_pollution(pollution_per_seconds * GameController.update_time)
+	UiController.emit_science_second_changed(science_per_seconds)

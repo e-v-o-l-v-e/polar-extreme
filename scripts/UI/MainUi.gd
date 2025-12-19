@@ -71,6 +71,11 @@ func _on_science_changed(new_science : float) ->void:
 ## updates the science value per second in the label
 ## entry : science value (float)
 func _on_science_second_changed(new_science) ->void:
+	if (new_science > 0):
+		new_science *= GameController.gauges.wellness / 100
+	else:
+		new_science *= 100 / GameController.gauges.wellness
+
 	if(new_science > 1000000000):
 		new_science = new_science / 1000000000
 		lbl_science_per_sec.text = str(round(new_science * 10.0) / 10.0) + " B / sec"
@@ -82,18 +87,13 @@ func _on_science_second_changed(new_science) ->void:
 		lbl_science_per_sec.text = str(round(new_science * 10.0) / 10.0) + " K / sec"
 	else :
 		var science_int : int = int(new_science)
+
 		lbl_science_per_sec.text = str(science_int) + " / sec"
 
 
 ## plays an animation when there isn't enough science
 func _on_not_enough_science() -> void:
 	animation.play("not_enough_credit")
-
-#func _on_button_assigner_scientists_pressed() -> void:
-	#pass
-
-#func _on_btn_path_pressed() -> void:
-	#pass # Replace with function body.
 
 
 ## calls another function that changes the buttons displayed

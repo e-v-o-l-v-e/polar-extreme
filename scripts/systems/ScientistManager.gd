@@ -31,7 +31,7 @@ const SCIENTIST_START_PRICE: float = 1.0
 ## Current cost to hire the next scientist
 var scientist_price: float = SCIENTIST_START_PRICE
 
-@export var scientist_wellness_cost = -1
+@export var scientist_wellness_cost = -2
 
 ## Pollution generated when you recruit a scientist
 @export var scientist_pollution_travel: int = 50

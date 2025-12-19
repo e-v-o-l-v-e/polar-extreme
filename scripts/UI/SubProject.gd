@@ -51,7 +51,6 @@ func getProject() -> Project:
 func instanciateProject() -> void:
 	lbl_name.text = project.get_project_name()
 	setStatus(project.get_project_state())
-	project.set_time(30)		# testttt
 	progress_bar.max_value = project.get_time_total()
 
 

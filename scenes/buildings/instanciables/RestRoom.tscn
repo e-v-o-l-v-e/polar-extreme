@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bd4f8pb2yquvu"]
 
-[ext_resource type="PackedScene" path="res://scenes/buildings/BuildingUtility.tscn" id="1_1hgbn"]
-[ext_resource type="Texture2D" uid="uid://cephhjyuub10g" path="res://assets/buildings/life/restroom.png" id="2_ycalw"]
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_1hgbn"]
+[ext_resource type="Texture2D" uid="uid://bg5toibpoe8u2" path="res://assets/buildings/life/restroom.png" id="2_ycalw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ef3"]
 size = Vector2(95, 95)
@@ -13,8 +13,8 @@ building_name = "Salle de repos"
 building_description = "La salle de détente est un espace destiné au repos et aux loisirs. On peut y lire, regarder des films ou discuter avec les autres membres de la base. Elle est essentielle pour réduire le stress et l’isolement."
 building_genre = 1
 building_type = 10
-price = 555
-wellness_value = 2.5
+price = 500
+wellness_value = 10.0
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 48)
