@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dkpxuth1jl368" path="res://assets/font/Jersey10-Regular.ttf" id="3_emcbx"]
 
 [sub_resource type="Gradient" id="Gradient_0i4v1"]
-colors = PackedColorArray(0.392104, 0.582538, 1, 1, 0.78785, 0.929908, 1, 1)
+colors = PackedColorArray(0.392157, 0.584314, 1, 0.588235, 0.788235, 0.929412, 1, 0.588235)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kdxk5"]
 gradient = SubResource("Gradient_0i4v1")

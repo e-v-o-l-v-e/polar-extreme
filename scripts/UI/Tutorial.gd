@@ -3,6 +3,8 @@ extends Control
 @onready var image: TextureRect = $HBoxContainer/VBoxContainer/Image
 @onready var explanation: Label = $HBoxContainer/VBoxContainer/Explanation
 
+@export_enum("NORMAL", "SHORT") var mode = "SHORT"
+
 var game_scene = preload("res://scenes/game/Game.tscn")
 
 var images := [
@@ -17,6 +19,13 @@ var images := [
 	"res://assets/tutorial/menu_scientifique.png",
 	"res://assets/tutorial/menu_scientifique.png",
 	"res://assets/tutorial/science.png",
+	"res://assets/tutorial/science.png",
+]
+
+var images_short := [
+	"res://assets/others/Logo.png",
+	"res://assets/tutorial/menu_bat.png",
+	"res://assets/tutorial/menu_scientifique.png",
 	"res://assets/tutorial/science.png",
 ]
 
@@ -35,6 +44,14 @@ var explanations := [
 	"Désormais, vous connaissez tout qu'il faut pour lancer la partie, alors bon jeu !"
 ]
 
+var explanations_short := [
+	"Bienvenue dans Polar Extreme ! Votre objectif est d'accumuler un maximum de Science en un minimum de temps tout en respectant l'environnement et le bien-être des scientifiques.",
+	"Construisez des laboratoires, des bâtiments de vie commune, ou des bâtiments techniques afin de réguler respectivement votre production de science, le bien-être des scientifiques, et la pollution.",
+	"Pour commencer à produire, assignez des scientifiques aux divers laboratoires.",
+	"Si vous vous sentez perdu en jeu, cliquez sur ce bouton pour obtenir plus d'informations.",
+]
+
+
 var index := 0
 
 func _ready():
@@ -44,17 +61,29 @@ func _ready():
 	show_image(index)
 
 func show_image(i: int):
-	var texture := load(images[i]) as Texture2D
-	image.texture = texture
-	explanation.text = explanations[i]
+	if mode == "SHORT": 
+		var texture := load(images_short[i]) as Texture2D
+		image.texture = texture
+		explanation.text = explanations_short[i]
+	else :
+		var texture := load(images[i]) as Texture2D
+		image.texture = texture
+		explanation.text = explanations[i]
 
 
 func _on_next_btn_pressed() -> void:
-	index = min(images.size(),index + 1)
-	if(index == images.size()):
-		get_tree().change_scene_to_packed(game_scene)
-	else:
-		show_image(index)
+	if mode == "SHORT":
+		index = min(images_short.size(),index + 1)
+		if(index == images_short.size()):
+			get_tree().change_scene_to_packed(game_scene)
+		else:
+			show_image(index)
+	else :
+		index = min(images.size(),index + 1)
+		if(index == images.size()):
+			visible = false
+		else:
+			show_image(index)
 
 
 func _on_back_btn_pressed() -> void:
