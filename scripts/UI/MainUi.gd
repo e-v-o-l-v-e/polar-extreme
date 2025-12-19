@@ -15,7 +15,6 @@ extends Control
 
 @onready var menu_building: MarginContainer = $MenuBuilding
 @onready var sub_menu_show_project_infos: MarginContainer = $SubMenuShowProjectInfos
-@onready var tutorial: Control = $Tutorial
 
 ## connects the signals and initialises the labels
 func _ready() -> void:
