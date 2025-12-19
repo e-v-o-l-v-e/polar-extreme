@@ -107,9 +107,6 @@ Godot 4 (GDScript)
 - En haut à droite :
   - Jauge d'indice écologique
   - Jauge de bien-être global des scientifiques
-- En haut au milieu :
-  - Date en jeu (mois en cours)
-  - Conditions météréologiques
 
 #### Construction d'un bâtiment
 
