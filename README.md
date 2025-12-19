@@ -36,7 +36,7 @@ Téléchargez et lancez [Polar Extreme Windows](https://git.unistra.fr/polar-ext
 
 ### 2.2 Linux
 
-Téléchargez et lancez [Polar Extreme Windows](https://git.unistra.fr/polar-extreme/T3-25-SCI25-A/-/raw/main/PolarExtreme.x86_64?ref_type=heads&inline=false).
+Téléchargez et lancez [Polar Extreme Linux](https://git.unistra.fr/polar-extreme/T3-25-SCI25-A/-/raw/main/PolarExtreme.x86_64?ref_type=heads&inline=false).
 
 ## 3. Gameplay
 
