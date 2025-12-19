@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw4ka37hokrdx"]
+
+[ext_resource type="PackedScene" path="res://scenes/buildings/BuildingUtility.tscn" id="1_s6tpw"]
+[ext_resource type="Texture2D" uid="uid://77vwvcch28dw" path="res://assets/buildings/utils/water.png" id="2_uips4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75e2j"]
+size = Vector2(95, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5865t"]
+
+[node name="WaterRecycling" instance=ExtResource("1_s6tpw")]
+building_name = "Recyclage de l'eau"
+building_description = "Cette installation traite l’eau usée afin de la rendre à nouveau utilisable. L’eau peut être filtrée et purifiée plusieurs fois, ce qui permet de limiter les besoins en nouvelles ressources."
+building_genre = 1
+building_type = 13
+pollution_per_second = -100.0
+price = 10000
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 80)
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_uips4")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_75e2j")
+
+[node name="DoorCollision" parent="." index="4"]
+position = Vector2(0, 80)
+shape = SubResource("RectangleShape2D_5865t")

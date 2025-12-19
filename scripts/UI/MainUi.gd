@@ -1,0 +1,150 @@
+extends Control
+## the main menu of UI
+
+@onready var lbl_science = $hBoxScience/NinePatchRect/lblScience
+@onready var lbl_science_per_sec = $hBoxScience/SciencePerSec/lblSciencePerSec
+
+@onready var menu_projects: MarginContainer = $hBoxProjScien/MenuProjects
+@onready var menu_scientists: ScientistMenu = $hBoxProjScien/menuScientifics
+@onready var animation: AnimationPlayer = $hBoxScience/NinePatchRect/lblScience/AnimationPlayer
+
+@onready var h_box_btns: HBoxContainer = $buildingsMenu/hBoxBtns
+@onready var h_box_btn_cat_1: HBoxContainer = $buildingsMenu/hBoxBtnCat1
+@onready var h_box_btn_cat_2: HBoxContainer = $buildingsMenu/hBoxBtnCat2
+@onready var h_box_btn_cat_3: HBoxContainer = $buildingsMenu/hBoxBtnCat3
+
+@onready var menu_building: MarginContainer = $MenuBuilding
+@onready var sub_menu_show_project_infos: MarginContainer = $SubMenuShowProjectInfos
+@onready var tutorial: Control = $Tutorial
+
+## connects the signals and initialises the labels
+func _ready() -> void:
+	UiController.ui_change_category.connect(_handle_category_changed)
+	UiController.science_changed.connect(_on_science_changed)
+	UiController.science_second_changed.connect(_on_science_second_changed)
+	UiController.trigger_end_game.connect(_on_science_second_changed)
+	menu_scientists.not_enough_science.connect(endscreendisplay)
+	lbl_science.text = "0"
+	lbl_science_per_sec.text = "0 / sec"
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/ice_link.png"),Input.CURSOR_POINTING_HAND)
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/Ice-normal.png"),Input.CURSOR_ARROW)
+
+
+## opens the MenuProjects and closes everything else
+func _on_button_projets_pressed() -> void:
+	if (!menu_projects.visible):
+		menu_projects.visible = true
+		menu_scientists.visible = false
+		menu_building.visible = false
+		sub_menu_show_project_infos.visible = false
+	else:
+		menu_projects.visible = false
+
+
+## opens the MenuScientists and closes everything else
+func _on_button_scientists_pressed() -> void:
+	if (!menu_scientists.visible):
+		menu_scientists.visible = true
+		menu_projects.visible = false
+		menu_building.visible = false
+		sub_menu_show_project_infos.visible = false
+	else:
+		menu_scientists.visible = false
+
+
+## updates the science value in the label
+## entry : science value (float)
+func _on_science_changed(new_science : float) ->void:
+	if(new_science > 1000000000):
+		new_science = new_science / 1000000000
+		lbl_science.text = str(round(new_science * 10.0) / 10.0) + " B"
+	elif (new_science > 1000000):
+		new_science = new_science / 1000000
+		lbl_science.text = str(round(new_science * 10.0) / 10.0) + " M"
+	elif(new_science > 1000):
+		new_science = new_science / 1000
+		lbl_science.text = str(round(new_science * 10.0) / 10.0) + " K"
+	else :
+		var science_int : int = int(new_science)
+		lbl_science.text = str(science_int)
+
+
+## updates the science value per second in the label
+## entry : science value (float)
+func _on_science_second_changed(new_science) ->void:
+	if (new_science > 0):
+		new_science *= GameController.gauges.wellness / 100
+	else:
+		new_science *= 100 / GameController.gauges.wellness
+
+	if(new_science > 1000000000):
+		new_science = new_science / 1000000000
+		lbl_science_per_sec.text = str(round(new_science * 10.0) / 10.0) + " B / sec"
+	elif (new_science > 1000000):
+		new_science = new_science / 1000000
+		lbl_science_per_sec.text = str(round(new_science * 10.0) / 10.0) + " M / sec"
+	elif(new_science > 1000):
+		new_science = new_science / 1000
+		lbl_science_per_sec.text = str(round(new_science * 10.0) / 10.0) + " K / sec"
+	else :
+		var science_int : int = int(new_science)
+
+		lbl_science_per_sec.text = str(science_int) + " / sec"
+
+
+## plays an animation when there isn't enough science
+func _on_not_enough_science() -> void:
+	animation.play("not_enough_credit")
+
+
+## calls another function that changes the buttons displayed
+## entry : the number of the category to display (int)
+func _handle_category_changed(cat_num : int) -> void:
+	match cat_num:
+		1:
+			btn_cat_1_pressed()
+		2:
+			btn_cat_2_pressed()
+		3:
+			btn_cat_3_pressed()
+
+
+## shows the buttons from the 1st category
+func btn_cat_1_pressed() -> void:
+	h_box_btn_cat_1.visible = true
+	h_box_btn_cat_2.visible = false
+	h_box_btn_cat_3.visible = false
+	h_box_btns.visible = false
+	
+
+## shows the buttons from the 2nd category
+func btn_cat_2_pressed() -> void:
+	h_box_btn_cat_1.visible = false
+	h_box_btn_cat_2.visible = true
+	h_box_btn_cat_3.visible = false
+	h_box_btns.visible = false
+
+
+## shows the buttons from the 3rd category
+func btn_cat_3_pressed() -> void:
+	h_box_btn_cat_1.visible = false
+	h_box_btn_cat_2.visible = false
+	h_box_btn_cat_3.visible = true
+	h_box_btns.visible = false
+
+
+## shows the buttons from the main category
+func _on_btn_back_pressed() -> void:
+	h_box_btn_cat_1.visible = false
+	h_box_btn_cat_2.visible = false
+	h_box_btn_cat_3.visible = false
+	h_box_btns.visible = true
+	UiController.emit_stop_building_bat()
+	
+
+## shows the settings
+func _on_parameters_pressed() -> void:
+	SettingsValue.open()
+	
+func endscreendisplay()->void:
+	$EndScreen.visible=true;

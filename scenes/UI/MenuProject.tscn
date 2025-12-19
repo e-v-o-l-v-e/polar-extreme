@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://28bld6ebjyy6"]
+
+[ext_resource type="Script" uid="uid://dk6w6rqfxv6kd" path="res://scripts/UI/ProjectUi.gd" id="1_loijj"]
+[ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/SubMenuProject.tscn" id="2_n1p1n"]
+[ext_resource type="Texture2D" uid="uid://cewsw8vxclwog" path="res://assets/UI/tilesetT3.png" id="3_gypk2"]
+[ext_resource type="Texture2D" uid="uid://bwpqmipypl4c0" path="res://assets/UI/tilesetT3_pressed.png" id="4_wx3wc"]
+[ext_resource type="Texture2D" uid="uid://itfh1debj6h" path="res://assets/UI/tilesetT3_hovered.png" id="5_3l04l"]
+[ext_resource type="AnimationLibrary" uid="uid://cv3u0hvir6bgq" path="res://assets/animation/show_g.res" id="6_3l04l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo44v"]
+atlas = ExtResource("3_gypk2")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eafyp"]
+atlas = ExtResource("4_wx3wc")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv5wx"]
+atlas = ExtResource("5_3l04l")
+region = Rect2(320, 384, 64, 64)
+
+[node name="MenuProjects" type="MarginContainer"]
+modulate = Color(0.742045, 0.828327, 0.999999, 1)
+custom_minimum_size = Vector2(350, 530)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_loijj")
+projectScene = ExtResource("2_n1p1n")
+icon_normal = SubResource("AtlasTexture_xo44v")
+icon_pressed = SubResource("AtlasTexture_eafyp")
+icon_hover = SubResource("AtlasTexture_qv5wx")
+metadata/_edit_use_anchors_ = true
+
+[node name="ninePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_gypk2")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ninePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="Control" type="Control" parent="ninePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="lblTitle" type="Label" parent="ninePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Projets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ninePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_right = 7
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ninePatchRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="projectContainer" type="VBoxContainer" parent="ninePatchRect/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="nineIcon" type="NinePatchRect" parent="ninePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="btnCloseProjects" type="Button" parent="ninePatchRect/VBoxContainer/nineIcon"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+text = "Nettoyer la liste"
+flat = true
+
+[node name="Control2" type="Control" parent="ninePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="lblExplanation" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Aucun projet en cours.
+Pour lancer un projet, cliquer sur un 
+bâtiment et sélectionnez un projet..."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"show_g": ExtResource("6_3l04l")
+}
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="ninePatchRect/VBoxContainer/nineIcon/btnCloseProjects" to="." method="_on_btn_close_projects_mouse_entered"]
+[connection signal="mouse_exited" from="ninePatchRect/VBoxContainer/nineIcon/btnCloseProjects" to="." method="_on_btn_close_projects_mouse_exited"]
+[connection signal="pressed" from="ninePatchRect/VBoxContainer/nineIcon/btnCloseProjects" to="." method="_on_btn_close_projects_pressed"]

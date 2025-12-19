@@ -1,0 +1,618 @@
+[gd_scene load_steps=30 format=3 uid="uid://on73whrfey7o"]
+
+[ext_resource type="Script" uid="uid://c1e4tibfncvur" path="res://scripts/UI/MainUi.gd" id="1_qp303"]
+[ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="2_tqwy0"]
+[ext_resource type="Texture2D" uid="uid://cg7tukcrc8n4s" path="res://assets/UI/tilesetT3_pressed.png" id="3_xnj7m"]
+[ext_resource type="Texture2D" uid="uid://wrb14d8klmxe" path="res://assets/UI/tilesetT3_hovered.png" id="4_aummo"]
+[ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/MenuProject.tscn" id="5_y6x1c"]
+[ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/MenuScientist.tscn" id="6_wilqy"]
+[ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/BtnCreationBuildings.tscn" id="7_gyyq1"]
+[ext_resource type="Script" uid="uid://ba4itfti3tkoy" path="res://scripts/UI/CreationPath.gd" id="8_x51tq"]
+[ext_resource type="Script" uid="uid://bu82gjet4qwm2" path="res://scripts/UI/CreationCategory.gd" id="9_18d2x"]
+[ext_resource type="Script" uid="uid://bh5jnr2ryu6oc" path="res://scripts/UI/CreationBuildings.gd" id="10_5owsx"]
+[ext_resource type="PackedScene" uid="uid://cws5sxnaq0d7j" path="res://scenes/UI/SubMenuGauges.tscn" id="11_75w5a"]
+[ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/MenuBuilding.tscn" id="12_fnckq"]
+[ext_resource type="PackedScene" uid="uid://c65o5y2weg82m" path="res://scenes/UI/SubMenuShowProjectInfos.tscn" id="13_v1boy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_alvv5"]
+font_size = 19
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_t1j05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_81vvl"]
+resource_name = "not_enough_credit"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0odk7"]
+_data = {
+&"RESET": SubResource("Animation_t1j05"),
+&"not_enough_credit": SubResource("Animation_81vvl")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1j05"]
+atlas = ExtResource("2_tqwy0")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odk7"]
+atlas = ExtResource("3_xnj7m")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alvv5"]
+atlas = ExtResource("4_aummo")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw5bg"]
+atlas = ExtResource("2_tqwy0")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfcp0"]
+atlas = ExtResource("3_xnj7m")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ait"]
+atlas = ExtResource("4_aummo")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrqhp"]
+atlas = ExtResource("2_tqwy0")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppsko"]
+atlas = ExtResource("3_xnj7m")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5wdm"]
+atlas = ExtResource("4_aummo")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouxww"]
+atlas = ExtResource("2_tqwy0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce6m7"]
+atlas = ExtResource("3_xnj7m")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok71f"]
+atlas = ExtResource("4_aummo")
+region = Rect2(320, 0, 64, 64)
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_qp303")
+
+[node name="hBoxScience" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 354.0
+offset_bottom = 100.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="hBoxScience"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_tqwy0")
+region_rect = Rect2(320, 192, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="lblScience" type="Label" parent="hBoxScience/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Science"
+label_settings = SubResource("LabelSettings_alvv5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hBoxScience/NinePatchRect/lblScience"]
+libraries = {
+&"": SubResource("AnimationLibrary_0odk7")
+}
+
+[node name="SciencePerSec" type="NinePatchRect" parent="hBoxScience"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_tqwy0")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="lblSciencePerSec" type="Label" parent="hBoxScience/SciencePerSec"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Science par sec"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hBoxProjScien" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+theme_override_constants/separation = 20
+
+[node name="projScienMenu" type="NinePatchRect" parent="hBoxProjScien"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("2_tqwy0")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="vBoxBtns" type="VBoxContainer" parent="hBoxProjScien/projScienMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btnProjets" type="TextureButton" parent="hBoxProjScien/projScienMenu/vBoxBtns"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_t1j05")
+texture_pressed = SubResource("AtlasTexture_0odk7")
+texture_hover = SubResource("AtlasTexture_alvv5")
+stretch_mode = 3
+
+[node name="btnScientists" type="TextureButton" parent="hBoxProjScien/projScienMenu/vBoxBtns"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_uw5bg")
+texture_pressed = SubResource("AtlasTexture_jfcp0")
+texture_hover = SubResource("AtlasTexture_04ait")
+
+[node name="MenuProjects" parent="hBoxProjScien" instance=ExtResource("5_y6x1c")]
+visible = false
+layout_mode = 2
+mouse_filter = 0
+
+[node name="menuScientifics" parent="hBoxProjScien" instance=ExtResource("6_wilqy")]
+visible = false
+layout_mode = 2
+mouse_filter = 0
+
+[node name="buildingsMenu" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(650, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -100.0
+offset_right = 325.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+texture = ExtResource("2_tqwy0")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="hBoxBtns" type="HBoxContainer" parent="buildingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -32.0
+offset_right = 143.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+theme_override_constants/separation = 10
+
+[node name="btnPath" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("8_x51tq")
+textBuildingName = "Ajouter des chemins"
+textPopup = "Les chemins servent à ne pas mourir de froid"
+icon_pos = Vector2(3, 0)
+
+[node name="btnCat1" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("9_18d2x")
+textBuildingName = "Créer un bâtiment de recherche"
+textPopup = "Les bâtiments de recherche"
+category = 1
+
+[node name="btnCat2" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("9_18d2x")
+textBuildingName = "Créer un bâtiment de vie commune"
+textPopup = "Les bâtiments de vie commune"
+icon_pos = Vector2(1, 0)
+category = 2
+
+[node name="btnCat3" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("9_18d2x")
+textBuildingName = "Créer un bâtiment technique"
+textPopup = "Les bâtiments d'énergie"
+icon_pos = Vector2(2, 0)
+category = 3
+
+[node name="hBoxBtnCat1" type="HBoxContainer" parent="buildingsMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -32.0
+offset_right = 254.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+theme_override_constants/separation = 10
+
+[node name="btnLabGlaciology" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("10_5owsx")
+textBuildingName = "Laboratoire de glaciologie"
+icon_pos = Vector2(0, 1)
+building_path = "res://scenes/buildings/instanciables/LabGlaciology.tscn"
+
+[node name="btnLabPhysicAtmo" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("10_5owsx")
+textBuildingName = "Laboratoire de physique de l'atmosphère"
+icon_pos = Vector2(0, 2)
+btype = 1
+building_path = "res://scenes/buildings/instanciables/LabAtmosphere.tscn"
+
+[node name="btnLabMagne" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("10_5owsx")
+textBuildingName = "Laboratoire de magnétisme & sismologie"
+icon_pos = Vector2(0, 3)
+btype = 2
+building_path = "res://scenes/buildings/instanciables/LabMagnetism.tscn"
+
+[node name="btnLabBiology" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("10_5owsx")
+textBuildingName = "Laboratoire de biologie humaine"
+icon_pos = Vector2(0, 4)
+btype = 3
+building_path = "res://scenes/buildings/instanciables/LabBiology.tscn"
+
+[node name="btnIcemine" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("10_5owsx")
+textBuildingName = "Mine de glace"
+icon_pos = Vector2(0, 5)
+btype = 4
+building_path = "res://scenes/buildings/instanciables/IceMine.tscn"
+
+[node name="btnSerre" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("10_5owsx")
+textBuildingName = "Serre"
+icon_pos = Vector2(0, 6)
+btype = 5
+building_path = "res://scenes/buildings/instanciables/Greenhouse.tscn"
+
+[node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_mrqhp")
+texture_pressed = SubResource("AtlasTexture_ppsko")
+texture_hover = SubResource("AtlasTexture_y5wdm")
+
+[node name="hBoxBtnCat2" type="HBoxContainer" parent="buildingsMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -32.0
+offset_right = 254.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="btnDormitory" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Chambres"
+icon_pos = Vector2(1, 1)
+btype = 6
+building_path = "res://scenes/buildings/instanciables/Bedroom.tscn"
+
+[node name="btnKitchen" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Cuisines"
+icon_pos = Vector2(1, 2)
+btype = 7
+building_path = "res://scenes/buildings/instanciables/DiningRoom.tscn"
+
+[node name="btnToilets" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Toilettes"
+icon_pos = Vector2(1, 4)
+btype = 9
+building_path = "res://scenes/buildings/instanciables/Toilet.tscn"
+
+[node name="btnShower" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Douches"
+icon_pos = Vector2(1, 5)
+btype = 8
+building_path = "res://scenes/buildings/instanciables/Shower.tscn"
+
+[node name="btnRest" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Salle de repos"
+icon_pos = Vector2(1, 6)
+btype = 10
+building_path = "res://scenes/buildings/instanciables/RestRoom.tscn"
+
+[node name="btnSport" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Salle de sport"
+icon_pos = Vector2(1, 7)
+btype = 11
+building_path = "res://scenes/buildings/instanciables/Gym.tscn"
+
+[node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_mrqhp")
+texture_pressed = SubResource("AtlasTexture_ppsko")
+texture_hover = SubResource("AtlasTexture_y5wdm")
+
+[node name="hBoxBtnCat3" type="HBoxContainer" parent="buildingsMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -32.0
+offset_right = 143.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="btnRecycle" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Tri des déchets"
+icon_pos = Vector2(2, 1)
+btype = 12
+
+[node name="btnWater" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Recyclage de l'eau"
+icon_pos = Vector2(2, 2)
+btype = 13
+building_path = "res://scenes/buildings/instanciables/WaterRecycling.tscn"
+
+[node name="btnElec" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("7_gyyq1")]
+layout_mode = 2
+script = ExtResource("10_5owsx")
+textBuildingName = "Centrale électrique"
+icon_pos = Vector2(2, 3)
+btype = 14
+building_path = "res://scenes/buildings/instanciables/PowerStation.tscn"
+
+[node name="btnBack" type="TextureButton" parent="buildingsMenu/hBoxBtnCat3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_mrqhp")
+texture_pressed = SubResource("AtlasTexture_ppsko")
+texture_hover = SubResource("AtlasTexture_y5wdm")
+
+[node name="ParametersMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Parameters" type="TextureButton" parent="ParametersMargin"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_ouxww")
+texture_pressed = SubResource("AtlasTexture_ce6m7")
+texture_hover = SubResource("AtlasTexture_ok71f")
+stretch_mode = 0
+
+[node name="GaugesUi" parent="." instance=ExtResource("11_75w5a")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 250.0
+grow_horizontal = 0
+
+[node name="MenuBuilding" parent="." instance=ExtResource("12_fnckq")]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -350.0
+offset_right = 0.0
+offset_bottom = 350.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+
+[node name="SubMenuShowProjectInfos" parent="." instance=ExtResource("13_v1boy")]
+visible = false
+layout_mode = 1
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+
+[node name="lblBuildingsBasicInfo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[connection signal="pressed" from="hBoxProjScien/projScienMenu/vBoxBtns/btnProjets" to="." method="_on_button_projets_pressed"]
+[connection signal="pressed" from="hBoxProjScien/projScienMenu/vBoxBtns/btnScientists" to="." method="_on_button_scientists_pressed"]
+[connection signal="pressed" from="buildingsMenu/hBoxBtnCat1/btnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="buildingsMenu/hBoxBtnCat2/btnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="buildingsMenu/hBoxBtnCat3/btnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="ParametersMargin/Parameters" to="." method="_on_parameters_pressed"]

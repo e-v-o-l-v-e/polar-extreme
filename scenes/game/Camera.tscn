@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dybfqr0devca8"]
+
+[ext_resource type="Script" uid="uid://3xginf2n88lc" path="res://scripts/models/game/Camera.gd" id="1_r5jk0"]
+[ext_resource type="AudioStream" uid="uid://4mtt8r5phhl8" path="res://assets/sounds/winter-127055.mp3" id="2_d8p0v"]
+
+[node name="Camera" type="Camera2D"]
+script = ExtResource("1_r5jk0")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_d8p0v")
+volume_db = -10.0
+pitch_scale = 0.85
+autoplay = true
+bus = &"Music"
+parameters/looping = true

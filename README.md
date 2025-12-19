@@ -115,9 +115,6 @@ TODO: mettre image à jour
 - En haut à droite :
   - Jauge d'indice écologique
   - Jauge de bien-être global des scientifiques
-- En haut au milieu :
-  - Date en jeu (mois en cours)
-  - Conditions météréologiques
 
 # Crédits
 

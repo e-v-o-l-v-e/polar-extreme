@@ -1,0 +1,51 @@
+extends Control
+class_name MainMenu
+
+@onready var quit_game_btn: Button =$HBoxContainer/VBoxContainer2/VBoxContainer/QuitGameBtn
+@onready var settings_btn: Button =$HBoxContainer/VBoxContainer2/VBoxContainer/SettingsBtn
+@onready var start_game_btn: Button =$HBoxContainer/VBoxContainer2/VBoxContainer/StartGameBtn
+@onready var tutorial = preload("res://scenes/UI/Tutorial.tscn")
+
+var hover_scale := Vector2(1.02,1.02)
+
+func _ready() -> void:
+	start_game_btn.mouse_entered.connect(_start_button_enter)
+	start_game_btn.mouse_exited.connect(_start_button_exit)
+	start_game_btn.pressed.connect(_start_game)
+	quit_game_btn.mouse_entered.connect(_quit_button_enter)
+	quit_game_btn.mouse_exited.connect(_quit_button_exit)
+	quit_game_btn.pressed.connect(_quit_game)
+	settings_btn.mouse_entered.connect(_settings_button_enter)
+	settings_btn.mouse_exited.connect(_settings_button_exit)
+	settings_btn.pressed.connect(settingsValue.open)
+	call_deferred("init_pivot")
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/ice_link.png"),Input.CURSOR_POINTING_HAND)
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/Ice-normal.png"),Input.CURSOR_ARROW)
+	
+func init_pivot():
+	start_game_btn.pivot_offset = size / 2.0
+	quit_game_btn.pivot_offset = size / 2.0
+
+func _start_button_enter():
+	create_tween().tween_property(start_game_btn, "scale", hover_scale, 0.1).set_trans(Tween.TRANS_SINE)
+	
+func _start_button_exit():
+	create_tween().tween_property(start_game_btn, "scale", Vector2.ONE, 0.1).set_trans(Tween.TRANS_SINE)
+
+func _settings_button_enter():
+	create_tween().tween_property(settings_btn, "scale", hover_scale, 0.1).set_trans(Tween.TRANS_SINE)
+	
+func _settings_button_exit():
+	create_tween().tween_property(settings_btn, "scale", Vector2.ONE, 0.1).set_trans(Tween.TRANS_SINE)
+
+func _quit_button_enter():
+	create_tween().tween_property(quit_game_btn, "scale", hover_scale, 0.1).set_trans(Tween.TRANS_SINE)
+	
+func _quit_button_exit():
+	create_tween().tween_property(quit_game_btn, "scale", Vector2.ONE, 0.1).set_trans(Tween.TRANS_SINE)
+
+func _start_game():
+	get_tree().change_scene_to_packed(tutorial)
+
+func _quit_game():
+	get_tree().quit()

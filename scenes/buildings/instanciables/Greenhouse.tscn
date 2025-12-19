@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://chv6wvteu06gi"]
+
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_wxps8"]
+[ext_resource type="Texture2D" uid="uid://duccnjj1is1kv" path="res://assets/buildings/labo/greenhouse.png" id="2_fhjap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xaw7a"]
+size = Vector2(63, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxps8"]
+size = Vector2(20, 12)
+
+[node name="Greenhouse" instance=ExtResource("1_wxps8")]
+science_per_second = 10.0
+nb_scientists_slots = 4
+building_name = "Serre"
+building_description = "La serre est un espace contrôlé où l’on cultive des plantes malgré le climat hostile. Grâce à la lumière artificielle et à une température stable, elle fournit des légumes frais toute l’année. Elle joue aussi un rôle important pour le bien-être psychologique des habitants."
+pollution_per_second = 1.0
+price = 400
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 79)
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_fhjap")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_xaw7a")
+
+[node name="DoorCollision" parent="." index="4"]
+position = Vector2(0, 86)
+shape = SubResource("RectangleShape2D_wxps8")

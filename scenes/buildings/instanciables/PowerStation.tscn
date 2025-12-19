@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ibme4fulau2m"]
+
+[ext_resource type="PackedScene" path="res://scenes/buildings/BuildingUtility.tscn" id="1_g4h51"]
+[ext_resource type="Texture2D" uid="uid://da7gcynlthqsb" path="res://assets/buildings/utils/generator.png" id="2_4unl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qshrs"]
+size = Vector2(95, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpla8"]
+
+[node name="PowerStation" instance=ExtResource("1_g4h51")]
+building_name = "Centrale électrique"
+building_description = "La centrale électrique fournit l’énergie nécessaire au fonctionnement de l’ensemble du site. Elle fonctionne en continu et peut combiner plusieurs sources d’énergie pour garantir une alimentation fiable, même dans des conditions extrêmes."
+building_genre = 1
+building_type = 14
+pollution_per_second = -250.0
+price = 20000
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 48)
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_4unl8")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_qshrs")
+
+[node name="DoorCollision" parent="." index="4"]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_hpla8")

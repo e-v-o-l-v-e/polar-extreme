@@ -1,0 +1,325 @@
+[gd_scene load_steps=18 format=3 uid="uid://w68s7km80fw0"]
+
+[ext_resource type="Script" uid="uid://do5xbqfc0b8x4" path="res://scripts/UI/ScientistUi.gd" id="1_2bolv"]
+[ext_resource type="Texture2D" uid="uid://cewsw8vxclwog" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
+[ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/MenuAddScientistToBuilding.tscn" id="2_y5bk0"]
+[ext_resource type="AudioStream" uid="uid://dxvoqtdcos0vh" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
+[ext_resource type="Texture2D" uid="uid://bwpqmipypl4c0" path="res://assets/UI/tilesetT3_pressed.png" id="3_qrnpo"]
+[ext_resource type="Texture2D" uid="uid://itfh1debj6h" path="res://assets/UI/tilesetT3_hovered.png" id="4_ifbg4"]
+[ext_resource type="AudioStream" uid="uid://do0ape8f5u1dx" path="res://assets/sounds/enrollment.mp3" id="6_ajg8h"]
+[ext_resource type="AnimationLibrary" uid="uid://cv3u0hvir6bgq" path="res://assets/animation/show_g.res" id="8_pxxw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gqah"]
+atlas = ExtResource("2_54jhy")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lmuh"]
+atlas = ExtResource("3_qrnpo")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoxl0"]
+atlas = ExtResource("4_ifbg4")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="Animation" id="Animation_dojrw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../../../../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_54jhy"]
+resource_name = "not_enough_credit"
+length = 0.9
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_colors/font_focus_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_hover_pressed_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:theme_override_colors/font_hover_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_dojrw")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../../../../../..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_update_recruit_price"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ymosl"]
+_data = {
+&"RESET": SubResource("Animation_dojrw"),
+&"not_enough_credit": SubResource("Animation_54jhy")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vklx"]
+atlas = ExtResource("2_54jhy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd8gv"]
+atlas = ExtResource("3_qrnpo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vadht"]
+atlas = ExtResource("4_ifbg4")
+region = Rect2(0, 0, 64, 64)
+
+[node name="MenuScientist" type="MarginContainer"]
+modulate = Color(0.742045, 0.828327, 0.999999, 1)
+custom_minimum_size = Vector2(300, 530)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1620.0
+offset_bottom = -550.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+script = ExtResource("1_2bolv")
+icon_normal = SubResource("AtlasTexture_6gqah")
+icon_pressed = SubResource("AtlasTexture_2lmuh")
+icon_hover = SubResource("AtlasTexture_qoxl0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 530)
+layout_mode = 2
+
+[node name="ninePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_54jhy")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/ninePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="lblTitle" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Gestion des scientifiques"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="nineIcon" type="NinePatchRect" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("2_54jhy")
+region_rect = Rect2(320, 384, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="btnRecruit" type="Button" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+text = "Recruter"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit"]
+libraries = {
+&"": SubResource("AnimationLibrary_ymosl")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit"]
+volume_db = 10.0
+bus = &"SFX"
+
+[node name="AudioRecruit" type="AudioStreamPlayer2D" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit"]
+stream = ExtResource("6_ajg8h")
+bus = &"SFX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="lblTxtSpaces" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Places disponibles"
+
+[node name="lblNbrSpaces" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="lblTxtUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Scientifiques libres"
+
+[node name="lblNbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="lblTxtAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Scientifiques assignés"
+
+[node name="lblNbrAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="lblAssignScientist" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Assigner des scientifiques :"
+
+[node name="btnAssignToBat" type="TextureButton" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_2vklx")
+texture_pressed = SubResource("AtlasTexture_hd8gv")
+texture_hover = SubResource("AtlasTexture_vadht")
+
+[node name="MenuAddScientistToBuilding" parent="HBoxContainer" instance=ExtResource("2_y5bk0")]
+visible = false
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"show_g": ExtResource("8_pxxw1")
+}
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit" to="." method="_on_btn_recruit_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit" to="." method="_on_btn_recruit_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit" to="." method="_on_btn_recruit_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/btnAssignToBat" to="." method="_on_button_pressed"]

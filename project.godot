@@ -10,12 +10,39 @@ config_version=5
 
 [application]
 
-config/name="T3-25-SCI25-A"
-run/main_scene="uid://gqmhjk6sneh0"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/name="PolarExtreme"
+run/main_scene="uid://cbw8pm71h04je"
+config/features=PackedStringArray("4.4")
+boot_splash/fullsize=false
+boot_splash/image="uid://bxegwygbd8k1b"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
+
+[autoload]
+
+GameController="*res://scripts/autoloads/GameController.gd"
+Enums="*res://scripts/autoloads/Enums.gd"
+SettingsValue="*res://scripts/autoloads/settingsValue.gd"
+UiController="*res://scripts/autoloads/UIController.gd"
+settingsValue="*res://scripts/autoloads/settingsValue.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/resizable=false
+mouse_cursor/custom_image="uid://d1bib7ohyur5k"
+
+[filesystem]
+
+imported_resources_path=".godot/imported"
+
+[gui]
+
+common/snap_controls_to_pixels=false
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

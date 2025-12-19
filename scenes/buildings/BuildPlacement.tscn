@@ -1,0 +1,146 @@
+[gd_scene load_steps=13 format=3 uid="uid://cism5ivh6jv6b"]
+
+[ext_resource type="Texture2D" uid="uid://c6t3cqsqxuprg" path="res://assets/ground/ground_status.png" id="1_1f3ra"]
+[ext_resource type="Script" uid="uid://c1g1qopd4e4k4" path="res://scripts/models/game/BuildPlacement.gd" id="2_tbs4h"]
+[ext_resource type="AudioStream" uid="uid://cf8gk5emqkmpq" path="res://assets/sounds/snow-step-1-81064.mp3" id="3_pc82g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1f3ra"]
+texture = ExtResource("1_1f3ra")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f2w8h"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_1f3ra")
+
+[sub_resource type="Animation" id="Animation_stigc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PreviewSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PreviewSprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0r04f"]
+_data = {
+&"RESET": SubResource("Animation_stigc")
+}
+
+[sub_resource type="Animation" id="Animation_pc82g"]
+resource_name = "goodPathPlacement"
+length = 0.15
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.1339,
+"start_offset": 0.22,
+"stream": ExtResource("3_pc82g")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_wsdil"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PreviewSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.133937,
+"start_offset": 0.22,
+"stream": ExtResource("3_pc82g")
+}],
+"times": PackedFloat32Array(0.133333)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_ewve8"]
+resource_name = "invalidPlacement"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PreviewSprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-10, 0), Vector2(-10, 0), Vector2(10, 0), Vector2(-10, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n26yl"]
+_data = {
+&"goodPathPlacement": SubResource("Animation_pc82g"),
+&"goodPlacement": SubResource("Animation_wsdil"),
+&"invalidPlacement": SubResource("Animation_ewve8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsdil"]
+
+[node name="PlacementGrid" type="TileMapLayer"]
+z_index = 10
+tile_set = SubResource("TileSet_f2w8h")
+script = ExtResource("2_tbs4h")
+
+[node name="PreviewSprite" type="Sprite2D" parent="."]
+z_index = -2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0r04f"),
+&"placementAnimationLib": SubResource("AnimationLibrary_n26yl")
+}
+
+[node name="DoorPreview" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wsdil")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = 20.0
+bus = &"SFX"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_handle_animation_end"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyqplkquxyduf"]
+
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_2st8v"]
+[ext_resource type="Texture2D" uid="uid://c6ytp51u6mwsy" path="res://assets/buildings/labo/glaciology.png" id="2_wi6qq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od3lo"]
+size = Vector2(159, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vvkn"]
+
+[node name="Glaciology" instance=ExtResource("1_2st8v")]
+science_per_second = 3.0
+nb_scientists_slots = 3
+building_name = "Laboratoire de glaciologie"
+building_description = "Ce laboratoire est consacré à l’étude de la glace, de la neige et des glaciers. Les scientifiques y analysent des carottes de glace qui contiennent des bulles d’air très anciennes. Ces bulles permettent de connaître la composition de l’atmosphère et le climat de la Terre il y a des milliers, voire des centaines de milliers d’années."
+building_type = 0
+pollution_per_second = 1.0
+price = 1080
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 48)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(-2.38419e-06, 3.8147e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("2_wi6qq")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_od3lo")
+
+[node name="DoorCollision" parent="." index="4"]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_8vvkn")
