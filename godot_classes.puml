@@ -2,39 +2,42 @@
 skinparam classAttributeIconSize 0
 
 class WorldManager {
-    + world_grid
+    + world_grid: WorldGrid
     --
-    + place_building()
-    + place_path()
-    + place_scientist()
+    + place_building(building: Building)
+    + place_path(path: Path)
+    + place_scientist(scientist: Scientist)
 }
 
-class ScientistMenu {
-    + menu_add_scientist_to_building
-    + lbl_nbr_spaces
-    + lbl_nbr_unassigned
-    + lbl_nbr_assigned
-    + btn_recruit
-    + audio_recruit
-    + animation
-    + nine_icon
-    + icon_normal
-    + icon_pressed
-    + icon_hover
-    + animation_show
-    + status
+class WorldGrid <<TileMapLayer>> {
+    + scientist_spawn_position: Marker2D
+    + scientist_container: Node2D
+    + building_container: Node2D
+    + plane: ScientistPlane
+    + scientists_to_place: Array[Scientist]
     --
-    + _ready()
-    + _on_button_pressed()
-    + _on_visibility_changed()
-    + _on_btn_recruit_pressed()
-    + _on_update_assign_scientist()
-    + _on_update_deassign_scientist()
-    + _update_recruit_price()
-    + _update_assign_text()
-    + _update_free_spaces()
-    + _on_btn_recruit_mouse_entered()
-    + _on_btn_recruit_mouse_exited()
+    + get_scientist_spawn_position(): Vector2
+    + add_scientist(scientist_scene: Scientist)
+    + add_building(building_scene: Building)
+    - _on_make_scientist()
+    - _restart_animation()
+}
+
+class Scientist {
+    + speed: float
+    + target_building: Building
+    --
+    + move_to(position: Vector2)
+    + enter_building(building: Building)
+}
+
+class Building {
+    + capacity: int
+    + current_scientists: int
+    --
+    + emit_particles()
+    + is_full(): bool
+    + add_worker()
 }
 
 class BuildingScience {
@@ -279,6 +282,7 @@ class ScientistPlane {
     + _process()
 }
 
+' MEOW
 class ButtonCategory {
     + textBuildingName
     + textPopup
@@ -607,5 +611,12 @@ MarginContainer <|-- ScientistMenu
 
 TileMapLayer <|-- WorldGrid
 Node2D <|-- ScientistPlane
+
+
+
+WorldManager "1" *-- "1" WorldGrid
+WorldGrid "1" *-- "*" Scientist
+WorldGrid "1" *-- "*" Building
+ScientistMenu ..> WorldManager : triggers recruitment
 
 @enduml
