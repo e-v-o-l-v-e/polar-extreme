@@ -290,24 +290,15 @@ class ScientistPlane {
 
 ' MEOW
 class ButtonCategory {
-    + textBuildingName
-    + textPopup
-    + icon_pos
-    + btn_crea_building
-    + lbl_desc
-    + nine_patch_rect
-    + popup
+    + textBuildingName : String
+    + textPopup : String
+    + icon_pos : Vector2
+    + btn_crea_building : Button
+    + lbl_desc : Label
+    + nine_patch_rect : NinePathRect
+    + popup :Popup
     + notif
-    + alreadyCliked
-    + atlas
-    + atlas
-    + atlas
-    + i
-    + container
-    + show
-    + result
-    + root
-    + node_name
+    + alreadyCliked : NotificationIndicator
     --
     + set_button_icon_nor()
     + set_button_icon_pressed()
@@ -317,93 +308,75 @@ class ButtonCategory {
     + _on_button_mouse_exited()
     + _on_button_pressed()
     + afficherPopup()
-    + _process()
-    + get_children_of_children()
-    + get_category_container()
+    + get_children_of_children():Array
+    + get_category_container():Node
 }
 
 class BuildingManager {
-    + building_factory
-    + path_factory
-    + buildingsIds
-    + building_counter
-    + hovered_building
-    + buildings_list
-    + buildings_positions
-    + building
-    + plist
-    + path
-    + type
-    + type
-    + spaces
+    + buildingsIds : Integer[*]
+    + building_counter : Integer
+    + buildings_positions : Integer[*]
+    +building_descriptions:String[*]
     --
-    + create_building()
-    + create_path()
+    + create_building() : Building
+    + create_path() : Path
     + register()
     + unregister()
-    + get_building()
-    + get_building_list()
-    + get_random_building_position()
-    + get_building_description()
-    + get_free_spaces()
+    + get_building() : Building
+    + get_building_list() : Building[*]
+    + get_random_building_position() : Vector2
+    + get_building_description() : String
+    + get_free_spaces() : Integer
 }
+BuildingManager "1" --> "1 +building_factory" BuildingFactory
+BuildingManager "1" --> "1 +PathFactory" PathFactory
+BuildingManager "1" --> "1 +hovered_building" Building
+BuildingManager "1" --> "* +buildings_list[*]" Building
 
 class ScientistFactory {
     + SCIENTIST_PATH : String
     --
-    + make_scientist()
+    + make_scientist():Scientist
 }
 
 class Project {
-    + project_name
-    + project_id
-    + project_description
-    + project_state
-    + building
-    + requirement_scientists
-    + project_time
-    + failure_chances
-    + reward_science
-    + reward_production
-    + reward_slots
-    + reward_pollution
-    + reward_pollution_per_second
-    + reward_wellness
-    + new_project
-    + gauges
+    + project_name : String
+    + project_id : Integer
+    + project_description : String
+    + project_state : Integer
+    + requirement_scientists : Integer
+    + project_time : Integer
+    + failure_chances : Integer
+    + reward_science : Integer
+    + reward_production : Integer
+    + reward_slots : Integer
+    + reward_pollution : Integer
+    + reward_pollution_per_second : Integer
+    + reward_wellness : Integer
     --
-    + _init()
     + set_building()
     + console()
-    + copy()
+    + copy() : Project
     + start()
     + pause()
     + finish()
-    + get_time_total()
-    + get_project_name()
-    + get_description()
-    + get_project_state()
+    + get_time_total() : Integer
+    + get_project_name() : String
+    + get_description() : String
+    + get_project_state(): Integer
     + set_time()
 }
+Project "1" --> "* +building[*]" BuildingScience
+
+
 
 class SettingsMenu {
-    + resolution_option_button
-    + master_volume
-    + sfx_volume
-    + music_volume
-    + fullscreen_chk
-    + sfx_bus_index
-    + music_bus_index
-    + window_size_string
-    + resolution_keys
-    + resolution_index
-    + key
-    + new_resolution
-    + window
-    + screen_center
-    + window_size
+    + resolution_option_button : OptionButton
+    + master_volume : HSlider
+    + sfx_volume : HSlider
+    + music_volume : HSlider
+    + fullscreen_chk : HSlider
     --
-    + _ready()
     + add_resolutions()
     + update_button_values()
     + _on_option_button_item_selected()
@@ -419,53 +392,45 @@ class SettingsMenu {
     + _on_quit_game_btn_pressed()
 }
 
+
 class ProjectsManager {
-    + list_icemine
-    + list_glaciology
-    + list_atmospheric
-    + list_magnetism
-    + list_biology
-    + list_greenhouse
-    + source
-    + new_list
-    + new_project
-    --
-    + get_list()
+    + get_list() : Project[*]
 }
+ProjectsManager "1" --> "* +list_icemine" Project
+ProjectsManager "1" --> "* +list_glaciology" Project
+ProjectsManager "1" --> "* +list_atmospheric" Project
+ProjectsManager "1" --> "* +list_magnetism" Project
+ProjectsManager "1" --> "* +list_biology" Project
+ProjectsManager "1" --> "* +list_greenhouse" Project
+
 
 class Scientist {
-    + navigation_agent
-    + animation_player
-    + speed
-    + hours_in_same_building
-    + can_change_target
-    + current_animation
-    + rng
-    + random_number
-    + new_point_direction
-    + normal_velocity
-    + chance
-    + new_position
+    + navigation_agent : NavigationAgent2D
+    + animation_player : AnimationPlayer
+    + speed : Integer
+    + hours_in_same_building : Integer
+    + can_change_target : Boolean
+    + current_animation : String
     --
-    + _ready()
     + _physics_process()
     + play_animation()
     + _on_new_hour()
-    + want_to_change()
+    + want_to_change() : Boolean
     + _on_navigation_agent_2d_navigation_finished()
     + change_target()
-    + get_random_building_position()
+    + get_random_building_position() : Vector2
     + setTextureSprite()
 }
 
+Scientist ..> UiController
+
 class MainMenu {
-    + quit_game_btn
-    + settings_btn
-    + start_game_btn
-    + tutorial
-    + hover_scale
+    + quit_game_btn : Button
+    + settings_btn : Button
+    + start_game_btn : Button
+    + tutorial : Tutorial
+    + hover_scale : Vector2
     --
-    + _ready()
     + init_pivot()
     + _start_button_enter()
     + _start_button_exit()
@@ -478,98 +443,91 @@ class MainMenu {
 }
 
 class TimeManager {
-    + current_time
-    + next_hour
-    + time_speed
-    + day_length
-    + h
-    + m
+    + current_time : Integer
+    + next_hour : Integer
+    + time_speed : Integer
+    + day_length : Integer
     --
     + process_time()
     + get_time_hours()
     + get_time_minutes()
-    + get_formatted_time()
+    + get_formatted_time() : String
 }
 
 class NotificationIndicator {
-    + label
+    + label : Label
     --
-    + setVisible()
+    + setVisible() : Boolean
     + set_text()
 }
 
 class ScientistManager {
-    + scientist_factory
-    + scientist_total
-    + scientist_occupied
-    + scientist_price_factor
-    + scientist_price
-    + scientist_wellness_cost
-    + scientist_pollution_travel
-    + scientist_pollution_per_second
+    + scientist_total : Integer
+    + scientist_occupied : Integer
+    + scientist_price_factor : Integer
+    + scientist_price : Integer
+    + scientist_wellness_cost : Integer
+    + scientist_pollution_travel : Integer
+    + scientist_pollution_per_second : Integer
     --
-    + enroll_scientist()
+    + enroll_scientist() : Scientist
     + assign_scientist()
     + deassign_scientist()
     + change_scientists_assigned()
-    + get_scientist_total()
-    + get_scientist_occupied()
-    + enough_scientist_for_assignement()
-    + get_scientist_non_occupied()
-    + get_scientist_price()
-    + get_scientist_pollution_travel()
-    + get_scientist_pollution_per_second()
+    + get_scientist_total(): Integer
+    + get_scientist_occupied(): Integer
+    + enough_scientist_for_assignement() : Boolean
+    + get_scientist_non_occupied() :Integer
+    + get_scientist_price() : Integer
+    + get_scientist_pollution_travel() : Integer
+    + get_scientist_pollution_per_second() : Integer
     + change_scientist_pollution_per_second()
     + change_scientist_pollution_travel()
     + increase_price()
 }
+ScientistManager "1" --> "1 +scientist_factory" ScientistFactory
+ScientistManager ..> UiController
 
 class Building {
-    + particles
-    + building_zone
-    + scientist_places
-    + id
-    + building_name
-    + building_description
-    + building_genre
-    + building_type
-    + pollution_per_second
-    + price
-    + mouse_hover
-    + wellness_value
-    + cursor_texture
-    + cursor_texture
-    + door
-    + text
+    + particles : GPUParticles2D
+    + building_zone :CollisionShape2D
+    + scientist_places : Integer
+    + id : Integer
+    + building_name : String
+    + building_description : String
+    + building_genre : BUILDING_GENRE
+    + building_type : BUILDING_TYPE
+    + pollution_per_second :Integer
+    + price : Integer
+    + mouse_hover : Boolean
+    + wellness_value : Integer
     --
-    + get_id()
-    + set_id()
-    + get_building_name()
-    + get_building_type()
-    + get_pollution()
-    + change_pollution()
+    + get_id() : Integer
+    + set_id(new_id : Integer)
+    + get_building_name(): String
+    + get_building_type() : BUILDING_TYPE
+    + get_pollution() : Integer
+    + change_pollution(value : float)
     + delete()
     + _input()
     + _on_mouse_entered()
     + _on_mouse_exited()
-    + get_door_position()
+    + get_door_position() :Vector2
     + emit_particles()
     + _on_gpu_particles_2d_finished()
-    + get_infos()
+    + get_infos() : String
 }
+Building ..>UiController: emit signal
 
 class ButtonPath {
-    + textBuildingName
-    + icon_pos
-    + btn_crea_building
-    + lbl_desc
-    + nine_patch_rect
-    + popup
-    + notif
-    + alreadyCliked
-    + atlas
-    + atlas
-    + atlas
+    + textBuildingName : String
+    + icon_pos : Vector2
+    + btn_crea_building : Button
+    + lbl_desc : Label
+    + nine_patch_rect : NinePatchRect
+    + popup : Popup
+    + notif : NotificationIndicator
+    + alreadyCliked : Boolean
     --
     + set_button_icon_nor()
     + set_button_icon_pressed()
@@ -579,11 +537,12 @@ class ButtonPath {
     + _on_button_mouse_exited()
     + _on_button_pressed()
 }
+ButtonPath ..>UiController: emit signal
 
 class Game extends Node2D{
-    + world_grid : WorldGrid
-    + path : Path
 }
+Game "1" -->"1 -world_grid" WorldGrid
+Game "1" -->"1 -path" Path
 
 class GameController <<Autoload>> extends Node{
     + START_SCIENCE : Integer
@@ -764,5 +723,8 @@ Project ..> BuildingScience
 
 WorldGrid ..> Building : place
 WorldGrid ..> Scientist : place
+
+buttonCategory  ..> UiController : emit signals
+
 
 @enduml
