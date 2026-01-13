@@ -32,8 +32,8 @@ class Scientist {
 }
 
 class Building {
-    + capacity: int
-    + current_scientists: int
+    + capacity: Integer
+    + current_scientists: Integer
     --
     + emit_particles()
     + is_full(): bool
@@ -572,6 +572,93 @@ class ButtonPath {
     + _on_button_mouse_entered()
     + _on_button_mouse_exited()
     + _on_button_pressed()
+}
+
+class GameController <<Autoload>> extends Node{
+    + START_SCIENCE : Integer
+    + game_started : Boolean
+    + update_time : Float
+    --
+    + set_grid(grid: TileMapLayer)
+    + _on_build_batiment(bname : BUILDING_TYPE)
+    + _on_build_path()
+    + _on_validate_building_placement(building : Building)
+    + _on_delete_building(building: Building)
+    + _on_enroll_scientist()
+    + _on_assign_scientist()
+    + _on_deassign_scientist()
+    + enough_scientist_for_assignement(n_scientist: Integer) : Boolean
+    + get_scientist_total() : Integer
+    + get_scientist_occupied() : Integer
+    + get_gauges() : Gauges
+    + get_building_manager() : BuildingManager
+    + get_projects_manager() : ProjectsManager
+    + notify_scientist_new_hour(hour: Integer)
+    + get_random_building_position() : Vector2
+    + get_all_buildings() : Building[]
+    + get_building_description(btype: BUILDING_TYPE)
+    + _update_gauges() 
+    + pay_scientist() : Integer
+    + init_default(world_grid: TileMapLayer)
+}
+
+class UiController <<Autoload>> extends Node{
+    + build_batiment : Signal
+    + start_building : Signal
+    + start_placing_path : Signal
+    + start_delete_object : Signal
+    + validate_building_placement : Signal
+    + validate_placing_path : Signal
+    + delete_building : Signal
+    + enroll_scientist : Signal
+    + assign_scientist : Signal
+    + deassign_scientist : Signal
+    + update_assign_scientist : Signal
+    + update_deassign_scientist : Signal
+    + display_building_basic_info : Signal
+    + new_hour : Signal
+    + zoom_building : Signal
+    + ui_change_category : Signal
+    + science_changed : Signal
+    + science_second_changed : Signal
+    + pollution_changed : Signal
+    + wellness_changed : Signal
+    + lock_scroll_cam : Signal
+    + click_on_building : Signal
+    + close_menu_building : Signal
+    + open_project_menu : Signal
+    + start_project : Signal
+    + project_change_state : Signal
+    + stop_building_path : Signal
+    + stop_building_bat : Signal
+    + trigger_end_game : Signal
+    --
+    + emit_signal()
+}
+
+enum BUILDING_TYPE {
+	LABORATORY_GLACIOLOGY
+	LABORATORY_ATMOSPHERIC_PHYSICS
+	LABORATORY_MAGNETISM_SEISMOLOGY
+	LABORATORY_HUMAN_BIOLOGY
+	ICEMINE
+	GREENHOUSE
+	DORMITORY
+	CANTEEN
+	SHOWER
+	TOILET
+	LOUNGE
+	GYM
+	WASTE_SORTING
+	WATER_RECYCLING
+	POWER_PLANT
+	PATH
+	NONE
+}
+
+enum BUILDING_GENRE { 
+	SCIENCE
+	UTILITY 
 }
 
 Node <|-- Control
