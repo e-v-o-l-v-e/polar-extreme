@@ -636,6 +636,15 @@ class UiController <<Autoload>> extends Node{
     + emit_signal()
 }
 
+class SettingsValue <<Autoload>> extends CanvasLayer{
+    + gui_components : String[]
+    + Moove : MouseButton
+    + Pos : MouseButton
+    + resolutions : String[]
+    --
+    + open()
+}
+
 enum BUILDING_TYPE {
 	LABORATORY_GLACIOLOGY
 	LABORATORY_ATMOSPHERIC_PHYSICS
@@ -699,11 +708,15 @@ MarginContainer <|-- ScientistMenu
 TileMapLayer <|-- WorldGrid
 Node2D <|-- ScientistPlane
 
-
-
 WorldManager "1" *-- "1" WorldGrid
 WorldGrid "1" *-- "*" Scientist
 WorldGrid "1" *-- "*" Building
 ScientistMenu ..> WorldManager : triggers recruitment
+
+GameController "1" *-- "1" TimeManager
+GameController "1" *-- "1" WorldManager
+GameController "1" *-- "1" BuildingManager
+GameController "1" *-- "1" ProjectsManager
+GameController "1" *-- "1" ScientistManager
 
 @enduml
