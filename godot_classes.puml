@@ -686,7 +686,7 @@ class SubProject extends MarginContainer {
     + _on_button_mouse_exited()
 }
 
-class Tutorial {
+class Tutorial extends Control{
     + game_scene : scene
     + images : Array
     + images_short : Array
