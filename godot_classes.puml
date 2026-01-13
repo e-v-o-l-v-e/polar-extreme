@@ -271,6 +271,12 @@ class BuildingFactory {
     + get_preview_texture()
 }
 
+class PathFactory extends Node {
+    + PATH_SCENE : String
+    --
+    + create_path()
+}
+
 class ScientistPlane {
     + anim
     + scientist_spawn_pos
@@ -343,7 +349,7 @@ class BuildingManager {
 }
 
 class ScientistFactory {
-    + scene
+    + SCIENTIST_PATH : String
     --
     + make_scientist()
 }
@@ -723,6 +729,7 @@ GameController "1" *-- "1" WorldManager
 GameController "1" *-- "1" BuildingManager
 GameController "1" *-- "1" ProjectsManager
 GameController "1" *-- "1" ScientistManager
+GameController "1" *-- "1" Gauges
 
 Game ..> GameController : init game
 Gauges ..> GameController
@@ -731,11 +738,31 @@ TimeManager ..> GameController
 BuildingManager ..> GameController
 ScientistManager ..> GameController 
 
-GameController ..> UiController : transfer signals
+GameController <..> UiController : transfer signals
+
 Building ..> UiController  : emit signals
 BuildPlacement ..> UiController : emit signals
 Gauges ..> UiController : emit signals
 Scientist ..> UiController : connect to signals
 ScientistManager ..> UiController : emit signals
+
+WorldManager ..> Building : place
+WorldManager ..> Path : place
+WorldManager ..> Scientist : place
+
+BuildingFactory ..> Building : instantiate
+PathFactory ..> Path : instantiate
+ScientistFactory ..> Scientist : instantiate
+
+Building ..> BUILDING_GENRE : uses
+Building ..> BUILDING_TYPE : uses
+
+BuildPlacement ..> Building
+BuildPlacement ..> Path
+
+Project ..> BuildingScience
+
+WorldGrid ..> Building : place
+WorldGrid ..> Scientist : place
 
 @enduml
