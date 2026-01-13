@@ -30,13 +30,13 @@ L'objectif du jeu pour les développeurs.euses est de faire comprendre au joueur
 
 ## 2. Lancer le jeu.
 
-### 2.1 Windows
+### 2.1 Linux
 
-Téléchargez et lancez [Polar Extreme Windows](https://git.unistra.fr/polar-extreme/T3-25-SCI25-A/-/raw/main/PolarExtreme.exe?ref_type=heads&inline=false).
+Téléchargez et lancez [Polar Extreme Linux](./bin/polar-extreme-linux)
 
-### 2.2 Linux
+### 2.2 Windows
 
-Téléchargez et lancez [Polar Extreme Linux](https://git.unistra.fr/polar-extreme/T3-25-SCI25-A/-/raw/main/PolarExtreme.x86_64?ref_type=heads&inline=false).
+Téléchargez et lancez [Polar Extreme Windows](./bin/polar-extreme-windows)
 
 ## 3. Gameplay
 
@@ -116,7 +116,57 @@ TODO: mettre image à jour
   - Jauge d'indice écologique
   - Jauge de bien-être global des scientifiques
 
-# Crédits
+Quand le joueur veut créer un batîment, le menu de construction les affichera répartis en 3 catégories :
+- Recherche
+  - Laboratoire de glaciologie
+  - Laboratoire de physique de l'atmosphère
+  - Laboratoire de magnétisme & sismologie
+  - Laboratoire de biologie humaine
+  - Mine de glace
+  - Serre
+- Vie quotidienne
+  - Chambres
+  - Cuisines
+  - Salle à manger
+  - Toilettes
+  - Douches
+  - Salle de repos
+  - Salle de sport
+- Technique
+  - Tri des déchets
+  - Recyclage de l'eau
+  - Centrale électrique 
 
+#### Projets de recherche  
+- Chaque projet = taux de risque  
+  - Plus de risque = plus de récompenses, mais plus de chance de flop  
+- **Jauge de risques** :  
+  - Chaque lancement de projet = probabilité d’échec plus ou moins forte  
+  - En cas d'échec : impact sur bien-être des scientifiques et/ou impact sur l'écologie
+- **Tableau des projets en cours** :  
+  - Affiché sur le côté gauche de la zone de jeu (déroulant)
+  - A la fin du projet, bouton pour récupérer les récompenses
+
+#### Bien-être   
+- Jauge de bien-être :  
+  - Influence sur l’efficacité des projets  
+  - Comprise entre 0 et 200%
+- Beaucoup de bâtiments ont une influence sur le bien-être et la productivité  
+
+#### Jauges et compteurs principaux
+- **Science**  
+  - Affichée en haut à gauche  
+  - Production dépend des projets actifs  
+  - Arbre de progression : débloque de nouveaux bâtiments ou augmente les limites  
+- **Bien-être**
+  - Déterminé par de nombreux facteurs : qualité des batîments, surpopulation, propreté, etc...
+  - Influe sur la productivité de "science"  
+- **Productivité**  
+  - Nombre d’unités de science produites par secondes
+- **Écologie**  
+  - Respect de l'environnement par achat de bâtiments et lancement de projets + ou - éco-responsables
+  - Ajoute un bonus / malus de points à la fin de la partie
+
+# Crédits
   - Godot Engine : https://godotengine.org/license
   - Effets sonores fournis par Pixabay (https://pixabay.com)
