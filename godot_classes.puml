@@ -14,7 +14,7 @@ class WorldGrid <<TileMapLayer>> {
     + scientist_container: Node2D
     + building_container: Node2D
     + plane: ScientistPlane
-    + scientists_to_place: Array[Scientist]
+    + scientists_to_place: Scientist[*]
     --
     + get_scientist_spawn_position(): Vector2
     + add_scientist(scientist_scene: Scientist)
@@ -36,7 +36,7 @@ class Building {
     + current_scientists: Integer
     --
     + emit_particles()
-    + is_full(): bool
+    + is_full(): Boolean
     + add_worker()
 }
 
@@ -308,7 +308,7 @@ class ButtonCategory {
     + _on_button_mouse_exited()
     + _on_button_pressed()
     + afficherPopup()
-    + get_children_of_children():Array
+    + get_children_of_children(): Node[*]
     + get_category_container():Node
 }
 
@@ -643,9 +643,8 @@ enum BUILDING_GENRE {
 class AddScientistToBuilding extends MarginContainer {
     + BatScene : scene
     + bat_container : VBoxContainer
-    + arrayBats : Array
+    + arrayBats : Building[*]
     --
-    + _ready()
     + _on_visibility_changed()
     + _update_build_list(new_buiding : Building)
     + add_bat_to_list(building : Building)
@@ -657,10 +656,9 @@ class BuildingUI extends MarginContainer {
     + projectScene : scene
     + menu_batiment : MarginContainer
     + buil : Building
-    + project_menu_list : Array
-    + project_ui_list : Array
+    + project_menu_list : Project[*]
+    + project_ui_list : SubProject[*]
     --
-    + _enter_tree()
     + _on_click_on_building(building : Building)
     + _on_project_change_state(proj : Project)
     + _on_close_building_menu()
@@ -674,7 +672,6 @@ class Gauges extends Control {
     + welness_bar : ProgressBar
     + pollution_bar : ProgressBar
     --
-    + _ready()
     + _on_wellness_changed(wellness : Float)
     + _on_pollution_changed(pollution : Float)
     + _on_progress_bar_mouse_entered()
@@ -684,7 +681,6 @@ class Gauges extends Control {
 }
 
 class MainUI extends Control {
-    + _ready()
     + _on_button_projects_pressed()
     + _on_button_scientists_pressed()
     + _on_science_changed(new_science : Float)
@@ -699,18 +695,16 @@ class MainUI extends Control {
     + endscreendisplay()
 }
 
-class popup_desc_buildings extends Popup {
-    + lbl_desc : label
+class PopupDescBuildings extends Popup {
+    + lbl_desc : Label
     --
     + setDesc(text : String)
 }
 
 class ProjectUI extends MarginContainer {
-    + arrayProjects : Array
+    + arrayProjects : Project[*]
     --
-    + _ready()
     + _on_start_project(project : Project)
-    + _process(delta : Float)
     + _on_btn_close_projects_pressed()
     + _on_btn_close_projects_mouse_entered()
     + _on_btn_close_projects_mouse_exited()
@@ -720,10 +714,9 @@ class ProjectUI extends MarginContainer {
 class ShowProjectInfos extends MarginContainer {
     + project : Project
     --
-    + _enter_tree()
     + _on_open_project_menu(proj : Project)
     + setStatus(statusValue : int)
-    + setVisiility(vis : bool)
+    + setVisiility(vis : Boolean)
     + _on_btn_start_pressed()
     + _on_btn_quit_pressed()
     + _on_btn_start_mouse_entered()
@@ -734,7 +727,7 @@ class SubAddScientistToBuilding extends MarginContainer {
     + buil : Building
     --
     + setName(text : String)
-    + setVisibility(vis : bool)
+    + setVisibility(vis : Boolean)
     + setBuilding(building : Building)
     + _on_assigantion_pressed()
     + _on_deassigantion_pressed()
@@ -742,14 +735,13 @@ class SubAddScientistToBuilding extends MarginContainer {
 
 class SubProject extends MarginContainer {
     + project : Project
-    + project_started : bool
+    + project_started : Boolean
     --
-    + _process(_delta : float)
     + setProject(proj : Project)
     + getProject() : Project
     + instanciateProject()
     + setStatus(statusValue : int)
-    + setVisibility(vis : bool, timer_displayed : bool)
+    + setVisibility(vis : Boolean, timer_displayed : Boolean)
     + startProject()
     + _on_button_pressed()
     + _on_button_mouse_entered()
@@ -758,13 +750,12 @@ class SubProject extends MarginContainer {
 
 class Tutorial extends Control{
     + game_scene : scene
-    + images : Array
-    + images_short : Array
-    + explanations : Array
-    + explanations_short : Array
+    + images : String[]
+    + images_short : String[]
+    + explanations : String[]
+    + explanations_short : String[]
     + index : int
     --
-    + _ready()
     + show_image(i : int)
     + _on_next_btn_pressed()
     + _on_back_btn_pressed()
@@ -774,8 +765,8 @@ class Tutorial extends Control{
 
 
 Node <|-- Control
-Control <|-- MarginContainer
-
+Node <|-- CanvasLayer
+Node <|-- Popup
 Node <|-- Node2D
 Node2D <|-- Area2D
 Node2D <|-- CharacterBody2D
@@ -806,6 +797,8 @@ Control <|-- ButtonCategory
 Control <|-- ButtonBuildings
 Control <|-- SettingsMenu
 Control <|-- ButtonPath
+Control <|-- MarginContainer
+
 MarginContainer <|-- ScientistMenu
 
 TileMapLayer <|-- WorldGrid
