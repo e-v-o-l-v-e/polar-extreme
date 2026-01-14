@@ -13,14 +13,11 @@ class WorldGrid <<TileMapLayer>> {
     + scientist_spawn_position: Marker2D
     + scientist_container: Node2D
     + building_container: Node2D
-    + plane: ScientistPlane
     + scientists_to_place: Scientist[*]
     --
-    + get_scientist_spawn_position(): Vector2
     + add_scientist(scientist_scene: Scientist)
     + add_building(building_scene: Building)
     - _on_make_scientist()
-    - _restart_animation()
 }
 
 class Scientist {
@@ -32,222 +29,91 @@ class Scientist {
 }
 
 class Building {
-    + capacity: Integer
-    + current_scientists: Integer
+    + id: Integer
+    + building_name: String
+    + building_description: String
+    + building_genre: Enums.BUILDING_GENRE
+    + building_type: Enums.BUILDING_TYPE
+    + price: Int
+    + wellness_value: Float
+    + scientists_places: Integer
+    + pollution_per_second: Float
+    + mouse_hover: Boolean
+    + Door: Marker2D
+    + building_zone: CollisionShape2D
     --
-    + emit_particles()
-    + is_full(): Boolean
     + add_worker()
+    - _input(event: InputEvent)
 }
 
 class BuildingScience {
-    + door
-    + science_per_second
-    + nb_scientists_working
-    + nb_scientists_slots
-    + projects_list
-    + text
+    + science_per_second: Float
+    + nb_scientists_working: Integer
+    + nb_scientists_slots: Integer
+    + projects_list: Array[Project]
     --
-    + _init()
     + set_projects()
-    + set_nbr_scientist_slots()
     + add_scientist()
     + remove_scientist()
     + scientists_add_slots()
-    + building_get_type()
     + change_science_per_second_production()
-    + get_project_list()
-    + get_nbr_scientist()
-    + get_nbr_scientist_max()
-    + get_science_production()
-    + get_science_production_ratio()
-    + get_infos()
-}
-
-class WorldGrid {
-    + scientist_spawn_position
-    + scientist_container
-    + building_container
-    + plane
-    + scientists_to_place
-    + plane_spawn
-    --
-    + _ready()
-    + get_scientist_spawn_position()
-    + add_scientist()
-    + _on_make_scientist()
-    + add_building()
-    + _restart_animation()
-
 }
 
 class ButtonBuildings {
-    + textBuildingName
-    + icon_pos
-    + btype
-    + nine_patch_rect
-    + btn_crea_building
-    + lbl_desc
-    + notif
-    + building_path
-    + building_scene
-    + building_instance
-    + is_buyable
-    + atlas
-    + atlas
-    + atlas
+    + textBuildingName: String
+    + btype: Enums.BUILDING_TYPE
+    + notif: NotificationIndicator
+    + building_path: String
+    + building_scene: PackedScene
+    + building_instance: Building
+    + is_buyable: Boolean
     --
     + set_button_icon_nor()
     + set_button_icon_pressed()
     + set_button_icon_hovered()
-    + _process()
-    + _ready()
     + _on_button_mouse_entered()
     + _on_button_mouse_exited()
     + _on_button_pressed()
 }
 
 class Path {
-    + sprite_2d
-    + gauche
-    + haut
-    + droite
-    + bas
+    + sprite_2d: Sprite2D
     + collisions_detected
     + value
     --
     + _ready()
-    + _on_area_changed()
-    + _on_update_sprite()
     + check_collision()
-    + encode_collisions()
     + get_preview()
     + delete()
 }
 
 class BuildPlacement {
-    + animation
-    + preview
-    + door
-    + effect_size
-    + in_placement
-    + in_path_placement
-    + can_be_placed
-    + building_data
-    + path_data
-    + animation_playing
-    + n_path
-    + in_delete_object
-    + placement_position
-    + cell_array
-    + is_dragging_path
-    + path_start_pos
-    + path_preview_cells
-    + door_offset
-    + sprite_node
-    + door_node
-    + building_zone
-    + mouse_pos_glob
-    + mouse_pos_grid
-    + tile_under_mouse
-    + world_grid_pos
-    + rotated_offset
-    + tile_under_mouse
-    + size
-    + start_x
-    + end_x
-    + start_y
-    + end_y
-    + pos
-    + cell_world_pos
-    + has_collision
-    + is_adjacent_to_path
-    + door_ok
-    + shape
-    + shape_transform
-    + query
-    + result
-    + space_state
-    + tile_size
-    + directions
-    + check_pos
-    + query
-    + result
-    + instance
-    + instance
-    + space_state
-    + cell_size
-    + rect_shape
-    + query
-    + result
-    + space_state
-    + query
-    + result
-    + collision_mask
-    + tile_under_mouse
-    + tile_under_mouse
-    + cells_in_l
-    + cells
-    + dx
-    + dy
-    + do_horizontal_first
-    + current
-    + step_x
-    + step_y
-    + step_y
-    + step_x
-    + has_connection
-    + all_valid
-    + cell_world_pos
-    + is_existing_path
-    + has_obstacle
-    + placed_count
-    + cell_world_pos
-    + instance
-    + mouse_pos
-    + space_state
-    + query
-    + result
-    + clicked
+    + door: CollisionShape2D
+    + in_placement: Boolean
+    + in_path_placement: Boolean
+    + can_be_placed: Boolean
+    + building_data: Building
+    + path_data: Path
+    + placement_position: Vector2
+    + cell_array: Array[Vector2i]
     --
     + _ready()
     + _input()
     + _on_building_signal()
     + start_building()
     + stop_building()
-    + _update_mouse_positions()
-    + _handle_rotation_input()
-    + _handle_placement_preview()
-    + _door_touches_path()
-    + _is_adjacent_to_path()
-    + _handle_building_click()
-    + _clear_previous_preview()
-    + _handle_animation_end()
-    + _cell_collides()
-    + _cell_has_path()
-    + get_collision_layers_mask()
-    + _on_path_button_pressed()
-    + start_building_path()
-    + stop_building_path()
     + build_path()
-    + delete_object()
-    + _handle_path_drag_input()
-    + _update_path_l_preview()
-    + _get_l_shaped_path()
-    + _draw_path_preview()
-    + _place_all_paths()
-    + _handle_delete_object()
 }
 
 class Gauges {
-    + science
-    + science_per_seconds
-    + pollution
-    + max_pollution
-    + pollution_per_seconds
-    + wellness
-    + wellness_min
-    + wellness_max
+    + science: Float
+    + science_per_seconds: Float
+    + pollution: Float
+    + max_pollution: Float
+    + pollution_per_seconds: Float
+    + wellness: Float
+    + wellness_min: Float
+    + wellness_max: Float
     --
     + get_science()
     + change_science()
@@ -264,20 +130,18 @@ class Gauges {
 }
 
 class BuildingFactory {
-    + data
-    + scene
+    + BUILDING_DATA: Dictionnary
     --
-    + create_building()
-    + get_preview_texture()
+    + create_building(): Building
 }
 
-class PathFactory extends Node {
+class PathFactory {
     + PATH_SCENE : String
     --
     + create_path()
 }
 
-class ScientistPlane {
+class ScientistPlane extends Node2D {
     + anim
     + scientist_spawn_pos
     + signal_emited
@@ -288,7 +152,6 @@ class ScientistPlane {
     + _process()
 }
 
-' MEOW
 class ButtonCategory {
     + textBuildingName : String
     + textPopup : String
@@ -316,7 +179,7 @@ class BuildingManager {
     + buildingsIds : Integer[*]
     + building_counter : Integer
     + buildings_positions : Integer[*]
-    +building_descriptions:String[*]
+    + building_descriptions:String[*]
     --
     + create_building() : Building
     + create_path() : Path
@@ -328,10 +191,6 @@ class BuildingManager {
     + get_building_description() : String
     + get_free_spaces() : Integer
 }
-BuildingManager "1" --> "1 +building_factory" BuildingFactory
-BuildingManager "1" --> "1 +PathFactory" PathFactory
-BuildingManager "1" --> "1 +hovered_building" Building
-BuildingManager "1" --> "* +buildings_list[*]" Building
 
 class ScientistFactory {
     + SCIENTIST_PATH : String
@@ -366,9 +225,6 @@ class Project {
     + get_project_state(): Integer
     + set_time()
 }
-Project "1" --> "* +building[*]" BuildingScience
-
-
 
 class SettingsMenu {
     + resolution_option_button : OptionButton
@@ -396,12 +252,6 @@ class SettingsMenu {
 class ProjectsManager {
     + get_list() : Project[*]
 }
-ProjectsManager "1" --> "* +list_icemine" Project
-ProjectsManager "1" --> "* +list_glaciology" Project
-ProjectsManager "1" --> "* +list_atmospheric" Project
-ProjectsManager "1" --> "* +list_magnetism" Project
-ProjectsManager "1" --> "* +list_biology" Project
-ProjectsManager "1" --> "* +list_greenhouse" Project
 
 
 class Scientist {
@@ -421,8 +271,6 @@ class Scientist {
     + get_random_building_position() : Vector2
     + setTextureSprite()
 }
-
-Scientist ..> UiController
 
 class MainMenu {
     + quit_game_btn : Button
@@ -485,8 +333,6 @@ class ScientistManager {
     + change_scientist_pollution_travel()
     + increase_price()
 }
-ScientistManager "1" --> "1 +scientist_factory" ScientistFactory
-ScientistManager ..> UiController
 
 class Building {
     + particles : GPUParticles2D
@@ -517,7 +363,6 @@ class Building {
     + _on_gpu_particles_2d_finished()
     + get_infos() : String
 }
-Building ..>UiController: emit signal
 
 class ButtonPath {
     + textBuildingName : String
@@ -537,12 +382,6 @@ class ButtonPath {
     + _on_button_mouse_exited()
     + _on_button_pressed()
 }
-ButtonPath ..>UiController: emit signal
-
-class Game extends Node2D{
-}
-Game "1" -->"1 -world_grid" WorldGrid
-Game "1" -->"1 -path" Path
 
 class GameController <<Autoload>> extends Node{
     + START_SCIENCE : Integer
@@ -615,6 +454,11 @@ class SettingsValue <<Autoload>> extends CanvasLayer{
     + open()
 }
 
+enum BUILDING_GENRE { 
+	SCIENCE
+	UTILITY 
+}
+
 enum BUILDING_TYPE {
 	LABORATORY_GLACIOLOGY
 	LABORATORY_ATMOSPHERIC_PHYSICS
@@ -633,11 +477,6 @@ enum BUILDING_TYPE {
 	POWER_PLANT
 	PATH
 	NONE
-}
-
-enum BUILDING_GENRE { 
-	SCIENCE
-	UTILITY 
 }
 
 class AddScientistToBuilding extends MarginContainer {
@@ -852,5 +691,24 @@ WorldGrid ..> Scientist : place
 
 buttonCategory  ..> UiController : emit signals
 
+BuildingManager "1" --> "1 +building_factory" BuildingFactory
+BuildingManager "1" --> "1 +PathFactory" PathFactory
+BuildingManager "1" --> "1 +hovered_building" Building
+BuildingManager "1" --> "* +buildings_list[*]" Building
+
+Project "1" --> "* +building[*]" BuildingScience
+
+ProjectsManager "1" --> "* + listes" Project
+
+Scientist ..> UiController
+
+ScientistManager "1" --> "1 +scientist_factory" ScientistFactory
+ScientistManager ..> UiController
+Building ..>UiController: emit signal
+ButtonPath ..>UiController: emit signal
+
+Game --|> Node2D
+Game "1" -->"1 -world_grid" WorldGrid
+Game "1" -->"1 -path" Path
 
 @enduml
